@@ -79,10 +79,27 @@ python skills/visioncut/scripts/generate_storyboard.py "<path_to_video>" "state/
    - **Chuẩn hóa `Scale` & Đẩy logo sát mép (`V1`):** Tính `fit_scale = min(1920/w, 1080/h) * 100`. Nếu clip có watermark sát mép trên/dưới (`ViralHog`, `DUMPERT`, `ring`, `TMAX`, `LA`, `Reddit`), nhân thêm `~1.15x` (`1920x1080 -> 115%`, `1080x1920 -> 65%`, `720x1280 -> 95%`, `1280x720 -> 168%`) để đẩy watermark ra ngoài khung `1080p` (đúng chuẩn `kb102`).
    - **Che logo nằm sâu trong hình (`Track V2` Shield):** Gọi `set-item-in-out` khớp `inPointSeconds`/`outPointSeconds` của `V1`, gọi `add-to-timeline` lên `V2` (`trackIndex: 1`, tự động dọn audio thừa trên `A2` mà không chạm vào `A1`), đồng bộ `Scale`, rồi áp `Gaussian Blur` (`AE.Impact_Blur_FX`, `Amount: 20`) + `Crop` (`Edge Feather: 15`) khoanh đúng tọa độ logo.
 
-### Bước 4.2: Quy Trình Dựng Tập Kênh ITV 2 Phần & Hoàn Thiện 10-Track Studio (`kb100..kb110`)
-1. **Cấu Trúc Xếp Clip 3 Khối Chuẩn ITV (`85–90 clips`, tổng thời lượng `7m45s – 9m30s`):**
-   - **Khối 1 — Phần 1 (`source/itv.kb*.mp4`, ~18–20 clips):** Giữ nguyên đúng thứ tự đánh số kịch bản (`1 -> 20`; nếu có cặp `X-2` và `X` thì `X-2` đứng trước `X`), cắt sạch mọi đoạn bleed chuyển cảnh ở đầu/cuối clip.
-   - **Khối 2 — Phần 2 Có Tiếng (`ITV-Moments-script-*/*.mp4` có `peak_db > -24 dB`):** Xếp theo thứ tự số tăng dần (`01 -> 70`), cắt chuẩn 4-Beat (`Premise -> Escalation -> Punchline -> Aftermath`) và dùng `Dead-Middle Micro-Cut` cho các clip chờ dài.
+### Bước 4.2: Quy Trình Dựng Tập Kênh ITV 2 Phần & Hoàn Thiện 10-Track Studio (`kb100..kb110+`)
+0. **BẮT BUỘC TẢI FOOTAGE, CẮT VIDEO TỪ GOOGLE SHEET & TRA CỨU `TIME` / `NOTES` / `VO COMMENTS` (`scripts/itv_ingest_from_sheet_and_amz.py`):**
+   - **Quy tắc ánh xạ số kịch bản:** `Kịch bản 65 = kb105` (`scripts/344`), `66 = kb106` (`scripts/347`), `67 = kb107` (`scripts/348`), `68 = kb108` (`scripts/349`), `69 = kb109` (`scripts/350`), `70 = kb110` (`scripts/363`), công thức chung: **`kb(Số Kịch Bản + 40)`**.
+   - **Tự động tải & cắt toàn trình chỉ bằng 1 lệnh (`scripts/itv_ingest_from_sheet_and_amz.py`):**
+     ```powershell
+     python E:\.agents\skills\visioncut\scripts\itv_ingest_from_sheet_and_amz.py --kb kb111 --script-num 71 --script-id <amz_id>
+     ```
+     - **Nguồn 1 — Google Sheet `ITV - Moments` (`1CIGzoztnlND2TU9Yg14OOQKR02BX4XZf1aHlqoNrt1s`, tab `KB065`, `KB066`, ... — dùng cho 20 clip đầu Phần 1 `itv.kb*.mp4`):**
+       - Tự động đọc 20 dòng (`stt = 1..20` và dòng `dự phòng`), dùng `yt-dlp` tải mỗi video gốc YouTube/Facebook **đúng 1 lần** vào `_raw_cache`, rồi dùng `ffmpeg` (`h264_nvenc`) cắt chính xác theo mốc thời gian trong cột **`time`** (`MM:SS - MM:SS`) thành `E:\ITV\Project\<kb>\source\itv.<kb>.1.mp4 .. itv.<kb>.20.mp4`.
+       - Đọc kỹ cột **`note` / `cre`** (`"tắt tiếng cmt"`, `"đè lên cmt cũ nhaa"`, `"có text"`) và lấy **4 câu VO Phần 1** ở cột **`cmt`**.
+     - **Nguồn 2 — AMZTool (`https://ft.amzcollab.com/workspace/scripts/<script_id>` — dùng cho 70 clip Phần 2 `01.mp4 .. 70.mp4`):**
+       - Tự động tải/giải nén toàn bộ 70 file footage (`01.mp4 .. 70.mp4`) từ `/api/scripts/<id>/download` (hoặc `/api/drive/video/<driveFileId>`) vào `E:\ITV\Project\<kb>\ITV-Moments-script-<N>\`.
+       - Kiểm tra cột **`Ghi chú cho Editor` (`note`)** (`"0:09 - 0:17"`, `"15 giây đầu"`, `"source đầu"`, `"2 source lun"`, `"0:48 - 0:52 | 0:11 - 0:19"`, `"ngắn thui"`, `"ko lấy"`) để cắt chính xác từng cảnh.
+     - **Rải đều 14–15 câu VO Comments trên `Track A2` (`scripts/itv_vo_comment_generator.py`):**
+       - Tổng số VO mỗi tập là **14–15 câu** trải đều từ đầu đến cuối video (~33–38 giây/câu): gồm **4 câu Phần 1** (từ Google Sheet) + **10–11 câu Phần 2** (chọn từ cột `Comment AI đã chuẩn hóa` / `aiComment` trên AMZTool, cách đều mỗi `5–6 clip`, bỏ qua các clip ghi `"ngắn quá khỏi cmt"` / `"ko có"`).
+       - Tạo file MP3 vào thư mục `E:\ITV\Project\<kb>\voice\` bằng CLI `elevenlabs say "[absurdist narration, accelerando, rushed, extreme fast] <English text>" --voice ITLDKaHYPRfCyyrPpZu2 --model eleven_v3` (chuẩn hóa Xing TOC header ở `44100 Hz` mono `128 kbps`).
+       - Đặt lên **`Track A2`** lùi vào `+1.5s` kể từ đầu clip `V3` (đảm bảo kết thúc trước cuối clip tối thiểu `0.15s`), gắn đầy đủ bộ lọc **Essential Sound `Dialog`** (`Reduce Sibilance`, `Dynamics`, `EQ`, `Vocal Enhancer`, `ESP.Tag=dialog`), và **tuyệt đối không để `Track A3` SFX đè lên `Track A2` VO**.
+
+1. **Cấu Trúc Xếp Clip 3 Khối Chuẩn ITV (`85–90 clips`, tổng thời lượng BẮT BUỘC DƯỚI 9 PHÚT `< 9m00s` / `< 540s`, chuẩn vàng `8m05s – 8m50s` / `485s – 530s`):**
+   - **Khối 1 — Phần 1 (`source/itv.kb*.mp4`, ~18–20 clips):** Giữ nguyên đúng thứ tự đánh số kịch bản (`1 -> 20`; nếu có cặp `X-2` và `X` thì `X-2` đứng trước `X`), cắt theo đúng cột `time`/`note` trên Google Sheet và cắt sạch mọi đoạn bleed chuyển cảnh ở đầu/cuối clip.
+   - **Khối 2 — Phần 2 Có Tiếng (`ITV-Moments-script-*/*.mp4` có `peak_db > -24 dB`):** Xếp theo thứ tự số tăng dần (`01 -> 70`), ưu tiên tuân thủ `Ghi chú cho Editor` (`note`) trên AMZTool kết hợp cấu trúc 4-Beat (`Premise -> Escalation -> Punchline -> Aftermath`) và dùng `Dead-Middle Micro-Cut` cho các clip chờ dài.
    - **Khối 3 — Phần 2 Montage Câm (`ITV-Moments-script-*/*.mp4` bị câm hoặc `peak_db <= -25 dB`, 7–11 clips cuối timeline):**
      - Gom toàn bộ các clip câm ở Phần 2 về cuối sequence (nếu file gốc thiếu stream audio thì mux thêm stereo silent stream trước khi import để đồng bộ 1:1 khi cắt, sau đó khi hoàn thiện 10-track thì gỡ bỏ các `A1` câm trong vùng có BGM).
      - **Nhạc nền BGM (`Track A5`) CHỈ đặt vào các đoạn clip không có âm thanh gốc:** Chọn nhạc nền đúng nhịp (`Kazoom`, `Angel Lover`, `Greaser`, `ChaCha Fontanez`, `Brain Trust`, `City Blocks`, `Standoff`), đặt trên `Track A5` phủ kín các khoảng clip câm sao cho `Coverage(A1) + Coverage(A5) = 100%` (tuyệt đối không chèn BGM đè lên tiếng hiện trường gốc của các clip có tiếng).
@@ -106,18 +123,26 @@ python skills/visioncut/scripts/generate_storyboard.py "<path_to_video>" "state/
      $$\text{SFX Start} = \text{Timeline Impact Time} - \text{peak\_offset\_sec}$$
    - Nếu SFX dài $> 3.2\text{s}$ và `peak_offset_sec > 1.2s`, cắt `inPoint` lùi trước đỉnh `0.8s` để giữ độ dài gọn `2.5s – 3.2s`, và tuyệt đối không đè lên các khoảng có Voiceover trên `Track A2`.
 
-4. **Hoàn Thiện Cấu Trúc 10-Track ITV Studio (`scripts/itv_10track_finisher.py`):**
-   - `Track V1`: Bản sao của `V3` phóng `Scale = 500%` + `Gaussian Blur (Amount = 3)` làm nền mờ lấp đầy khung `16:9` (gỡ bỏ `Lumetri` thừa trên `V1`/`V2`).
-   - `Track V2`: Khung viền thương hiệu PNG (`Opacity = 99%`, `Scale = 115% x 114.77%`) xuyên suốt timeline.
-   - `Track V3`: Clip chính (đã áp `Crop` viền mờ, `Scale` chuẩn hóa, và `AE.Impact_Blur_FX` kèm `Mask2` che watermark góc/đáy).
-   - `Track V4`: Animated Emoji Impact Shields (`0.35s – 0.50s`, 4 keyframes `Position`).
-   - `Track V6` & `V7`: `Only-Logo.png` (góc trên trái) và `wtm.png` (chính giữa dưới, `Opacity = 3%`) xuyên suốt thân bài (ngắt trống tại thẻ `Warning`).
-   - `Track V8`: Phụ đề động `Komika Axis` ở phần Intro và chữ cảnh báo an toàn (`*HE'S FINE`, `*ALL SAFE`, `*DON'T TRY THIS` tại `[0.015625, 0.972222]`) ở thân bài.
+4. **Hoàn Thiện Cấu Trúc 10-Track ITV Studio (`scripts/itv_10track_finisher.py` — Chuẩn Lai `@Bzacnew68` Editorial Style x `ITV Moments` Visual Packaging):**
+   - **GIỮ NGUYÊN 100% VISUAL PACKAGING & TYPOGRAPHY CỦA ITV MOMENTS HIỆN TẠI:**
+     - `Track V1`: Bản sao của `V3` phóng `Scale = 500%` + `Gaussian Blur (Amount = 3)` làm nền mờ động lấp đầy khung `16:9` (gỡ bỏ `Lumetri` thừa trên `V1`/`V2`; **không** dùng nền tĩnh xám của Bzac New).
+     - `Track V2`: Khung viền thương hiệu PNG của ITV (`Opacity = 99%`, `Scale = 115% x 114.77%`) xuyên suốt timeline.
+     - `Track V3`: Clip chính (đã áp `Crop` viền mờ, `Scale` chuẩn hóa, và `AE.Impact_Blur_FX` kèm `Mask2` che watermark góc/đáy).
+     - `Track V4`: Animated Emoji Impact Shields (`0.35s – 0.50s`, 4 keyframes `Position`).
+     - `Track V6` & `V7`: `Only-Logo.png` (góc trên trái `[-0.2564, -0.3091]`) và `wtm.png` (chính giữa dưới `[0.5, 0.9259]`, `Opacity = 3%`) xuyên suốt thân bài (**ngắt trống tại thẻ `Warning`**).
+     - `Track V8`:
+       - **Ở Intro:** Giữ nguyên Typography & Bảng màu Phụ đề động `Komika Axis` chuẩn ITV (`Position = [0.5008, 0.8796]`, Pop-in `Geometry2 Scale 0.1% -> 115% -> 100%` + `Motion` micro-shake 3 frames đầu, xoay vòng bảng màu Vàng / Hồng / Xanh lá / Xanh ngọc / Đỏ với viền đen dày).
+       - **Ở Thân bài:** Giữ nguyên chữ cảnh báo an toàn (`*HE'S FINE`, `*ALL SAFE`, `*DON'T TRY THIS`) tại **góc dưới trái `[0.015625, 0.972222]`**.
+   - **ÁP DỤNG PHONG CÁCH BIÊN TẬP (EDITORIAL & AUDIO STYLE) CỦA `@Bzacnew68`:**
+     - **Nhịp cắt thân bài linh hoạt + `Punch-in Zoom`:** Giữ trọn đường dây câu chuyện (clip tai nạn nhanh `4s–10s`, tình huống có hội thoại/diễn biến nhiều bước cho phép kéo dài `15s–30s` kết hợp `Dead-Middle Jump-Cut`), và áp `Punch-in Zoom` (`Scale 1.0x -> 1.25x..1.35x`) ngay tại khoảnh khắc trượt ngã ở các góc máy rộng.
+     - **Chuyển cảnh `TV Static Glitch` (`Track V10` + `A8`, `0.38s`) & Bình luận AI (`Track A2`):** Đặt chuyển cảnh `TV Static` định kỳ mỗi 3–4 clip (đặc biệt ngay trước các clip có câu bình luận AI hoặc Subscribe CTA). Chèn 1 câu VO kêu gọi Like & Subscribe tự nhiên bằng giọng Narrator AI ở khoảng giữa tập (`~04:30 – 04:50`).
+     - **Chuỗi "Triple Meme Reaction SFX" (`Track A3`/`A4`):** Ở các pha kết thúc ngơ ngác/quê độ có nhiều biểu cảm nối tiếp, bồi liên hoàn 2–3 Meme Voice/SFX nối đuôi nhau khớp từng biểu cảm nhân vật.
    - `Audio Track Mixer & Essential Sound`: Áp bộ lọc Track Mixer (`Master` Hard Limiter `-1.2 dB`, `A1` Single-band Compressor + Hard Limiter `-1.2 dB`, `A2` `-4.0 dB`, `A3/A4` `-6.0 dB`, `A5` `-7.0 dB`) và gắn tag Essential Sound `Ambience` + `Auto-Match Loudness` + `-25 dB Auto-Ducking` cho toàn bộ clip `A1`. Khi ghi trực tiếp file `.prproj`, luôn chạy `canonicalize_prproj` (BFS ObjectID renumbering từ `Project ObjectID=1`) để Premiere Pro 2026 mở file mượt 100% không lỗi.
 
-### Bước 4.5: Kỹ Nghệ Dựng Intro Kênh ITV (`kb103` x `FailSide` Hybrid Protocol)
-Khi người dùng yêu cầu viết voice intro, tạo intro hoặc dựng phần mở đầu (`0.00s -> ~16.27s`) cho video kênh ITV (`intro_blueprint` trong `channel_profiles.json`):
-1. **Giọng Đọc & Công Thức "Xào Lại Intro Đối Thủ" Với ElevenLabs `eleven_v3` (`Track A2` — Voice `ITV 5` / `ITLDKaHYPRfCyyrPpZu2`):**
+### Bước 4.5: Kỹ Nghệ Dựng Intro Kênh ITV (`@Bzacnew68` Editorial & Intro Vault x `ITV Moments` Visuals)
+Khi người dùng yêu cầu viết voice intro, tạo intro hoặc dựng phần mở đầu (`0.00s -> ~16.27s`) cho video kênh ITV (`intro_blueprint` trong `channel_profiles.json` & kho `E:\ITV\bzac_intro_vault.json`):
+1. **Kho Kịch Bản 58 Mẫu `@Bzacnew68` Đã Xào Lại (`E:\ITV\bzac_intro_vault.json`) & Cấu Hình ElevenLabs `eleven_v3` (`Track A2` — Voice `ITV 5` / `ITLDKaHYPRfCyyrPpZu2`):**
+   - **Ưu tiên lấy kịch bản đã Spin từ kho `E:\ITV\bzac_intro_vault.json` (`BZAC_01 .. BZAC_58`):** Chọn các mẫu đánh dấu `used_in: null` (53 mẫu mới chưa dùng) để mỗi tập `kb` có một câu mở đầu mới mẻ đúng chất `@Bzacnew68`.
    - **Cấu hình ElevenLabs (`resources/itv_voice_config.json` & `e:\ITV\itv_voice_config.json`):** Voice `ITV 5` (**Voice ID: `ITLDKaHYPRfCyyrPpZu2`**, `gen_sp100_s50_sb75_v3`: Speed `1.00`, Stability `50%`, Similarity Boost `75%`, Style `0.0`, Speaker Boost `true`, Model `eleven_v3`). Kịch bản dài `18 – 36` từ (`9.5s – 14.8s` file gốc).
    - **Quy Trình 3 Bước "Xào Lại" (Spin) Voice Intro Từ Kênh Đối Thủ:**
      1. *Bước 1 — Bóc băng & Tạm dịch câu Intro đối thủ (`00:00:00 -> 00:00:15`):* Trích xuất nguyên văn câu mở đầu từ video đối thủ (ví dụ FailSide Moment `https://youtu.be/0ZjT5dOG8zY` ở `00:00:03 -> 00:00:12`: `"Hello everyone! Are you ready to watch this one and laugh out loud? Let's get started then!"` — *Xin chào mọi người! Các bạn đã sẵn sàng xem video này và cười thật lớn chưa? Nào, bắt đầu thôi!*).
@@ -136,9 +161,9 @@ Khi người dùng yêu cầu viết voice intro, tạo intro hoặc dựng ph�
        2. **Điểm nổ âm thanh hiện trường (`A1` Scream / Crash Climax):** Mở khe nghỉ ở những chỗ clip Teaser có tiếng hét thất thanh, tiếng rên hài hước hoặc tiếng nổ lớn để tạo hiệu ứng **Đối đáp âm thanh (Call-and-Response)** giữa Voiceover và âm thanh gốc.
        3. **Độ chênh lệch thời lượng giữa file MP3 gốc (`9.5s – 14.8s`) và tổng chuỗi Teaser (`12.5s – 17.5s`):** Nếu câu thoại ngắn/đọc nhanh (`extreme fast`), tách theo từng vế câu ngắn để rải đều tới sát thẻ `Warning` (câu chốt `LET'S GET STARTED!!!` kết thúc trước thẻ `Warning` khoảng `0.4s – 0.85s`).
 
-2. **7 Bí Quyết Dựng Intro Đỉnh Cao Học Từ `FailSide Moment` (`youtu.be/0ZjT5dOG8zY`, `0.00s -> 18.65s`):**
-   - **Bí quyết 1 — "Hook Loop" (Lấy Climax của Clip #1 Thân Bài làm Clip #1 Mở Màn Intro):**
-     - Mở màn ở `0.00s -> 1.30s` bằng chính khoảnh khắc tai nạn đỉnh điểm của **Clip đầu tiên sau thẻ `WARNING` (`18.65s`)** (ví dụ: cú trượt thang rơi xuống đất ở `0.00s..1.30s`, sau đó ở `18.65s` chiếu lại trọn vẹn từ Setup đến Aftermath của vụ rơi thang đó). Kỹ thuật này tạo vòng lặp tò mò hoàn hảo giữ chân người xem đi qua thẻ `WARNING` (đã áp dụng tương tự ở `kb101`, `kb102`).
+2. **7 Bí Quyết Dựng Intro Đỉnh Cao Chuẩn `@Bzacnew68` x `ITV Moments` (`0.00s -> ~16.27s`):**
+   - **Bí quyết 1 — "Warning-Bridge Loop" (`Clip Cuối Intro` = `Clip #1 Đầu Thân Bài` — Chuẩn `@Bzacnew68`):**
+     - Đặt pha va chạm kịch tính nhất của **Clip đầu tiên sau thẻ `WARNING`** vào vị trí **Clip Teaser cuối cùng của Intro** (ngay sau câu chốt *"LET'S GET STARTED!!!"*, khoảng `13.0s..15.4s`), cắt cụt đúng khoảnh khắc túi khí bung / va chạm đỉnh điểm để bung chuyển cảnh `AE.Impact_Cross_Zoom` vào thẻ `WARNING` (`0.83s`), và **ngay khi hết thẻ `WARNING` (`16.27s`) chiếu lại tức thì toàn bộ Clip #1 đó từ Setup đến Aftermath**! (Có thể kết hợp thêm Hook Loop ở `0.00s` nếu muốn khóa cả hai đầu Intro).
    - **Bí quyết 2 — "Pre-VO Cold Open" (Nổ 1–2 cú va chạm trước hoặc ngay quanh lời chào đầu):**
      - Ở `FailSide`, `0.00s -> 2.87s` là **2 cú tai nạn liên hoàn** (rơi thang `0..1.30s` + cây đổ ầm xuống đường `1.30..2.87s` kèm tiếng *"Ohhh!"*) hoàn toàn chưa có Voiceover, đến clip thứ 3 (`2.87s` — xà beng bật vào mặt) mới cất câu chào *"Hello everyone!"*.
      - Ở chuẩn lai `ITV`, có thể mở lời chào *"HELLOOOO, EVERYONE!"* ngay ở `Part A` (`0.00s -> ~1.58s`) rồi **bắt buộc ngắt im lặng VO (`~1.58s -> ~2.54s`)** để cú nổ `Part B` của Clip #1 + chuyển cảnh `AE.Impact_Cross_Zoom` vang lên 100% công lực.

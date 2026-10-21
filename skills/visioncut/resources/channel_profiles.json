@@ -5,6 +5,22 @@
       "workspace_pattern": "E:\\ITV\\Project\\kb*",
       "resolution": [1920, 1080],
       "fps": 23.976,
+      "editorial_style_profile": {
+        "core_directive": "Follow @Bzacnew68 (Bzac New) for Editorial Pacing, Intro Architecture, Audio Weaving, and SFX/VO Storytelling, while strictly preserving 100% of current ITV Moments Visual Packaging (10-track layout, V1 500% Gaussian Blur background, V2 Brand Frame PNG, V6/V7 logos, bottom-left V8 Safety Text) and ITV Moments Intro Kinetic Typography & Color Palette (Komika Axis at [0.5008, 0.8796]).",
+        "adopted_from_bzacnew": [
+          "1. Intro Script Bank: Draw spun intro scripts from E:\\ITV\\bzac_intro_vault.json (58 unique templates crawled from @Bzacnew68).",
+          "2. Warning-Bridge Loop: Use the climax crash of Main Body Clip #1 as the FINAL teaser clip right before the Warning card (13.0s..15.4s), hard-cut at impact peak into Warning (0.83s), and immediately replay the full clip with aftermath right after Warning.",
+          "3. Flexible Story-Driven Body Pacing + Punch-in Zoom: Allow dialogue/multi-step incidents to run 15s..30s with Dead-Middle jump-cuts while keeping fast hits at 4s..10s; apply 1.25x..1.35x Punch-in Zoom on wide-angle falls.",
+          "4. Periodic TV Static Glitch (V10/A8) + Mid-Video Spoken Subscribe CTA (~04:30..04:50): Place TV Static transitions every 3-4 clips (right before AI Narrator comments) and include 1 natural spoken Subscribe CTA in the AI Voiceover track.",
+          "5. Triple Meme Audio Reaction Tag: Chain 2-3 sequential reaction meme SFX on awkward/dumbfounded endings."
+        ],
+        "preserved_from_itv_moments": [
+          "1. V1 Dynamic Blurred Background: Duplicate V3 at Scale=500% + Gaussian Blur Amount=3 (never use Bzac New's static grey/green side canvas).",
+          "2. V2 Brand Frame & V6/V7 Watermarks: Keep ITV Brand Frame PNG (Opacity=99%, Scale=115%x114.77%), V6 top-left Only-Logo.png, and V7 bottom-center wtm.png (Opacity=3%), cutting V6/V7 cleanly during the 0.83s Warning card.",
+          "3. V8 Intro Kinetic Captions: Keep ITV Komika Axis typography, [0.5008, 0.8796] bottom-center placement, Geometry2 Scale pop-in (0.1% -> 115% -> 100%) + 3-frame micro-shake, and ITV's vibrant alternating color palette.",
+          "4. V8 Body Safety Disclaimers: Keep *HE'S FINE / *ALL SAFE / *DON'T TRY THIS at bottom-left [0.015625, 0.972222]."
+        ]
+      },
       "tracks": {
         "V1": "Primary Video Clips (or 500% Scale + Gaussian Blur Amount=3 background duplicate when using full 10-track ITV template)",
         "V2": "In-frame Logo Blur Shields (or Full-timeline Brand Frame PNG Opacity=99%, Scale=115%x114.77% in 10-track template)",
@@ -88,7 +104,8 @@
       },
       "compilation_sequencing_policy": {
         "total_clips_range": [85, 90],
-        "target_duration_sec_range": [465, 575],
+        "max_duration_sec": 540,
+        "target_duration_sec_range": [485, 530],
         "blocks": [
           {
             "block": "1. Part 1 (source/itv.kb*.mp4)",
@@ -537,10 +554,14 @@
                 "4. Call-and-Response Audio Weaving: Leave breathing windows between VO clauses so funny groans, airbag explosions, and screams answer the narrator's questions (e.g., 'laugh out loud?' at 11.8s immediately followed by the biker's 'Uhhh!' groan at 11.85s).",
                 "5. Camera-Hit Finale Jump-Scare: Make the final teaser clip right after 'Let's get started!' (15.22..16.95s) an object flying directly into the camera lens / windshield, using that impact to trigger the Zoom-Blur transition into the WARNING card.",
                 "6. Uncluttered Action Center: Keep the center of the frame 100% free of text overlays during teaser impacts so the viewer's eye locks onto the physical action.",
-                "7. Dynamic Text-Clause Slicing: Never hardcode segment counts (2..6+ segments); slice VO strictly according to the intro text's natural clauses and the timing of teaser impacts."
+                "7. Dynamic Text-Clause Slicing: Never hardcode segment counts (2..6+ segments); slice VO strictly according to the intro text's natural clauses and the timing of teaser impacts.",
+                "8. Bzac New 'Warning-Bridge Loop' (Final Teaser Clip = Main Body Clip #1): Place the cliffhanger crash of Main Body Clip #1 as the LAST teaser clip right before the WARNING card (e.g., 13.08s..14.85s), hard-cut at airbag/impact peak into the WARNING card (14.85s..16.12s), and immediately replay the full clip with resolution (*NO SERIOUS INJURIES*) at 16.12s.",
+                "9. Bzac New Mid-Video Spoken Subscribe CTA (~04:40) & Triple Meme Reaction Tag: Weave a conversational Subscribe CTA into the AI narrator track after a Green Glitch Static transition, and chain 2-3 sequential reaction meme SFX on awkward/dumbfounded endings."
               ]
             }
           },
+          "bzac_intro_vault_file": "E:\\.agents\\skills\\visioncut\\resources\\bzac_intro_vault.json",
+          "competitor_intro_pacing_vault_file": "E:\\.agents\\skills\\visioncut\\resources\\competitor_intro_pacing_vault.json",
           "verified_scripts_archive": {
             "kb98": "Hey everyone, buckle up! Today's compilation is packed with wild moments that hit fast and hard. Blink and you'll miss it. Let's get into it!",
             "kb99": "Hello everyone! Buckle up for a front-row seat to some of the wildest workplace fails caught on camera! Stick around — trust me, the chaos only gets funnier from here! Let's dive right in!",
@@ -550,6 +571,8 @@
             "kb103": "Hello everyone! Ready to laugh at some of the most unbelievable idiots at work?! Stick around — this compilation is packed with bad decisions, big fails, and plenty of instant regret! Let's get started!",
             "kb104": "Hello everyone! Ready for a good laugh?! You're in the right place, so sit back, keep your eyes open, and get ready! Let's get started!",
             "failside_277": "Hello everyone! ... Are you ready to watch this one and laugh out loud? ... Let's get started then.",
+            "bzac_new_196": "Hello everyone! Get ready for a wild ride where workplace wisdom takes a hilarious detour! Hard hats on — let's get into it!",
+            "bzac_new_196_itv_spin": "HELLOOOO, EVERYONE! GET READY FOR A WILD RIDE WHERE COMMON SENSE TAKES A HILARIOUS DETOUR! SO PUT YOUR HARD HATS ON, SIT BACK, AND GET READY! LET'S GET STARTED!!!",
             "new_intro_mau_1": "Hello everyone! Prepare to feel way better about your own career choices, because these guys are fighting for their lives out there! Are you ready? Let's go!",
             "new_intro_mau_2": "Hello everyone! Ever feel like you're the only one doing actual work? These complete buffoons will definitely prove you right today. Let's check it out!",
             "new_intro_mau_4": "Hello everyone! You are about to feel much better about your own job performance. These on-the-clock fails are truly reaching a whole new level of craziness! Let's get things started!",
@@ -628,15 +651,67 @@
     "bonk_funny_moments": {
       "name": "Bonk Funny Moments",
       "workspace_pattern": "E:\\Bonk funny moments\\project\\kb*",
+      "final_export_dir": "E:\\Bonk funny moments\\final",
+      "preset_path": "C:\\Users\\AMZ-HUY\\AppData\\Roaming\\Adobe\\CEP\\extensions\\com.stefanwebb.premierecli\\host\\presets\\bonk-1080p-23976fps.sqpreset",
       "resolution": [1920, 1080],
       "fps": 23.976,
+      "style_reference": {
+        "reference_channel": "Fail Time (https://youtu.be/tCDcOXhHaBs)",
+        "editorial_identity": "Zero-VO, Fast-Paced Pure Fail & Slapstick Compilation (~84-89 clips in 7m15s..7m45s, ~5.2s-5.8s median clip duration)",
+        "core_principles": [
+          "1. Zero-Fluff Cold Open (00:00): Start immediately at 0.00s with a high-visual-shock, contagious-laughter clip (no long intro card, no AI narrator voiceover).",
+          "2. Ultra-Tight 5.5s Pacing (~10.2 clips/min): Mean duration 5.2s..6.0s (P25=3.5s, P75=7.5s, hard cap 12.0s). Enter 0.8s..1.8s before action onset, keep the full impact, and cut right at the peak of cameraman laughter.",
+          "3. Rhythmic Alternation: After any 8s..11s story clip, chain 2-3 rapid-fire 3.0s..5.0s impact clips to prevent viewer fatigue.",
+          "4. 2-Shot Punchline Zoom-In (Fail Time Signature): On clips with priceless facial reactions or aftermath messes (e.g., powder cannon to face, exploding pan), razor-split right after impact and punch in (150%..200% scale) on the subject's face for the final 1.5s..2.5s.",
+          "5. 2-Stage Acoustic Rescue for Silent/Weak Clips (A3 Foley + A4 Human Reaction/Wheeze Laugh): Never leave silent clips dead. Pair an exact-frame physical Foley/Impact SFX on A3 (slip, bonk, splash, crash) with a human reaction/wheeze-laugh SFX on A4 (+0.3s..0.8s after impact: teakettle-steam, Pfft-hahaha, ouch, oof, eek!)."
+        ]
+      },
       "tracks": {
-        "V1": "Primary Video Clips",
-        "V2": "Visual Shields / Meme Overlays",
-        "A1": "Original Clip Audio (100% synced with V1)",
-        "A2": "RESERVED 100% EMPTY FOR VOICEOVER",
-        "A3": "Transition SFX",
-        "A4": "Comedy/Bonk Impact SFX"
+        "V1": "Blurred & Darkened Background Duplicate (1:1 clone of V2 clips, Motion Scale=400%, Crop Left/Right matching V2, Lumetri Exposure=-2.0, AE.Impact_Blur_FX Amount=35)",
+        "V2": "Primary Active Video Clips (84-89 clips: Block 1 source/bonk.kb*.mp4 -> Block 2 Audible Bonk-script-* -> Block 3 Silent Bonk-script-*; Dual Lumetri color/sharpen boost + Crop Left/Right unblur + Transform/Flip)",
+        "V3": "Top-Right Channel Logo (E:\\Video Asset\\Brand - Bonk\\Đổi_nền_trắng_202609081721.png, Motion Position=[0.9268, 0.0845], Scale=16%, spanning full timeline)",
+        "V4": "Bottom-Center Subtle Watermark (E:\\Video Asset\\Brand - Bonk\\đổi_thành_dạng_monochrome_mark_202609081722 (1).jpeg, Motion Position=[0.5, 0.8694], Scale=25%, Opacity=10%, Blend Mode=Multiply/3, spanning full timeline)",
+        "V5": "Selective Impact Emoji Shields (512 (1).gif, etc.) & Bottom-Left Safety Disclaimer Graphics (*HE'S FINE, *ALL SAFE at Position=[0.015625, 0.972222])",
+        "A1": "Original Camera Audio (100% frame-synced with V2; muted Level=0 on Block 3 silent clips)",
+        "A2": "RESERVED 100% EMPTY (Zero Voiceover policy for Bonk Funny Moments)",
+        "A3": "Primary Foley / Whoosh / Environmental / Slip SFX (slip.mp3, woosh-2.wav, teakettle-steam.mp3, splash.m4a, hollywoodedge-slide-whistle)",
+        "A4": "Secondary Impact & Human Reaction / Interjection SFX (metallic-bonk-and-rattle.mp3, metal-clang.mp3, ouch.mp3, Oops!.mp3, eek!.mp3, oof.mp3)"
+      },
+      "compilation_sequencing_policy": {
+        "total_clips_range": [84, 89],
+        "target_duration_sec_range": [430, 465],
+        "blocks": [
+          {
+            "block": "1. Part 1 (source/bonk.kb<N>.1..40.mp4)",
+            "count_range": [38, 42],
+            "ordering_rule": "Keep ascending script numbering (1 -> 40; if X-2/X-3 multi-part clips exist, place in sub-order). Trim head/tail bleed and dead wait time to keep clips punchy (3.5s..7.0s)."
+          },
+          {
+            "block": "2. Part 2 Audible (Bonk-script-<N>/01..50.mp4 with audible original audio)",
+            "count_range": [38, 43],
+            "ordering_rule": "Keep ascending numerical order (01 -> 50), cut to fast 4-Beat Fail Time pacing (mean ~5.5s), preserve contagious cameraman laughter in Aftermath."
+          },
+          {
+            "block": "3. Part 2 Silent Montage (Bonk-script-<N>/*.mp4 with silent/dead audio, e.g. 5-8 clips at tail)",
+            "count_range": [4, 8],
+            "ordering_rule": "Group all silent Part 2 clips at the end of the timeline, mute A1 (Level=0), and layer dual-track comedy sound design (A3 setup/slip/environment + A4 impact/bonk/human reaction at exact climax offset)."
+          }
+        ]
+      },
+      "visual_treatment_policy": {
+        "V1_background_chain": [
+          {"effect": "Motion (AE.ADBE Motion)", "Position": [0.5, 0.5], "Scale": 400.0},
+          {"effect": "Crop (AE.ADBE AECrop)", "Left_Right_range": [23.0, 36.0], "note": "Match V2 pillarbox crop"},
+          {"effect": "Transform (AE.ADBE Geometry2)", "Scale_Height": 122.0, "Scale_Width": 100.0, "Rotation": 3.0, "note": "Or Rotation=0, Uniform Scale=105..115% for clean vertical borders like Fail Time"},
+          {"effect": "Horizontal Flip (AE.ADBE Horizontal Flip)", "note": "Skip on clips containing readable text/signage"},
+          {"effect": "Lumetri Color (AE.ADBE Lumetri)", "Exposure": -2.0},
+          {"effect": "Gaussian Blur (AE.Impact_Blur_FX)", "Amount": 35.0, "Thickness": 35.0, "Uniform_Blur": true, "Edge_Behavior": 1}
+        ],
+        "V2_foreground_chain": [
+          {"effect": "Lumetri Color #1 (Warmth & Pop)", "Temperature": 30.0, "Tint": -2.0, "Saturation": 105.0, "Exposure": 0.2, "Contrast": 10.0, "Highlights": -10.0},
+          {"effect": "Lumetri Color #2 (Crisp Sharpen)", "Contrast": 10.0, "Sharpen": 100.0},
+          {"effect": "Crop (AE.ADBE AECrop)", "Left_Right_range": [23.0, 36.0], "note": "Strip blurred sidebars from 9:16/4:3 sources"}
+        ]
       }
     }
   },

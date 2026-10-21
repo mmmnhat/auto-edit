@@ -1,0 +1,240 @@
+{
+  "vault_name": "ITV Moments — Multi-Channel Competitor Intro & Pacing Vault (10-Channel Benchmark)",
+  "updated_at": "2026-10-20",
+  "voice_config": {
+    "voice_name": "ITV 5",
+    "voice_id": "ITLDKaHYPRfCyyrPpZu2",
+    "model_id": "eleven_v3",
+    "default_v3_tags": "[absurdist narration, accelerando, rushed, extreme fast]",
+    "closing_cta_v3_tags": "[accelerando, rushed, energetic, shouting]"
+  },
+  "channel_pacing_archetypes": {
+    "archetype_1_stomp_clap_action_rock": {
+      "channels": ["TMax Moment (@TMaxMoment)", "Bzac TV Global (@bzactvgloobal)", "TLS - Idiots At Work (@tlsidiotsatwork99)", "Failicious TV (@failicioustv)"],
+      "total_intro_duration_sec": [16.5, 20.5],
+      "teaser_clip_count": [7, 10],
+      "teaser_mean_dur_sec": [1.56, 2.40],
+      "teaser_median_dur_sec": [1.14, 1.82],
+      "music_bed": "Stomp-Clap Action Rock Guitar Riff (boom-boom-clap + overdrive guitar slide)",
+      "vo_structure": "4-Beat Continuous or 1-Gap Split: Greeting (0.0..3.5s) -> [1.2s Crash Gap] -> Escalation Promise (4.8..13.5s) -> [1.2s Crash Gap] -> Launch CTA ('Let's roll!' / 'Let's jump into it!' / 'Let's go!') -> Warning Card (18.0..20.5s)",
+      "hook_loop_rule": "Cold-Open Clip #1 (0.00s..2.00s) is replayed in full as Body Clip #1 (TLS #353 at 20.4s) or Body Clip #3-#5 (TMax #480 at 61.3s, Bzac Global #397 at 61.4s).",
+      "visual_packaging": {
+        "captions": "Komika Axis / Bold Italic Comic at bottom-center [0.50, 0.88], alternating Yellow / Pink / Cyan with thick black stroke",
+        "pillarbox_sidebars": "Static textured sidebars with repeating channel logo + top-right 'REC 🔴' indicator",
+        "safety_disclaimer": "*NO ONE WAS HURT* / *NO SERIOUS INJURIES* / *he is fine* at bottom-right or bottom-center"
+      },
+      "body_pacing": {
+        "clip_duration_mean_sec": 10.7,
+        "clip_duration_p25_p75_sec": [4.5, 17.2],
+        "macro_bundle_duration_min": [35, 70, 237]
+      }
+    },
+    "archetype_2_cctv_clause_weaving": {
+      "channels": ["IZZI - Camera Fails (@IZZICameraFails)", "TLS Security Camera Series"],
+      "total_intro_duration_sec": [18.5, 20.8],
+      "teaser_clip_count": [6, 8],
+      "teaser_mean_dur_sec": 3.17,
+      "teaser_median_dur_sec": 3.12,
+      "music_bed": "Stomp-Clap Action Rock Guitar Riff",
+      "vo_structure": "6-Clause Call-and-Response Weaving (1.1s..2.9s pure CCTV crash window between every short clause): Greeting ('Good day, folks!') -> [2.9s Crash] -> Hook ('We've got some unexpected moments caught on camera today.') -> [2.0s Crash] -> Category A ('From DIY fails...') -> [1.2s Crash] -> Category B ('...to painful mishaps.') -> [1.3s Crash] -> Retention ('Let's see who made today's list.') -> [1.1s Crash] -> Launch ('Let's go!')",
+      "visual_packaging": {
+        "pillarbox_sidebars": "Blue wireframe sidebars with 3D CCTV Security Camera lens (top-left) and cartoon CCTV mascot (bottom-right) + 'REC 🔴' top-right",
+        "hook_loop_rule": "Clip #1 at 0.00s (bridge demolition) is replayed in full at 34.0s (Body Clip #2)."
+      },
+      "body_pacing": {
+        "clip_duration_mean_sec": 10.96,
+        "clip_duration_median_sec": 12.52,
+        "clip_duration_p25_p75_sec": [7.87, 12.57],
+        "macro_bundle_duration_min": [35.5]
+      }
+    },
+    "archetype_3_hadeus_3spurt_breathing": {
+      "channels": ["MEO - Incredible Moments (@MEOincrediblemoments - Moments When Things Went Wrong series)", "FailSide Moment"],
+      "total_intro_duration_sec": [15.0, 16.0],
+      "teaser_clip_count": [12, 13],
+      "teaser_mean_dur_sec": 1.16,
+      "teaser_median_dur_sec": 1.06,
+      "music_bed": "Hadeus.mp4 (Upbeat synth/funk guitar riff)",
+      "vo_structure": "Ultra-Sparse 3-Spurt Breathing: Pre-VO Cold Open (0.00..1.85s) -> Spurt 1 ('Hello everyone!', 1.85..2.90s) -> [3.4s Pure Action & Whoosh/Crash Window] -> Spurt 2 ('Are you ready to watch this video and laugh out loud?', 6.30..9.00s) -> [1.6s Action Window] -> Spurt 3 ('Let's get started right away!', 10.60..12.30s) -> [2.7s Final Crash Streak] -> Body Clip #1 at 15.02s",
+      "visual_packaging": {
+        "background": "500% Scaled Gaussian Blurred Dynamic Background (no static sidebars) — identical to ITV Moments",
+        "captions": "Zero text clutter during teaser impacts; clean bottom-center Subscribe pill at ~34s"
+      },
+      "body_pacing": {
+        "clip_duration_mean_sec": 16.48,
+        "macro_bundle_duration_min": [31, 75]
+      }
+    },
+    "archetype_4_cinematic_disaster_riser": {
+      "channels": ["MEO - Incredible Moments (@MEOincrediblemoments - Seconds Before Disasters series)"],
+      "total_intro_duration_sec": [15.5, 16.5],
+      "teaser_clip_count": 12,
+      "teaser_mean_dur_sec": 1.33,
+      "teaser_median_dur_sec": 1.05,
+      "music_bed": "Cinematic Bass-Drop & Suspense Riser",
+      "vo_structure": "2-Spurt Ultra-Suspense: Spurt 1 ('Hello everyone!' at 0.0..1.2s) -> [10.4s uninterrupted rapid-fire disaster montage (bridge collapse, warehouse shelf crash, truck explosion)] -> Spurt 2 ('This is today's wild ride around the world. Let's get started!' at 11.6..15.2s)",
+      "visual_packaging": {
+        "context_captions": "Journalistic bottom-left location/story captions in body clips (e.g., 'A cyclist narrowly escaped danger thanks to his quick reflexes in Paraná, Brazil on October 10 2026')"
+      },
+      "body_pacing": {
+        "clip_duration_mean_sec": 16.82,
+        "macro_bundle_duration_min": [31, 75]
+      }
+    },
+    "archetype_5_zero_vo_cold_open": {
+      "channels": ["FailArmy (@failarmy)", "Bzac TV (@bzactv #280)", "Fail Time / Bonk! Funny Moments"],
+      "total_intro_duration_sec": 0.0,
+      "vo_structure": "Zero Voiceover. Starts at 0.00s with a high-shock or contagious-wheeze-laugh clip.",
+      "body_pacing": {
+        "failarmy_median_dur_sec": 7.64,
+        "bzactv_280_median_dur_sec": 4.68
+      }
+    }
+  },
+  "extracted_intro_scripts": [
+    {
+      "id": "COMP_01",
+      "source_channel": "TMax Moment (@TMaxMoment)",
+      "source_episode": "#480 (EjGhe7Lmnd8)",
+      "raw_quote": "Welcome back, legends! From workplace mistakes to moments that suddenly turn explosive, today's video has plenty of surprises waiting for you. Let's roll!",
+      "vi_meaning": "Chào mừng trở lại, những huyền thoại! Từ những sai lầm nơi làm việc cho đến những khoảnh khắc bất ngờ bùng nổ, video hôm nay có vô số bất ngờ đang chờ đón bạn. Lăn bánh thôi!",
+      "itv_spin": "Hello everyone! From hilarious workplace blunders to moments that suddenly turn explosive — today's compilation has plenty of wild surprises waiting for you! Let's get started!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! FROM HILARIOUS WORKPLACE BLUNDERS TO MOMENTS THAT SUDDENLY TURN EXPLOSIVE — TODAY'S COMPILATION HAS PLENTY OF WILD SURPRISES WAITING FOR YOU! [accelerando, rushed, energetic, shouting] LET'S GET STARTED!!!"
+    },
+    {
+      "id": "COMP_02",
+      "source_channel": "TMax Moment (@TMaxMoment)",
+      "source_episode": "#471 (yjhhJ-UaObc — 180K views)",
+      "raw_quote": "Hey everyone! Forget the stress for a minute, and get ready for some ridiculous moments, unexpected fails, and plenty of laughs. Let's roll!",
+      "vi_meaning": "Chào mọi người! Hãy quên đi căng thẳng trong chốc lát và sẵn sàng cho những khoảnh khắc ngớ ngẩn, những pha tai nạn bất ngờ và thật nhiều tiếng cười. Chiến thôi!",
+      "itv_spin": "Hello everyone! Forget your workday stress for a minute — and get ready for ridiculous blunders, unexpected fails, and plenty of laughs! Let's get started!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! FORGET YOUR WORKDAY STRESS FOR A MINUTE — AND GET READY FOR RIDICULOUS BLUNDERS, UNEXPECTED FAILS, AND PLENTY OF LAUGHS! [accelerando, rushed, energetic, shouting] LET'S GET STARTED!!!"
+    },
+    {
+      "id": "COMP_03",
+      "source_channel": "TMax Moment (@TMaxMoment)",
+      "source_episode": "#474 (T6MdI1jl7eE — 125K views)",
+      "raw_quote": "Hello everyone! Confidence is high, common sense is low, and chaos is loading. Get ready for fails, surprises, and moments you won't believe. Let's go!",
+      "vi_meaning": "Xin chào mọi người! Sự tự tin thì cao ngút, kiến thức cơ bản thì chạm đáy và sự hỗn loạn đang được nạp đầy. Hãy sẵn sàng cho những pha thất bại, bất ngờ và khoảnh khắc không thể tin nổi. Đi thôi!",
+      "itv_spin": "Hello everyone! Confidence is sky-high, common sense is at rock bottom, and pure workplace chaos is loading! Get ready for fails, surprises, and moments you won't believe! Let's go!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! CONFIDENCE IS SKY-HIGH, COMMON SENSE IS AT ROCK BOTTOM, AND PURE WORKPLACE CHAOS IS LOADING! GET READY FOR FAILS, SURPRISES, AND MOMENTS YOU WON'T BELIEVE! [accelerando, rushed, energetic, shouting] LET'S GO!!!"
+    },
+    {
+      "id": "COMP_04",
+      "source_channel": "TMax Moment (@TMaxMoment)",
+      "source_episode": "#475 (CqKC0RdDP7c — 110K views)",
+      "raw_quote": "Hey there, legends! Drop whatever you're doing because the internet's funniest moments just landed right here. Let's get it on!",
+      "vi_meaning": "Xin chào những huyền thoại! Hãy gác lại mọi thứ bạn đang làm vì những khoảnh khắc hài hước nhất internet vừa hạ cánh ngay tại đây. Quẩy lên thôi!",
+      "itv_spin": "Hey everyone! Drop whatever you're doing right now — because the internet's funniest workplace disasters just landed right here! Sit back and get ready! Let's get it on!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HEYYYY, EVERYONE! DROP WHATEVER YOU'RE DOING RIGHT NOW — BECAUSE THE INTERNET'S FUNNIEST WORKPLACE DISASTERS JUST LANDED RIGHT HERE! SIT BACK AND GET READY! [accelerando, rushed, energetic, shouting] LET'S GET IT ON!!!"
+    },
+    {
+      "id": "COMP_05",
+      "source_channel": "Bzac TV Global (@bzactvgloobal)",
+      "source_episode": "#397 (W0fckxpI7r4)",
+      "raw_quote": "Hello everyone! We are back with awkward accidents, wild reactions, and funny disasters nobody saw coming! Grab your snacks and prepare for non-stop laughter! Let's go!",
+      "vi_meaning": "Xin chào mọi người! Chúng tôi đã trở lại với những tai nạn oái oăm, phản ứng điên rồ và những thảm họa hài hước không ai ngờ tới! Lấy đồ ăn vặt và chuẩn bị cười không ngớt nhé! Đi thôi!",
+      "itv_spin": "Hello everyone! We are back with awkward jobsite accidents, wild reactions, and hilarious disasters nobody saw coming! Grab your snacks and prepare for non-stop laughter! Let's go!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! WE ARE BACK WITH AWKWARD JOBSITE ACCIDENTS, WILD REACTIONS, AND HILARIOUS DISASTERS NOBODY SAW COMING! GRAB YOUR SNACKS AND PREPARE FOR NON-STOP LAUGHTER! [accelerando, rushed, energetic, shouting] LET'S GO!!!"
+    },
+    {
+      "id": "COMP_06",
+      "source_channel": "Bzac TV Global (@bzactvgloobal)",
+      "source_episode": "#392 (-B-vH89i_zg — 136K views)",
+      "raw_quote": "Hello everyone! Get ready for bad timing, silly slip-ups, and everyday moments going completely off the rails! Today's fails are pure comedy. Let's jump in!",
+      "vi_meaning": "Xin chào mọi người! Hãy sẵn sàng cho những pha canh sai thời điểm, những cú trượt ngớ ngẩn và những khoảnh khắc đời thường chệch đường ray hoàn toàn! Các pha tai nạn hôm nay là hài kịch thuần túy. Nhảy vào thôi!",
+      "itv_spin": "Hello everyone! Get ready for terrible timing, silly slip-ups, and everyday work moments going completely off the rails! Today's fails are pure comedy gold! Let's jump right in!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! GET READY FOR TERRIBLE TIMING, SILLY SLIP-UPS, AND EVERYDAY WORK MOMENTS GOING COMPLETELY OFF THE RAILS! TODAY'S FAILS ARE PURE COMEDY GOLD! [accelerando, rushed, energetic, shouting] LET'S JUMP RIGHT IN!!!"
+    },
+    {
+      "id": "COMP_07",
+      "source_channel": "Bzac TV Global (@bzactvgloobal)",
+      "source_episode": "Live TV Fails (xv_qE0sdkAI — 399K views)",
+      "raw_quote": "Hello everyone! The lights are on, the cameras are rolling, and anything can happen! These are the live TV fails too funny to forget. Let's roll!",
+      "vi_meaning": "Xin chào mọi người! Đèn đã bật, máy quay đang chạy và bất cứ điều gì cũng có thể xảy ra! Đây là những sự cố truyền hình trực tiếp hài hước không thể nào quên. Lăn bánh thôi!",
+      "itv_spin": "Hello everyone! The cameras are rolling, the workers are on the clock, and anything can happen! These are the workplace fails too funny to forget! Let's roll!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! THE CAMERAS ARE ROLLING, THE WORKERS ARE ON THE CLOCK, AND ANYTHING CAN HAPPEN! THESE ARE THE WORKPLACE FAILS TOO FUNNY TO FORGET! [accelerando, rushed, energetic, shouting] LET'S ROLL!!!"
+    },
+    {
+      "id": "COMP_08",
+      "source_channel": "TLS - Idiots At Work (@tlsidiotsatwork99)",
+      "source_episode": "#353 (vGtd_tA6bxY)",
+      "raw_quote": "Helloooo everyone! Take a quick break from the day, and enjoy a fresh batch of ridiculous moments! A little chaos might be exactly what you need. Let's roll!",
+      "vi_meaning": "Xin chào mọi người! Hãy nghỉ giải lao một chút trong ngày và thưởng thức một mẻ mới toanh những khoảnh khắc ngớ ngẩn! Một chút hỗn loạn có thể chính là thứ bạn đang cần. Chiến thôi!",
+      "itv_spin": "Hello everyone! Take a quick break from your day — and enjoy a fresh batch of ridiculous workplace moments! A little chaos is હાથ-down exactly what you need! Let's roll!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! TAKE A QUICK BREAK FROM YOUR DAY — AND ENJOY A FRESH BATCH OF RIDICULOUS WORKPLACE MOMENTS! A LITTLE CHAOS IS EXACTLY WHAT YOU NEED! [accelerando, rushed, energetic, shouting] LET'S ROLL!!!"
+    },
+    {
+      "id": "COMP_09",
+      "source_channel": "TLS - Idiots At Work (@tlsidiotsatwork99)",
+      "source_episode": "Caught in 4K Security Camera Fails #4 (YH3dcqfyLjU — 29K views)",
+      "raw_quote": "Helloooo everyone! Get ready for hilarious CCTV fails, awkward timing, and everyday moments going wrong. Stick around, because the best is yet to come. Let's jump in!",
+      "vi_meaning": "Xin chào mọi người! Hãy sẵn sàng cho những pha camera an ninh hài hước, canh sai thời điểm và những khoảnh khắc đời thường gặp sự cố. Hãy ở lại vì phần hay nhất vẫn còn ở phía trước. Nhảy vào thôi!",
+      "itv_spin": "Hello everyone! Get ready for hilarious security camera fails, awkward timing, and everyday jobsite moments going wrong! Stick around — because the best is yet to come! Let's jump right in!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! GET READY FOR HILARIOUS SECURITY CAMERA FAILS, AWKWARD TIMING, AND EVERYDAY JOBSITE MOMENTS GOING WRONG! STICK AROUND — BECAUSE THE BEST IS YET TO COME! [accelerando, rushed, energetic, shouting] LET'S JUMP RIGHT IN!!!"
+    },
+    {
+      "id": "COMP_10",
+      "source_channel": "TLS - Idiots At Work (@tlsidiotsatwork99)",
+      "source_episode": "#348 (R3zDKh0EI3Q)",
+      "raw_quote": "Helloooo everyone! One bold move can turn into a bad idea faster than anyone expects. Today's fails prove it. Stay ready, regret comes quick. Let's roll!",
+      "vi_meaning": "Xin chào mọi người! Một nước đi táo bạo có thể biến thành ý tưởng tồi tệ nhanh hơn bất kỳ ai nghĩ tới. Những pha thất bại hôm nay sẽ chứng minh điều đó. Chuẩn bị tinh thần nhé, sự hối hận đến rất nhanh đấy. Lăn bánh thôi!",
+      "itv_spin": "Hello everyone! One bold move on the job can turn into a terrible idea faster than anyone expects! Today's fails prove it — so stay ready, because instant regret comes quick! Let's get started!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! ONE BOLD MOVE ON THE JOB CAN TURN INTO A TERRIBLE IDEA FASTER THAN ANYONE EXPECTS! TODAY'S FAILS PROVE IT — SO STAY READY, BECAUSE INSTANT REGRET COMES QUICK! [accelerando, rushed, energetic, shouting] LET'S GET STARTED!!!"
+    },
+    {
+      "id": "COMP_11",
+      "source_channel": "Failicious TV (@failicioustv)",
+      "source_episode": "#346 (dALZZN5-A2Y)",
+      "raw_quote": "Welcome back to the channel! From jobsite disasters and crazy close calls to hilarious mishaps, these workers are about to have a very long day! Let's jump into it!",
+      "vi_meaning": "Chào mừng trở lại kênh! Từ những thảm họa công trường và những pha suýt chết điên rồ cho đến những sự cố hài hước, những công nhân này sắp có một ngày dài đằng đẵng! Bắt đầu ngay thôi!",
+      "itv_spin": "Hello everyone! From jobsite disasters and crazy close calls to hilarious mishaps — these workers are about to have a very long day! Let's jump right into it!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! FROM JOBSITE DISASTERS AND CRAZY CLOSE CALLS TO HILARIOUS MISHAPS — THESE WORKERS ARE ABOUT TO HAVE A VERY LONG DAY! [accelerando, rushed, energetic, shouting] LET'S JUMP RIGHT INTO IT!!!"
+    },
+    {
+      "id": "COMP_12",
+      "source_channel": "Failicious TV (@failicioustv)",
+      "source_episode": "#335 (qqmA2_br1is — 30K views)",
+      "raw_quote": "Welcome back! Bad decisions, shaky ladders, and explosions nobody saw coming! Today's workplace chaos goes from zero to absolute madness! Let's get into it!",
+      "vi_meaning": "Chào mừng trở lại! Những quyết định tồi tệ, những chiếc thang bập bênh và những vụ nổ không ai lường trước! Sự hỗn loạn nơi làm việc hôm nay sẽ tăng tốc từ con số 0 lên mức điên rồ tuyệt đối! Bắt đầu thôi!",
+      "itv_spin": "Hello everyone! Bad decisions, shaky ladders, and workplace explosions nobody saw coming! Today's on-the-clock chaos goes from zero to absolute madness! Let's get into it!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! BAD DECISIONS, SHAKY LADDERS, AND WORKPLACE EXPLOSIONS NOBODY SAW COMING! TODAY'S ON-THE-CLOCK CHAOS GOES FROM ZERO TO ABSOLUTE MADNESS! [accelerando, rushed, energetic, shouting] LET'S GET INTO IT!!!"
+    },
+    {
+      "id": "COMP_13",
+      "source_channel": "Failicious TV (@failicioustv)",
+      "source_episode": "#342 (xKI69BHVN94 — 28K views)",
+      "raw_quote": "Welcome back, chaos addicts! This video is full of idiots at work and funny fails that prove some people should really come with warning labels! Let's jump right in!",
+      "vi_meaning": "Chào mừng trở lại, những tín đồ của sự hỗn loạn! Video này chứa đầy những gã ngốc nơi làm việc và những pha hài hước chứng minh rằng một số người thực sự nên được dán nhãn cảnh báo! Nhảy vào ngay thôi!",
+      "itv_spin": "Hello everyone! Today's video is packed with idiots at work and hilarious fails that prove some people should really come with warning labels! Let's jump right in!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! TODAY'S VIDEO IS PACKED WITH IDIOTS AT WORK AND HILARIOUS FAILS THAT PROVE SOME PEOPLE SHOULD REALLY COME WITH WARNING LABELS! [accelerando, rushed, energetic, shouting] LET'S JUMP RIGHT IN!!!"
+    },
+    {
+      "id": "COMP_14",
+      "source_channel": "IZZI - Camera Fails (@IZZICameraFails)",
+      "source_episode": "#17 (uEoiYrGIHjo — 246K views)",
+      "raw_quote": "Good day, folks! We've got some unexpected moments caught on camera today. From DIY fails... to painful mishaps. Let's see who made today's list. Let's go!",
+      "vi_meaning": "Chào ngày mới mọi người! Hôm nay chúng ta có những khoảnh khắc bất ngờ lọt vào ống kính. Từ những pha tự chế thất bại... cho đến những tai nạn đau điếng. Hãy xem ai lọt vào danh sách hôm nay nhé. Đi thôi!",
+      "itv_spin": "Hello everyone! We've got some unbelievable workplace moments caught on camera today! From DIY disasters to painful jobsite mishaps — let's see who made today's list! Let's go!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! WE'VE GOT SOME UNBELIEVABLE WORKPLACE MOMENTS CAUGHT ON CAMERA TODAY! FROM D-I-Y DISASTERS TO PAINFUL JOBSITE MISHAPS — LET'S SEE WHO MADE TODAY'S LIST! [accelerando, rushed, energetic, shouting] LET'S GO!!!"
+    },
+    {
+      "id": "COMP_15",
+      "source_channel": "MEO - Incredible Moments (@MEOincrediblemoments)",
+      "source_episode": "Moments When Things Went Wrong P261 (T3L3bTIhV4c — 283K views)",
+      "raw_quote": "Hello everyone! Are you ready to watch this video and laugh out loud? Let's get started right away!",
+      "vi_meaning": "Xin chào mọi người! Các bạn đã sẵn sàng xem video này và cười thật sảng khoái chưa? Hãy bắt đầu ngay lập tức thôi!",
+      "itv_spin": "Hello everyone! Are you ready to watch this compilation and laugh out loud?! Sit back, keep your eyes open, and let's get started right away!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! ARE YOU READY TO WATCH THIS COMPILATION AND LAUGH OUT LOUD?! SIT BACK, KEEP YOUR EYES OPEN, AND [accelerando, rushed, energetic, shouting] LET'S GET STARTED RIGHT AWAY!!!"
+    },
+    {
+      "id": "COMP_16",
+      "source_channel": "MEO - Incredible Moments (@MEOincrediblemoments)",
+      "source_episode": "Incredible Moments Caught on Camera P339 (KdxkhycLaW4 — 363K views)",
+      "raw_quote": "Hello everyone! ... This is today's wild ride around the world. Let's get started!",
+      "vi_meaning": "Xin chào mọi người! ... Đây là chuyến tàu lượn điên rồ vòng quanh thế giới của ngày hôm nay. Bắt đầu thôi!",
+      "itv_spin": "Hello everyone! Buckle up — this is today's wild ride through the craziest workplace disasters around the world! Let's get started!",
+      "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! BUCKLE UP — THIS IS TODAY'S WILD RIDE THROUGH THE CRAZIEST WORKPLACE DISASTERS AROUND THE WORLD! [accelerando, rushed, energetic, shouting] LET'S GET STARTED!!!"
+    }
+  ]
+}
