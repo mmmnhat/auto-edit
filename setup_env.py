@@ -139,19 +139,29 @@ def register_antigravity_skills(root_dir):
             data = {"entries": []}
             
     entries = data.get("entries", [])
-    already_present = any(
-        Path(e.get("path", "")).resolve() == skills_path 
-        for e in entries if isinstance(e, dict) and "path" in e
-    )
-    
-    if not already_present:
-        entries.append({"path": str(skills_path)})
+    paths_to_register = [skills_path]
+    agency_skills_path = (root_dir / "agency-skills").resolve()
+    if agency_skills_path.exists():
+        paths_to_register.append(agency_skills_path)
+
+    modified = False
+    for p_target in paths_to_register:
+        already_present = any(
+            Path(e.get("path", "")).resolve() == p_target
+            for e in entries if isinstance(e, dict) and "path" in e
+        )
+        if not already_present:
+            entries.append({"path": str(p_target)})
+            modified = True
+
+    if modified:
         data["entries"] = entries
         try:
             with open(skills_json_file, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
             log(f"  ✓ Đã đăng ký skills vào {skills_json_file}")
-            log(f"    -> Đường dẫn skills: {skills_path}")
+            for p_target in paths_to_register:
+                log(f"    -> Đường dẫn skills: {p_target}")
         except Exception as e:
             log(f"  [!] Lỗi ghi file skills.json: {e}")
     else:

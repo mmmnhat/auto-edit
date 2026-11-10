@@ -1,6 +1,6 @@
 {
-  "output_dir": "E:\\test",
-  "prefix": "scene_",
+  "output_dir": "E:\\ITV\\Project\\TEST_AUTO_WORKFAIL_9_11\\_raw_cache\\_scene_03",
+  "prefix": "s3_",
   "unblur_enabled": true,
   "min_scene_duration_sec": 1.5,
   "detector_threshold": 27.0,

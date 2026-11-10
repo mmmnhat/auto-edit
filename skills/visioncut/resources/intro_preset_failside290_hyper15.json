@@ -1,0 +1,593 @@
+{
+  "preset_id": "failside290_ni4ecuy7duk_hyper15",
+  "preset_name": "FailSide Moment #290 (NI4ECuy7DUk) — 15-Clip Hyper-Montage & Clean-Screen Camera-Hit Intro Preset",
+  "created_at": "2026-10-29",
+  "source_reference": {
+    "video_id": "NI4ECuy7DUk",
+    "url": "https://www.youtube.com/watch?v=NI4ECuy7DUk",
+    "channel_name": "FailSide Moment",
+    "episode_title": "TOTAL IDIOTS AT WORK #290 | Instant Regret Fails Compilation 2026 | Best of the Month",
+    "upload_date": "2026-10-28",
+    "views_at_capture": 31320,
+    "source_resolution": [
+      1920,
+      1080
+    ],
+    "source_fps": 29.97,
+    "source_intro_duration_sec": 17.72,
+    "source_teaser_montage_sec": 16.08,
+    "source_warning_card_sec": [
+      16.08,
+      17.72
+    ],
+    "vault_template_id": "BZAC_17",
+    "raw_transcript": "Hello everyone! We've gathered some of the funniest fails this week, from slip-ups, painful regrets, to bozo disasters guaranteed for you to drop jaws. Let's dive right in!",
+    "whisper_word_timestamps_sec": [
+      {
+        "word": "Hello",
+        "start": 0.0,
+        "end": 0.6
+      },
+      {
+        "word": "everyone!",
+        "start": 0.6,
+        "end": 1.66
+      },
+      {
+        "word": "We've",
+        "start": 3.02,
+        "end": 3.78
+      },
+      {
+        "word": "gathered",
+        "start": 3.78,
+        "end": 3.98
+      },
+      {
+        "word": "some",
+        "start": 3.98,
+        "end": 4.3
+      },
+      {
+        "word": "of",
+        "start": 4.3,
+        "end": 4.42
+      },
+      {
+        "word": "the",
+        "start": 4.42,
+        "end": 4.5
+      },
+      {
+        "word": "funniest",
+        "start": 4.5,
+        "end": 5.02
+      },
+      {
+        "word": "fails",
+        "start": 5.02,
+        "end": 5.4
+      },
+      {
+        "word": "this",
+        "start": 5.4,
+        "end": 5.74
+      },
+      {
+        "word": "week,",
+        "start": 5.74,
+        "end": 6.06
+      },
+      {
+        "word": "from",
+        "start": 6.3,
+        "end": 6.68
+      },
+      {
+        "word": "slip-ups,",
+        "start": 6.68,
+        "end": 7.36
+      },
+      {
+        "word": "painful",
+        "start": 7.64,
+        "end": 7.88
+      },
+      {
+        "word": "regrets,",
+        "start": 7.88,
+        "end": 8.4
+      },
+      {
+        "word": "to",
+        "start": 8.94,
+        "end": 8.98
+      },
+      {
+        "word": "bozo",
+        "start": 8.98,
+        "end": 9.46
+      },
+      {
+        "word": "disasters",
+        "start": 9.46,
+        "end": 10.1
+      },
+      {
+        "word": "guaranteed",
+        "start": 10.1,
+        "end": 10.8
+      },
+      {
+        "word": "for",
+        "start": 10.8,
+        "end": 11.38
+      },
+      {
+        "word": "you",
+        "start": 11.38,
+        "end": 11.66
+      },
+      {
+        "word": "to",
+        "start": 11.66,
+        "end": 11.92
+      },
+      {
+        "word": "drop",
+        "start": 11.92,
+        "end": 12.22
+      },
+      {
+        "word": "jaws.",
+        "start": 12.22,
+        "end": 12.62
+      },
+      {
+        "word": "Let's",
+        "start": 13.14,
+        "end": 13.9
+      },
+      {
+        "word": "dive",
+        "start": 13.9,
+        "end": 14.12
+      },
+      {
+        "word": "right",
+        "start": 14.12,
+        "end": 14.32
+      },
+      {
+        "word": "in!",
+        "start": 14.32,
+        "end": 14.64
+      }
+    ]
+  },
+  "core_distinctions_vs_bzac189": {
+    "1_zero_caption_clean_screen_option": "FailSide Moment #290 uses ZERO text captions during the entire intro (0.00s..16.08s) so the viewer's eye locks 100% onto the rapid-fire physical action. (When adapted to ITV Moments, can either run Clean-Screen or use compact V8 Komika Axis with Caption Blanking).",
+    "2_hyper_15_clip_density": "Packs 15 distinct clips into 16.08s (mean 1.07s/clip; middle 13 clips are 0.53s..0.90s each = 13f..21f @ 23.976fps), creating a 30% faster visual cut rate than Bzac New #189.",
+    "3_nature_shock_cold_open_347s": "Clip #1 (0.00s..3.47s) is a 3.47s force-of-nature shock clip: 1.80s calm palm trees under 'Hello everyone!' -> 1.67s massive lightning bolt striking the palm tree at 1.97s with blinding white flash + camera drop -> Impact Cross Zoom at 3.47s.",
+    "4_camera_hit_snowboard_finale_250s": "Final Teaser #15 (13.58s..16.08s, 2.50s) is a direct-into-lens collision: 1.06s snowboarder approaching camera under 'Let's dive right in!' (13.14s..14.64s) -> 1.44s unmasked crash gap where the snowboarder slams directly into the cameraman at 15.60s..16.08s (Peak -2.0 dB).",
+    "5_acoustic_vacuum_ember_warning_card": "During the WARNING! card (16.08s..17.72s, 1.64s with animated fire embers), audio drops to near-total silence (-37 dB to -68 dB) — creating an acoustic vacuum before Body Clip #1 hits.",
+    "6_heavy_vehicle_ escalation_at_body_start": "Instead of replaying an intro clip at Body Clip #1, FailSide Moment opens the main body (17.72s..35.0s) with 3 consecutive brand-new heavy-vehicle/industrial disasters (runaway dump truck crashing parked cars -> raised dump bed hitting highway gantry -> semi-truck wind rollover)."
+  },
+  "source_forensic_breakdown_2997fps": [
+    {
+      "id": "S01_S02",
+      "clip_num": 1,
+      "role": "Cold-Open Setup + Greeting",
+      "sec": [
+        0.0,
+        1.8
+      ],
+      "frames_2997": [
+        0,
+        54
+      ],
+      "frames_23976": [
+        0,
+        43
+      ],
+      "vo_text": "Hello everyone!",
+      "a1_db": -15,
+      "visual": "Palm trees swaying against dark storm clouds by the ocean"
+    },
+    {
+      "id": "S03_S05",
+      "clip_num": 1,
+      "role": "Crash Gap #1 (Lightning Strike + Camera Tumble)",
+      "sec": [
+        1.8,
+        3.47
+      ],
+      "frames_2997": [
+        54,
+        104
+      ],
+      "frames_23976": [
+        43,
+        83
+      ],
+      "vo_text": null,
+      "a1_db": 0,
+      "transition_out": "Impact Cross Zoom (f100..f107)",
+      "visual": "Red lightning bolt strikes palm tree at 1.97s, blinding white explosion at 2.37s, camera tumbles across balcony"
+    },
+    {
+      "id": "S06",
+      "clip_num": 2,
+      "role": "Hyper-Cut #2 (0.70s)",
+      "sec": [
+        3.47,
+        4.17
+      ],
+      "frames_2997": [
+        104,
+        125
+      ],
+      "frames_23976": [
+        83,
+        100
+      ],
+      "vo_text": "We've gathered some",
+      "a1_db": -15,
+      "visual": "Man steps through unfinished wooden staircase joists and falls"
+    },
+    {
+      "id": "S07",
+      "clip_num": 3,
+      "role": "Hyper-Cut #3 (0.90s)",
+      "sec": [
+        4.17,
+        5.07
+      ],
+      "frames_2997": [
+        125,
+        152
+      ],
+      "frames_23976": [
+        100,
+        122
+      ],
+      "vo_text": "of the funniest",
+      "a1_db": -12,
+      "visual": "Dad accidentally bounces basketball off little girl's head"
+    },
+    {
+      "id": "S08",
+      "clip_num": 4,
+      "role": "Hyper-Cut #4 (0.77s)",
+      "sec": [
+        5.07,
+        5.84
+      ],
+      "frames_2997": [
+        152,
+        175
+      ],
+      "frames_23976": [
+        122,
+        140
+      ],
+      "vo_text": "fails this week,",
+      "a1_db": -12,
+      "visual": "Man in lab coat riding mini-bike inside office hallway wipes out"
+    },
+    {
+      "id": "S09",
+      "clip_num": 5,
+      "role": "Hyper-Cut #5 (0.63s + Micro-Gap)",
+      "sec": [
+        5.84,
+        6.47
+      ],
+      "frames_2997": [
+        175,
+        194
+      ],
+      "frames_23976": [
+        140,
+        155
+      ],
+      "vo_text": "from",
+      "a1_db": -10,
+      "visual": "Sleeping shirtless man blasted in the face with air/water nozzle"
+    },
+    {
+      "id": "S10",
+      "clip_num": 6,
+      "role": "Hyper-Cut #6 (0.83s - Semantic: Slip-ups)",
+      "sec": [
+        6.47,
+        7.31
+      ],
+      "frames_2997": [
+        194,
+        219
+      ],
+      "frames_23976": [
+        155,
+        175
+      ],
+      "vo_text": "slip-ups,",
+      "a1_db": -12,
+      "visual": "Girl on roller skates slips on quarter-pipe ramp and slams tailbone"
+    },
+    {
+      "id": "S11",
+      "clip_num": 7,
+      "role": "Hyper-Cut #7 (0.83s - Semantic: Painful Regrets)",
+      "sec": [
+        7.31,
+        8.14
+      ],
+      "frames_2997": [
+        219,
+        244
+      ],
+      "frames_23976": [
+        175,
+        195
+      ],
+      "vo_text": "painful regrets,",
+      "a1_db": -10,
+      "visual": "Snowboarder launches into giant airbag and faceplants"
+    },
+    {
+      "id": "S12",
+      "clip_num": 8,
+      "role": "Crash Gap #2 (0.73s Clause Breath)",
+      "sec": [
+        8.14,
+        8.88
+      ],
+      "frames_2997": [
+        244,
+        266
+      ],
+      "frames_23976": [
+        195,
+        213
+      ],
+      "vo_text": null,
+      "a1_db": -5,
+      "visual": "Girl wrapped in blanket cartwheels in living room and crashes into table"
+    },
+    {
+      "id": "S13",
+      "clip_num": 9,
+      "role": "Hyper-Cut #9 (0.70s)",
+      "sec": [
+        8.88,
+        9.58
+      ],
+      "frames_2997": [
+        266,
+        287
+      ],
+      "frames_23976": [
+        213,
+        230
+      ],
+      "vo_text": "to bozo",
+      "a1_db": -12,
+      "visual": "Man on porch yanked off his feet by dog bolting on leash"
+    },
+    {
+      "id": "S14",
+      "clip_num": 10,
+      "role": "Hyper-Cut #10 (0.83s - Semantic: Disasters)",
+      "sec": [
+        9.58,
+        10.41
+      ],
+      "frames_2997": [
+        287,
+        312
+      ],
+      "frames_23976": [
+        230,
+        250
+      ],
+      "vo_text": "disasters",
+      "a1_db": -8,
+      "visual": "Heavy object flies into silver car front fender inside garage, denting it"
+    },
+    {
+      "id": "S15",
+      "clip_num": 11,
+      "role": "Hyper-Cut #11 (0.83s)",
+      "sec": [
+        10.41,
+        11.24
+      ],
+      "frames_2997": [
+        312,
+        337
+      ],
+      "frames_23976": [
+        250,
+        270
+      ],
+      "vo_text": "guaranteed",
+      "a1_db": -12,
+      "visual": "Tall standing mirror tips over onto girl holding soccer ball in bedroom"
+    },
+    {
+      "id": "S16",
+      "clip_num": 12,
+      "role": "Hyper-Cut #12 (0.53s Ultra-Fast)",
+      "sec": [
+        11.24,
+        11.78
+      ],
+      "frames_2997": [
+        337,
+        353
+      ],
+      "frames_23976": [
+        270,
+        282
+      ],
+      "vo_text": "for you",
+      "a1_db": -15,
+      "visual": "Hands holding hot glass bowl of soup with potholders slip and spill"
+    },
+    {
+      "id": "S17",
+      "clip_num": 13,
+      "role": "Hyper-Cut #13 (0.57s - Semantic: Drop Jaws)",
+      "sec": [
+        11.78,
+        12.35
+      ],
+      "frames_2997": [
+        353,
+        370
+      ],
+      "frames_23976": [
+        282,
+        296
+      ],
+      "vo_text": "to drop jaws.",
+      "a1_db": -12,
+      "visual": "Deer leaps across driveway directly into white pickup truck bed"
+    },
+    {
+      "id": "S18_S19",
+      "clip_num": 14,
+      "role": "Crash Gap #3 (1.23s Pre-CTA Wakeboard Wipeout)",
+      "sec": [
+        12.35,
+        13.58
+      ],
+      "frames_2997": [
+        370,
+        407
+      ],
+      "frames_23976": [
+        296,
+        326
+      ],
+      "vo_text": null,
+      "a1_db": -5,
+      "visual": "Wakeboarder catches edge and violently faceplants into water spray"
+    },
+    {
+      "id": "S20a",
+      "clip_num": 15,
+      "role": "Final Teaser #15a (1.06s Camera-Hit Setup + CTA)",
+      "sec": [
+        13.58,
+        14.64
+      ],
+      "frames_2997": [
+        407,
+        439
+      ],
+      "frames_23976": [
+        326,
+        351
+      ],
+      "vo_text": "Let's dive right in!",
+      "a1_db": -15,
+      "visual": "Snowboarder in bunny-ear hood riding straight toward camera"
+    },
+    {
+      "id": "S20b",
+      "clip_num": 15,
+      "role": "Crash Gap #4 (1.44s Direct Camera-Hit Collision)",
+      "sec": [
+        14.64,
+        16.08
+      ],
+      "frames_2997": [
+        439,
+        482
+      ],
+      "frames_23976": [
+        351,
+        385
+      ],
+      "vo_text": null,
+      "a1_db": 0,
+      "visual": "Snowboarder loses control and slams directly into the camera lens with loud scream"
+    },
+    {
+      "id": "S21",
+      "clip_num": 0,
+      "role": "WARNING Card (Acoustic Vacuum -40dB)",
+      "sec": [
+        16.08,
+        17.72
+      ],
+      "frames_2997": [
+        482,
+        531
+      ],
+      "frames_23976": [
+        385,
+        425
+      ],
+      "vo_text": null,
+      "a1_db": -40,
+      "visual": "WARNING! card with rising fire embers on black background"
+    },
+    {
+      "id": "S22",
+      "clip_num": 16,
+      "role": "Main Body Clip #1 (New Heavy Truck CCTV Crash)",
+      "sec": [
+        17.72,
+        27.53
+      ],
+      "frames_2997": [
+        531,
+        825
+      ],
+      "frames_23976": [
+        425,
+        660
+      ],
+      "vo_text": null,
+      "a1_db": 0,
+      "visual": "Parking lot CCTV: runaway dump truck plows through trees and parked cars"
+    }
+  ],
+  "itv_moments_1to1_implementation_370f": {
+    "description": "15-Clip Hyper-Montage scaled to ITV Moments 370-frame (15.43s @ 23.976fps) standard intro window (Warning = 350..370f)",
+    "warning_start": 350,
+    "warning_end": 370,
+    "f_c2_start": 76,
+    "f_c4_end": 316,
+    "a2_clauses": [
+      [
+        0,
+        36,
+        0
+      ],
+      [
+        76,
+        140,
+        38
+      ],
+      [
+        146,
+        192,
+        105
+      ],
+      [
+        205,
+        286,
+        156
+      ],
+      [
+        298,
+        316,
+        240
+      ]
+    ]
+  }
+}

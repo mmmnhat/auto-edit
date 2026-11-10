@@ -9,11 +9,12 @@ PS_SCRIPT = r"""
 Add-Type -AssemblyName UIAutomationClient
 Add-Type -AssemblyName UIAutomationTypes
 
-$ end = (Get-Date).AddSeconds(15)
+$end = (Get-Date).AddSeconds(15)
 while ((Get-Date) -lt $end) {
     $root = [System.Windows.Automation.AutomationElement]::RootElement
+    $allowText = "Cho ph$([char]0x00E9)p"
     $cond = New-Object System.Windows.Automation.PropertyCondition(
-        [System.Windows.Automation.AutomationElement]::NameProperty, "Cho phép"
+        [System.Windows.Automation.AutomationElement]::NameProperty, $allowText
     )
     $btn = $root.FindFirst([System.Windows.Automation.TreeScope]::Descendants, $cond)
     if ($null -ne $btn) {

@@ -1,0 +1,80 @@
+{
+  "preset_id": "u_shaped_3anchor_vo_placement",
+  "preset_name": "U-Shaped 3-Anchor Body VO Placement (Bzac New #189 & FailSide Moment #290 1:1 Standard)",
+  "created_at": "2026-10-29",
+  "target_channel": "itv_moments",
+  "forensic_sources": [
+    {
+      "video_id": "QDwurG8gJ50",
+      "channel": "Bzac New (@Bzacnew68)",
+      "title": "TOTAL IDIOTS AT WORK #189",
+      "body_vos_in_9m": 13,
+      "avg_cadence_sec": 39.5,
+      "first_body_vo_sec": 102.09,
+      "tv_static_lead_in_ratio": 0.692,
+      "body_subtitles_enabled": false
+    },
+    {
+      "video_id": "NI4ECuy7DUk",
+      "channel": "FailSide Moment",
+      "title": "TOTAL IDIOTS AT WORK #290",
+      "body_vos_in_9m": 22,
+      "avg_cadence_sec": 23.8,
+      "first_body_vo_sec": 39.54,
+      "mid_episode_engagement_cta_sec": 269.83,
+      "body_subtitles_enabled": false
+    }
+  ],
+  "core_philosophy": "Eliminate dead-center 45%-55% VO placement. Anchor every Body VO either flush to the clip head (Anchor A: Cold-Start Lead-In at +0.18s..0.48s before impact) or flush to the clip tail (Anchor B: Tail-Flush Aftermath Roast ending 0.18s..0.48s before scene cut after impact), leaving the middle crash zone 100% open for raw Track A1 camera audio.",
+  "real_impact_detection_spec": {
+    "function": "detect_audio_transient(fpath, in_sec=0.0, clip_dur=None)",
+    "stage_1_acoustic_rms_and_flux": "Decode 16kHz mono PCM via FFmpeg over [in_sec, in_sec + clip_dur]. Compute 50ms window RMS energy and positive onset spectral flux above 300ms local baseline across [0.15s .. dur - 0.15s].",
+    "stage_2_visual_motion_fallback": "If audio stream is silent/flat (peak RMS <= 0.012 or dynamic crest ratio < 1.35), compute center-crop (12%-88% H, 30%-70% W) frame-to-frame pixel MAD at ~10fps to locate physical climax.",
+    "forbidden_patterns": [
+      "NEVER return hardcoded round(dur * 0.48, 2) or round(dur * 0.45, 2) when media file exists.",
+      "NEVER use blind rotating modulo ratio arrays like [0.22, 0.35, 0.48, 0.62, 0.74] to fake impact_sec."
+    ]
+  },
+  "three_anchor_modes": {
+    "anchor_A_cold_start_lead_in": {
+      "mode_name": "premise",
+      "target_share_pct": 55,
+      "trigger_condition": "t_impact >= vo_dur + 0.40s (impact occurs in second half of clip or after setup window) or VO text is setup/premise",
+      "start_offset_formula": "head_anchor in [0.18s .. 0.48s] right at clip start (or immediately after 9-frame TV Static transition)",
+      "end_clearance_rule": "vo_end <= t_impact - 0.20s (leaves 1.5s..11.0s tail completely open for raw crash audio on Track A1)",
+      "competitor_examples": [
+        "QDwurG8gJ50 VO#02 (132.60s): StartOff=0.00s after TV Static, finishes 0.81s before beer crates collapse",
+        "QDwurG8gJ50 VO#07 (298.62s): StartOff=+0.66s after TV Static, leaves 4.40s tail for crane concrete drop on car",
+        "NI4ECuy7DUk VO#21 (463.92s): StartOff=0.00s on 15.79s clip, leaves 11.19s open for full gas station action"
+      ]
+    },
+    "anchor_B_tail_flush_aftermath_roast": {
+      "mode_name": "aftermath",
+      "target_share_pct": 35,
+      "trigger_condition": "t_impact < clip_dur * 0.50 and clip_dur - (t_impact + 0.35s) >= vo_dur + 0.15s (impact occurs early in clip)",
+      "start_offset_formula": "max(t_impact + 0.35s, clip_dur - vo_dur - tail_margin) where tail_margin in [0.18s .. 0.48s]",
+      "end_clearance_rule": "EndRem = 0.18s .. 0.48s before scene cut (punchline finishes flush with clip cut or TV Static trigger)",
+      "competitor_examples": [
+        "QDwurG8gJ50 VO#11 (459.10s): Impact at +3.5s, VO enters at +3.95s, finishes 0.28s before TV Static cut",
+        "QDwurG8gJ50 VO#13 (515.33s): VO finishes at EndRem=0.00s right on scene cut",
+        "NI4ECuy7DUk VO#08 (198.01s): Mud slip at +2.10s, VO enters at +2.75s, finishes flush at EndRem=0.00s"
+      ]
+    },
+    "anchor_C_long_clip_pre_climax_bridge": {
+      "mode_name": "premise",
+      "target_share_pct": 10,
+      "trigger_condition": "Long multi-phase clip (clip_dur >= 11.5s) where t_impact >= vo_dur + 5.5s and text is not an immediate cold-start hook",
+      "start_offset_formula": "max(0.20s, t_impact - vo_dur - 0.35s) — bridges the build-up right before the climax while leaving >= 2.4s tail for the crash",
+      "competitor_examples": [
+        "QDwurG8gJ50 VO#01 (102.09s on 16.95s clip): StartOff=+6.66s, finishes 5.89s before end",
+        "QDwurG8gJ50 VO#04 (184.04s on 13.38s clip): StartOff=+6.23s, finishes 2.41s before end"
+      ]
+    }
+  },
+  "pacing_and_sequencing_rules": {
+    "first_body_vo_breathing_room": "Never place a Body VO on Main Body Clip #1..#3 right after the Warning card. Start Body VO #1 at Clip #4..#6 (~35s..45s into the video).",
+    "tv_static_combo_rule": "When a 9-frame TV Static transition (V10/A8) precedes a VO clip, prefer Anchor A (Cold-Start Lead-In at +0.18s..0.38s) to create a sharp chapter-reset hook.",
+    "part2_vo_window_slicing_rule": "When trimming a non-note Part 2 clip that carries a Body VO, slice [in_point_sec, out_point_sec] around raw_impact_sec: either place raw_impact_sec near the tail (for Anchor A Cold-Start VO) or at 1.2s..1.6s from clip start (for Anchor B Tail-Flush VO). Never slice blindly at 35%-45% of raw duration.",
+    "track_v5_mogrt_subtitle_sync": "100% start, end, and duration sync with Track A2 VO. Because VOs are placed at Anchor A (head) or Anchor B (tail), V5 subtitles automatically clear the screen during the physical impact frame."
+  }
+}

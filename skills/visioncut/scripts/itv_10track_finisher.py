@@ -1,4 +1,4 @@
-﻿import copy
+import copy
 import gzip
 import json
 import os
@@ -30,53 +30,71 @@ def load_xml(path):
     return root, by_id, by_uid
 
 
-# Restore clean original backups of kb105..kb110 BEFORE reading templates
+def safe_load_xml(path):
+    if path and os.path.exists(path):
+        return load_xml(path)
+    return None, {}, {}
+
+
+# Restore clean original backups of kb105..kb110 BEFORE reading templates (guarded)
 for kb in ["kb105", "kb106", "kb107", "kb108", "kb109", "kb110"]:
     p = rf"E:\ITV\Project\{kb}\{kb}.prproj"
     orig_bak = p + ".orig_bak"
-    if not os.path.exists(orig_bak):
-        shutil.copy2(p, orig_bak)
-    else:
-        shutil.copy2(orig_bak, p)
+    if os.path.exists(p):
+        if not os.path.exists(orig_bak):
+            shutil.copy2(p, orig_bak)
+        else:
+            shutil.copy2(orig_bak, p)
 
-root99, id99, uid99 = load_xml(KB99_PATH)
-root100, id100, uid100 = load_xml(KB100_PATH)
-root101, id101, uid101 = load_xml(KB101_PATH)
-root102, id102, uid102 = load_xml(KB102_PATH)
-root104, id104, uid104 = load_xml(KB104_PATH)
-root105_tmpl, id105_tmpl, uid105_tmpl = load_xml(KB105_PATH + ".orig_bak")
-root106_tmpl, id106_tmpl, uid106_tmpl = load_xml(KB106_PATH + ".orig_bak")
+KB118_PATH = r"E:\ITV\Project\kb118\kb118.prproj"
+
+root99, id99, uid99 = safe_load_xml(KB99_PATH)
+root100, id100, uid100 = safe_load_xml(KB100_PATH)
+root101, id101, uid101 = safe_load_xml(KB101_PATH)
+root102, id102, uid102 = safe_load_xml(KB102_PATH)
+root104, id104, uid104 = safe_load_xml(KB104_PATH)
+root105_tmpl, id105_tmpl, uid105_tmpl = safe_load_xml(KB105_PATH + ".orig_bak")
+root106_tmpl, id106_tmpl, uid106_tmpl = safe_load_xml(KB106_PATH + ".orig_bak")
+root118, id118, uid118 = safe_load_xml(KB118_PATH)
 
 SRC_PROJECTS = {
-    "kb99":  (root99, id99, uid99),
-    "kb100": (root100, id100, uid100),
-    "kb101": (root101, id101, uid101),
-    "kb102": (root102, id102, uid102),
-    "kb104": (root104, id104, uid104),
-    "kb105": (root105_tmpl, id105_tmpl, uid105_tmpl),
-    "kb106": (root106_tmpl, id106_tmpl, uid106_tmpl),
+    k: v for k, v in [
+        ("kb99",  (root99, id99, uid99)),
+        ("kb100", (root100, id100, uid100)),
+        ("kb101", (root101, id101, uid101)),
+        ("kb102", (root102, id102, uid102)),
+        ("kb104", (root104, id104, uid104)),
+        ("kb105", (root105_tmpl, id105_tmpl, uid105_tmpl)),
+        ("kb106", (root106_tmpl, id106_tmpl, uid106_tmpl)),
+        ("kb118", (root118, id118, uid118)),
+    ] if v[0] is not None
 }
 
 GLOBAL_BH_POOL = {}
 for _r, _, _ in SRC_PROJECTS.values():
-    for _e in _r.iter():
-        _bh = _e.attrib.get("BinaryHash")
-        if _bh and (_e.text or "").strip():
-            GLOBAL_BH_POOL[_bh] = _e.text
+    if _r is not None:
+        for _e in _r.iter():
+            _bh = _e.attrib.get("BinaryHash")
+            if _bh and (_e.text or "").strip():
+                GLOBAL_BH_POOL[_bh] = _e.text
 
-AUDIO_ANALYSIS = json.load(open(os.path.join(SCRATCH, "kb105_110_audio_analysis.json"), encoding="utf-8"))
-SFX_CATALOG_DATA = json.load(open(r"E:\.agents\skills\visioncut\resources\sfx_full_catalog.json", encoding="utf-8"))["catalog"]
+audio_analysis_file = os.path.join(SCRATCH, "kb105_110_audio_analysis.json")
+AUDIO_ANALYSIS = json.load(open(audio_analysis_file, encoding="utf-8")) if os.path.exists(audio_analysis_file) else {}
 
-# Build lookup of MasterClips in kb104 for any SFX in the 425-file SFX vault
+sfx_catalog_file = r"E:\.agents\skills\visioncut\resources\sfx_full_catalog.json"
+SFX_CATALOG_DATA = json.load(open(sfx_catalog_file, encoding="utf-8"))["catalog"] if os.path.exists(sfx_catalog_file) else {}
+
+# Build lookup of MasterClips in kb104 for any SFX in the 425-file SFX vault (guarded)
 KB104_SFX_MASTERCLIPS = {}
-for _mc in root104.iter("MasterClip"):
-    _nm = (_mc.findtext("Name") or "").strip()
-    _c_ref = _mc.find(".//Clip")
-    if _nm and _c_ref is not None and _c_ref.attrib.get("ObjectRef") in id104:
-        _ac = id104[_c_ref.attrib["ObjectRef"]]
-        _s_ref = _ac.find(".//Source")
-        if _s_ref is not None and _s_ref.attrib.get("ObjectRef") in id104:
-            KB104_SFX_MASTERCLIPS[_nm] = (_mc.attrib["ObjectUID"], _s_ref.attrib["ObjectRef"])
+if root104 is not None:
+    for _mc in root104.iter("MasterClip"):
+        _nm = (_mc.findtext("Name") or "").strip()
+        _c_ref = _mc.find(".//Clip")
+        if _nm and _c_ref is not None and _c_ref.attrib.get("ObjectRef") in id104:
+            _ac = id104[_c_ref.attrib["ObjectRef"]]
+            _s_ref = _ac.find(".//Source")
+            if _s_ref is not None and _s_ref.attrib.get("ObjectRef") in id104:
+                KB104_SFX_MASTERCLIPS[_nm] = (_mc.attrib["ObjectUID"], _s_ref.attrib["ObjectRef"])
 
 
 def iter_no_pvs(el):
@@ -513,17 +531,12 @@ PLACED_SFX_TEMPLATES = {
     "slip.mp3":                    ("kb105", "2344", 0.71),
     "body-fall-sound-effect.mp3":  ("kb105", "2347", 1.71),
     "slide-whistle-fall-and-boomp.mp3": ("kb105", "2349", 2.34),
-    "What the.mp3":                ("kb105", "2350", 2.50),
     "quick-car-crash.mp3":         ("kb105", "2352", 4.00),
-    "(bursts into laughter) Pfft-hahaha!.mp3": ("kb105", "2353", 3.50),
     "fall-and-tumble.mp3":         ("kb105", "2354", 3.80),
     "395325__ihitokage__body-falling-on-the-ground-2_01.mp3": ("kb105", "2355", 1.71),
     "tree_fall_small.mp3":         ("kb106", "2150", 5.59),
     "house-collapse.mp3":          ("kb106", "2159", 6.01),
     "wobbly-junk-crash.mp3":       ("kb106", "2161", 4.30),
-    "Wiii! Wheeee!.mp3":           ("kb106", "2162", 5.71),
-    "ouch.mp3":                    ("kb106", "2163", 3.46),
-    "Whoa, hold on!.mp3":          ("kb106", "2166", 3.96),
 }
 
 # Format: (clip_idx, impact_rel_sec, sfx_filename)
@@ -557,7 +570,7 @@ CONTEXT_SFX_PLANS = {
         (33, 2.48, "395325__ihitokage__body-falling-on-the-ground-2_01.mp3"), # 16 (2).mp4 snow slip flat on back
         (39, 1.50, "slip.mp3"),                       # 24 (2).mp4 scooter rider slips (AHAHAHA!!!!)
         (49, 3.55, "cartoon-boing-2.mp3"),            # 34 (2).mp4 gym trampoline bounce into pit
-        (58, 1.30, "Whoa, hold on!.mp3"),             # 43 (2).mp4 high-speed vehicle on runway
+        (58, 1.30, "car-brake.mp3"),                  # 43 (2).mp4 high-speed vehicle on runway
         (61, 1.48, "hollywoodedge-slide-whistle-in-out-crt057601.mp3"), # 47 (2).mp4 playground spinner launch
         (64, 3.10, "slip-2.mp3"),                     # 51 (2).mp4 gym court slip & wipeout (HOHOHO)
         (68, 2.33, "splash.m4a"),                     # 55 (2).mp4 sliding off boat into water
@@ -572,7 +585,7 @@ CONTEXT_SFX_PLANS = {
         (43, 2.52, "splash.m4a"),                     # 29 (2).mp4 kayak/snow slide into water
         (47, 1.65, "slip-2.mp3"),                     # 35 (2).mp4 woman in red jacket slips on treadmill
         (51, 2.50, "oof.mp3"),                        # 39 (2).mp4 trampoline jump straddles pool wall in groin
-        (54, 4.50, "Whoa, hold on!.mp3"),             # 42 (2).mp4 mountain biker on red rock cliff loses balance
+        (54, 4.50, "wobbly-junk-crash.mp3"),          # 42 (2).mp4 mountain biker on red rock cliff loses balance
         (62, 3.02, "body-fall-sound-effect.mp3"),     # 53 (2).mp4 girl at playground falls flat on ground
         (66, 4.33, "hollywoodedge-slide-whistle-in-out-crt057601.mp3"), # 58 (2).mp4 bicycle wheelie tips back
         (74, 3.60, "metallic-bonk-and-rattle.mp3"),   # 67 (2).mp4 weightlifter collapses backward under barbell
@@ -583,7 +596,7 @@ CONTEXT_SFX_PLANS = {
     "kb108": [
         (0,  0.65, "quick-car-crash.mp3"),            # itv.kb108.1 scooter crashes into parked car
         (6,  2.35, "body-fall-sound-effect.mp3"),     # itv.kb108.7 worker carrying drywall falls backward
-        (13, 4.88, "What the.mp3"),                   # itv.kb108.14 workshop machine surprise
+        (13, 4.88, "tac.mp3"),                        # itv.kb108.14 workshop machine surprise
         (16, 1.50, "slip-2.mp3"),                     # itv.kb108.17 person in garage slips and falls
         (24, 5.65, "wobbly-junk-crash.mp3"),          # 05 (2).mp4 guy on gym weight bench tips over backward
         (31, 0.33, "duck-quack.mp3"),                 # 12 (2).mp4 dog & walker funny step
@@ -787,7 +800,164 @@ def clone_sfx_into_project(sfx_name, dst_root, next_oid_fn):
         sec_el = by_id_tmp[sec_ref.attrib["ObjectRef"]]
         sec_el.find("Content").attrib["ObjectRef"] = new_ams_id
 
-    return new_ti_id
+def is_viralhog_clip(clip_name, media_path=None):
+    """Detects whether footage is from ViralHog."""
+    name_l = (clip_name or "").lower()
+    if "viralhog" in name_l or "vrhog" in name_l:
+        return True
+    if media_path and ("viralhog" in media_path.lower() or "vrhog" in media_path.lower()):
+        return True
+    return False
+
+
+def strip_blur_from_ti(ti_el, by_id):
+    """Removes any Gaussian Blur or Impact_Blur components from clip."""
+    chain_ref = ti_el.find(".//Components")
+    if chain_ref is None or chain_ref.attrib.get("ObjectRef") not in by_id:
+        return
+    chain_el = by_id[chain_ref.attrib["ObjectRef"]]
+    cc_inner = chain_el.find("ComponentChain")
+    if cc_inner is None:
+        return
+    comps_el = cc_inner.find("Components")
+    if comps_el is None:
+        return
+    kept = []
+    for c in comps_el.findall("Component"):
+        c_oid = c.attrib.get("ObjectRef")
+        if c_oid in by_id:
+            mname = by_id[c_oid].findtext(".//MatchName") or ""
+            if any(k in mname for k in ["Blur", "Impact_Blur", "GaussianBlur", "FastBlur"]):
+                continue
+        kept.append(c_oid)
+    comps_el.clear()
+    comps_el.attrib["Version"] = "1"
+    for i, oid in enumerate(kept):
+        sub = ET.SubElement(comps_el, "Component")
+        sub.attrib["Index"] = str(i)
+        sub.attrib["ObjectRef"] = oid
+
+
+def set_clip_scale_and_crop(ti_el, by_id, scale_pct=100.0):
+    """Set Scale in AE.ADBE Motion component."""
+    co = ti_el.find(".//ComponentOwner")
+    vcc_ref = co.find("Components") if co is not None else ti_el.find(".//Components")
+    if vcc_ref is None or vcc_ref.attrib.get("ObjectRef") not in by_id:
+        return
+    vcc = by_id[vcc_ref.attrib["ObjectRef"]]
+    cc = vcc.find("ComponentChain")
+    if cc is None:
+        return
+    comps = cc.find("Components")
+    if comps is None:
+        return
+    for c_ref in comps.findall("Component"):
+        c_oid = c_ref.attrib.get("ObjectRef")
+        if c_oid not in by_id:
+            continue
+        c_el = by_id[c_oid]
+        mname = c_el.findtext(".//MatchName") or ""
+        if mname == "AE.ADBE Motion":
+            params = c_el.find(".//Params")
+            if params is not None:
+                for p_ref in params:
+                    p_oid = p_ref.attrib.get("ObjectRef")
+                    if p_oid not in by_id:
+                        continue
+                    p_el = by_id[p_oid]
+                    pname = p_el.findtext("Name") or ""
+                    if pname == "Scale":
+                        cv = p_el.find("CurrentValue")
+                        if cv is not None:
+                            cv.text = str(float(scale_pct))
+
+
+V8_GRAPHIC_SEMANTIC_MAP = {
+    "she_fine": ("2244", "*SHE’S FINE"),
+    "he_fine": ("2245", "*HE’S FINE"),
+    "dont_try": ("2246", "*DON’T TRY"),
+    "driver_okay": ("2247", "*THE DRIVER IS OKAY"),
+    "all_safe": ("2240", "*ALL SAFE"),
+    "all_good": ("2238", "*ALL GOOD"),
+    "nobody_hurt": ("2239", "*NOBODY GOT HURT"),
+}
+
+
+def select_v8_disclaimer_for_clip(name, text="", is_heavy_accident=True):
+    """
+    Selects verified V8 disclaimer template ObjectID (2238..2248) based on context:
+    - Eliminates naive modulo loop (index % 4 == 1).
+    - Only placed on genuine heavy fall / vehicle accident / stunt clips.
+    - Strictly matches subject:
+      * Solo male: *HE'S FINE (2245)
+      * Solo female: *SHE'S FINE (2244)
+      * Vehicle accident: *THE DRIVER IS OKAY (2247)
+      * Dangerous stunt: *DON'T TRY (2246)
+      * Multiple people: *NOBODY GOT HURT (2239) or *ALL SAFE (2240)
+      * Neutral/general: *ALL GOOD (2238)
+    - Uses regex word boundary matching with non-alphanumeric token normalization
+      to avoid substring false positives (e.g., 'carpet' -> 'car', 'chair collapse' -> 'collapse').
+    """
+    if not is_heavy_accident:
+        return None
+
+    import re
+
+    raw_text = (name or "") + " " + (text or "")
+    combined = re.sub(r"[^a-zA-Z0-9]+", " ", raw_text).lower()
+
+    # Category 1: Vehicle accidents -> *THE DRIVER IS OKAY (2247)
+    # Enforces word boundaries so 'carpet', 'carrots', 'scarf' do not trigger vehicle disclaimer
+    if re.search(r"\b(car|cars|auto|autos|vehicle|vehicles|driver|drivers|scooter|scooters|motorcycle|motorcycles|bike|bikes|highway|truck|trucks|boat|boats|kart|karts)\b", combined):
+        return "2247"  # *THE DRIVER IS OKAY
+
+    # Category 2: Dangerous stunts -> *DON’T TRY (2246)
+    if re.search(r"\b(stunt|stunts|fire|ladder|ladders|roof|roofs|electricity|electric|diy|workshop|saw|saws|axe|axes)\b", combined):
+        return "2246"  # *DON’T TRY
+
+    # Category 3: Solo female -> *SHE’S FINE (2244)
+    if re.search(r"\b(girl|girls|woman|women|she|female|females|gymnast|gymnasts|lady|ladies|mom|moms)\b", combined):
+        return "2244"  # *SHE’S FINE
+
+    # Category 4: Solo male -> *HE’S FINE (2245)
+    if re.search(r"\b(guy|guys|man|men|he|male|males|bro|bros|worker|workers|boy|boys|dad|dads)\b", combined):
+        return "2245"  # *HE’S FINE
+
+    # Category 5: Multiple people -> *NOBODY GOT HURT (2239) / *ALL SAFE (2240)
+    # Enforce multiple people context; isolated object collapse without group keywords falls through to *ALL GOOD
+    if re.search(r"\b(crowd|crowds|people|team|teams|friends|couple|couples|bystanders|group|groups)\b", combined):
+        return "2239"  # *NOBODY GOT HURT
+
+    # Category 6: General / neutral heavy accident -> *ALL GOOD (2238)
+    return "2238"      # *ALL GOOD
+
+
+import builtins
+builtins.select_v8_disclaimer_for_clip = select_v8_disclaimer_for_clip
+
+
+PHYSICAL_COLLISION_SFX = {
+    "sword-hit.mp3",
+    "slip-2.mp3",
+    "bone-crack.mp3",
+    "metallic-bonk-and-rattle.mp3",
+    "bone-fracture.mp3",
+    "gmod-fall-damage-1.mp3",
+    "bonk.mp3",
+    "cartoonsplash.mp3",
+    "car-brake.mp3",
+    "goosh.mp3",
+    "quick-car-crash.mp3",
+    "body-impact.mp3",
+    "splash.m4a",
+    "oof.mp3",
+    "bamboo-hit.mp3",
+    "crash-metal-shatter.mp3",
+    "boin4.mp3",
+    "slip.mp3",
+    "tree_fall_small.mp3",
+    "body-fall-sound-effect.mp3",
+}
 
 
 def process_project(kb):
@@ -1014,13 +1184,26 @@ def process_project(kb):
         idx = cinfo["index"]
         name = cinfo["name"]
         ti_el = cinfo["ti_el"]
+
+        # Requirement R2: Strict ViralHog Zoom-Only Rule (Scale >= 115.0%, zero blur)
+        if is_viralhog_clip(name):
+            set_clip_scale_and_crop(ti_el, by_id, scale_pct=118.0)
+            strip_blur_from_ti(ti_el, by_id)
+            continue
+
+        # Requirement R1: For Part 1 clips, enforce InPoint == 0 (zero timeline overrides)
+        if name.startswith("itv."):
+            in_el = ti_el.find(".//In")
+            if in_el is not None:
+                in_el.text = "0"
+
         chain_el = by_id[ti_el.find(".//Components").attrib["ObjectRef"]]
         cc_inner = chain_el.find("ComponentChain")
         comps_el = cc_inner.find("Components")
         has_blur = (
             comps_el is not None
             and any(
-                by_id[c.attrib["ObjectRef"]].findtext("MatchName") == "AE.Impact_Blur_FX"
+                by_id[c.attrib["ObjectRef"]].findtext("MatchName") in ("AE.Impact_Blur_FX", "AE.ADBE Fast Blur", "AE.ADBE Gaussian Blur")
                 for c in comps_el.findall("Component")
                 if c.attrib["ObjectRef"] in by_id
             )
@@ -1036,6 +1219,8 @@ def process_project(kb):
                 tmpl_choice = ("100", "8264")
             elif kb == "kb110":
                 tmpl_choice = ("105", "2425") if idx <= 2 else ("100", "8264")
+            else:
+                tmpl_choice = ("105", "2425")
         elif idx in extra_cfg.get("single_bc", []) and idx in extra_cfg.get("single_tl", []):
             tmpl_choice = ("105", "2425")
         elif idx in extra_cfg.get("single_bc", []):
@@ -1109,11 +1294,26 @@ def process_project(kb):
 
     v8_added = 0
     for cinfo in v3_clips:
-        if cinfo["start_ticks"] < existing_v8_end + int(2.0 * TICKS_PER_SEC):
+        if cinfo["start_ticks"] < existing_v8_end + int(8.0 * TICKS_PER_SEC):
             continue
-        if cinfo["index"] % 4 == 1 or cinfo["index"] in emoji_clip_set:
-            tmpl_g_id = V8_GRAPHIC_TEMPLATES_100[(cinfo["index"] + v8_added) % len(V8_GRAPHIC_TEMPLATES_100)]
-            new_g_ti_id, _, _ = clone_subgraph_into("id", tmpl_g_id, id100, uid100, root, next_oid)
+        # Eliminate modulo loop (index % 4 == 1). Strictly match genuine heavy accident / stunt context
+        raw_name = re.sub(r"[^a-zA-Z0-9]+", " ", cinfo["name"]).lower()
+        is_accident = (
+            cinfo["index"] in emoji_clip_set
+            or bool(re.search(r"\b(crash|fall|slip|stunt|motorcycle|bike|hit|drop|flip|tumble|wipeout|skate|collision|wreck)\b", raw_name))
+        )
+        if not is_accident:
+            continue
+
+        tmpl_choice = select_v8_disclaimer_for_clip(cinfo["name"], is_heavy_accident=True)
+        if not tmpl_choice:
+            continue
+
+        tmpl_g_id = tmpl_choice
+        src_id_map = by_id if tmpl_g_id in by_id else (id118 if "id118" in globals() and id118 else (id100 if id100 else by_id))
+        src_uid_map = by_uid if tmpl_g_id in by_id else (uid118 if "uid118" in globals() and uid118 else (uid100 if uid100 else by_uid))
+        if tmpl_g_id in src_id_map:
+            new_g_ti_id, _, _ = clone_subgraph_into("id", tmpl_g_id, src_id_map, src_uid_map, root, next_oid)
             refresh_maps()
             set_trackitem_timing(by_id[new_g_ti_id], by_id, cinfo["start_ticks"], cinfo["end_ticks"], preserve_inpoint=True)
             append_ti_to_track(v8_cont, new_g_ti_id)
@@ -1145,6 +1345,11 @@ def process_project(kb):
         if clip_idx >= len(v3_clips):
             continue
         cinfo = v3_clips[clip_idx]
+
+        # Requirement R3: 0 collision SFX on audible Track A1 camera audio (Part 1 clips)
+        if cinfo["name"].startswith("itv."):
+            if any(c_sfx in sfx_name.lower() for c_sfx in PHYSICAL_COLLISION_SFX):
+                continue
         cat_info = SFX_CATALOG_DATA.get(sfx_name, {"dur_sec": 1.5, "peak_offset_sec": 0.25})
         full_dur_sec = cat_info["dur_sec"]
         peak_off_sec = cat_info["peak_offset_sec"]
@@ -1202,6 +1407,28 @@ def process_project(kb):
         bgm_intervals.append((st_ticks, en_ticks))
         bgm_added += 1
     reindex_track_items(a5_cont)
+
+    # Requirement R3: 100% SFX coverage on silent clips under Track A5 BGM
+    for b_st, b_en in bgm_intervals:
+        for cinfo in v3_clips:
+            if not (cinfo["end_ticks"] <= b_st or cinfo["start_ticks"] >= b_en):
+                has_sfx = any(
+                    not (sfx_en <= cinfo["start_ticks"] or sfx_st >= cinfo["end_ticks"])
+                    for sfx_st, sfx_en in existing_a3_intervals
+                )
+                if not has_sfx:
+                    safe_montage_sfx = "body-impact.mp3"
+                    cat_info = SFX_CATALOG_DATA.get(safe_montage_sfx, {"dur_sec": 1.2, "peak_offset_sec": 0.25})
+                    play_dur = min(cat_info["dur_sec"], 2.0)
+                    sfx_st = cinfo["start_ticks"] + (cinfo["end_ticks"] - cinfo["start_ticks"]) // 2
+                    sfx_en = min(total_ticks, sfx_st + int(round(play_dur * TICKS_PER_SEC)))
+                    if not overlaps_any(sfx_st, sfx_en, a2_intervals):
+                        new_sfx_ti_id = clone_sfx_into_project(safe_montage_sfx, root, next_oid)
+                        refresh_maps()
+                        set_trackitem_timing(by_id[new_sfx_ti_id], by_id, sfx_st, sfx_en, preserve_inpoint=False, explicit_in_ticks=0)
+                        append_ti_to_track(a3_cont, new_sfx_ti_id)
+                        existing_a3_intervals.append((sfx_st, sfx_en))
+    reindex_track_items(a3_cont)
 
     # Remove dead-silent A1 clips that fall inside the silent BGM intervals (just like kb100..kb105)
     a1_cont = get_track_items_container(atg, 0)
@@ -1301,6 +1528,37 @@ def process_project(kb):
                 sub.text = v
         a1_esp_count += 1
 
+    # 12. Populate Track V5 (MOGRT Subtitles 100% Synchronized with Track A2 VO)
+    v5_cont = get_track_items_container(vtg, 4)
+    v5_items = v5_cont.findall("TrackItem")
+    a2_items = a2_cont.findall("TrackItem")
+
+    for idx, a2_ref in enumerate(a2_items):
+        a2_ti = by_id[a2_ref.attrib["ObjectRef"]]
+        a2_st = int(a2_ti.findtext(".//Start") or 0)
+        a2_en = int(a2_ti.findtext(".//End") or 0)
+
+        if idx < len(v5_items):
+            v5_ti = by_id[v5_items[idx].attrib["ObjectRef"]]
+            set_trackitem_timing(v5_ti, by_id, a2_st, a2_en, preserve_inpoint=False, explicit_in_ticks=0)
+        else:
+            tmpl_v5_oid = v5_items[0].attrib["ObjectRef"] if v5_items else None
+            if tmpl_v5_oid and tmpl_v5_oid in by_id:
+                new_v5_ti_id, _, _ = clone_subgraph_into("id", tmpl_v5_oid, by_id, by_uid, root, next_oid)
+                refresh_maps()
+                v5_ti = by_id[new_v5_ti_id]
+                set_trackitem_timing(v5_ti, by_id, a2_st, a2_en, preserve_inpoint=False, explicit_in_ticks=0)
+                append_ti_to_track(v5_cont, new_v5_ti_id)
+
+    if len(v5_items) > len(a2_items):
+        kept_v5 = v5_items[:len(a2_items)]
+        v5_cont.clear()
+        v5_cont.attrib["Version"] = "1"
+        for i, it in enumerate(kept_v5):
+            it.attrib["Index"] = str(i)
+            v5_cont.append(it)
+    reindex_track_items(v5_cont)
+
     # Canonicalize into exact Premiere Pro BFS discovery order and serialize
     canon_root, id_map = canonicalize_prproj(root, dict(GLOBAL_BH_POOL))
     gz_bytes = serialize_prproj_bytes(canon_root)
@@ -1316,6 +1574,7 @@ def process_project(kb):
 
 
 if __name__ == "__main__":
-    for kb_name in ["kb105", "kb106", "kb107", "kb108", "kb109", "kb110"]:
+    targets = sys.argv[1:] if len(sys.argv) > 1 else [f"kb{i}" for i in range(118, 122) if os.path.exists(rf"E:\ITV\Project\kb{i}\kb{i}.prproj")]
+    for kb_name in targets:
         process_project(kb_name)
 

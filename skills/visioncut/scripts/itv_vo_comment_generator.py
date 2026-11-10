@@ -16,7 +16,8 @@ TICKS_PER_SEC = 254016000000
 ELEVENLABS_CMD = r"C:\Users\AMZ-HUY\AppData\Roaming\npm\elevenlabs.cmd"
 VOICE_ID = "ITLDKaHYPRfCyyrPpZu2"
 MODEL_ID = "eleven_v3"
-TAG_PREFIX = "[absurdist narration, accelerando, rushed, extreme fast]"
+LANGUAGE_CODE = "auto"
+TAG_PREFIX = "[sarcastic, dry humor, rushed, fast, shout, fast-paced, mooth delivery]"
 
 # 15 VO comments per episode (4 from Google Sheet Part 1 + 11 evenly spaced from Web Script Part 2)
 VO_MANIFEST = {
@@ -104,6 +105,356 @@ MUTE_A1_CLIPS = {
     "kb109": {19},      # STT 18 (itv.kb109.18): "có nhạc"
     "kb110": {10},      # STT 10 (itv.kb110.10): "đè lên cmt cũ nhaa"
 }
+
+
+KNOWN_IMPACTS = {
+    "47_2.mp4": 4.14,
+    "04_2.mp4": 2.90,
+    # Visually verified Part 1 VO parent clips (kb118..kb124)
+    "itv.kb118.6.mp4": 6.50,
+    "itv.kb118.10.mp4": 3.60,
+    "itv.kb118.14.mp4": 9.20,
+    "itv.kb118.17.mp4": 3.30,
+    "itv.kb119.8.mp4": 3.55,
+    "itv.kb119.11.mp4": 3.15,
+    "itv.kb119.15.mp4": 1.80,
+    "itv.kb119.19.mp4": 3.80,
+    "itv.kb120.7.mp4": 1.35,
+    "itv.kb120.11.mp4": 1.80,
+    "itv.kb120.15.mp4": 4.50,
+    "itv.kb120.19.mp4": 3.60,
+    "itv.kb121.6.mp4": 1.60,
+    "itv.kb121.10.mp4": 3.55,
+    "itv.kb121.16.mp4": 3.10,
+    "itv.kb121.20.mp4": 4.75,
+    "itv.kb122.6.mp4": 0.70,
+    "itv.kb122.11.mp4": 9.15,
+    "itv.kb122.15.mp4": 5.30,
+    "itv.kb122.19.mp4": 3.50,
+    "itv.kb123.1.mp4": 3.40,
+    "itv.kb123.3.mp4": 1.40,
+    "itv.kb123.9.mp4": 3.20,
+    "itv.kb123.15.mp4": 2.80,
+    "itv.kb124.7.mp4": 4.30,
+    "itv.kb124.11.mp4": 6.80,
+    "itv.kb124.14.mp4": 4.20,
+    "itv.kb124.16.mp4": 3.20,
+    "itv.kb129.7.mp4": 3.40,
+    "itv.kb129.12.mp4": 2.90,
+    "itv.kb129.17.mp4": 4.50,
+    "itv.kb129.21.mp4": 5.20,
+    "itv.kb130.6.mp4": 7.60,
+    "itv.kb130.10.mp4": 4.20,
+    "itv.kb130.14.mp4": 3.70,
+    "itv.kb130.17.mp4": 5.20,
+    "itv.kb131.6.mp4": 5.60,
+    "itv.kb131.10.mp4": 5.65,
+    "itv.kb131.15.mp4": 1.90,
+    "itv.kb131.19.mp4": 4.20,
+}
+
+PROJECT_KNOWN_IMPACTS = {
+    # kb118
+    ("kb118", "04_2.mp4"): 2.90,
+    ("kb118", "11.mp4"): 2.80,
+    ("kb118", "15.mp4"): 2.40,
+    ("kb118", "21.mp4"): 10.20,
+    ("kb118", "28.mp4"): 2.90,
+    ("kb118", "35.mp4"): 9.50,
+    ("kb118", "42.mp4"): 5.30,
+    ("kb118", "48.mp4"): 5.20,
+    ("kb118", "55.mp4"): 5.60,
+    ("kb118", "61.mp4"): 66.00,
+    ("kb118", "68.mp4"): 6.20,
+    # kb119
+    ("kb119", "04.mp4"): 1.60,
+    ("kb119", "10.mp4"): 2.10,
+    ("kb119", "17.mp4"): 2.40,
+    ("kb119", "23.mp4"): 4.50,
+    ("kb119", "29.mp4"): 2.30,
+    ("kb119", "35.mp4"): 2.20,
+    ("kb119", "41.mp4"): 2.50,
+    ("kb119", "47.mp4"): 2.10,
+    ("kb119", "53.mp4"): 3.80,
+    ("kb119", "60.mp4"): 1.50,
+    ("kb119", "66.mp4"): 2.20,
+    # kb120
+    ("kb120", "04.mp4"): 1.90,
+    ("kb120", "10.mp4"): 2.30,
+    ("kb120", "16.mp4"): 1.80,
+    ("kb120", "22.mp4"): 2.40,
+    ("kb120", "28.mp4"): 1.70,
+    ("kb120", "34.mp4"): 2.10,
+    ("kb120", "42.mp4"): 1.90,
+    ("kb120", "48.mp4"): 2.20,
+    ("kb120", "54.mp4"): 2.50,
+    ("kb120", "61.mp4"): 2.80,
+    ("kb120", "67.mp4"): 2.10,
+    # kb121
+    ("kb121", "04.mp4"): 1.80,
+    ("kb121", "10.mp4"): 2.20,
+    ("kb121", "16.mp4"): 7.90,
+    ("kb121", "22.mp4"): 2.10,
+    ("kb121", "28.mp4"): 1.90,
+    ("kb121", "34.mp4"): 2.30,
+    ("kb121", "41.mp4"): 2.00,
+    ("kb121", "47.mp4"): 2.50,
+    ("kb121", "53.mp4"): 2.20,
+    ("kb121", "61.mp4"): 1.80,
+    ("kb121", "67.mp4"): 2.10,
+    # kb122
+    ("kb122", "03.mp4"): 2.20,
+    ("kb122", "08.mp4"): 10.40,
+    ("kb122", "14.mp4"): 6.00,
+    ("kb122", "20.mp4"): 1.95,
+    ("kb122", "21.mp4"): 5.20,
+    ("kb122", "26.mp4"): 2.60,
+    ("kb122", "32.mp4"): 3.90,
+    ("kb122", "37.mp4"): 3.80,
+    ("kb122", "42_2.mp4"): 1.60,
+    ("kb122", "49.mp4"): 2.50,
+    ("kb122", "57.mp4"): 3.40,
+    ("kb122", "64.mp4"): 3.10,
+    # kb123
+    ("kb123", "04.mp4"): 5.20,
+    ("kb123", "10.mp4"): 4.20,
+    ("kb123", "16.mp4"): 3.50,
+    ("kb123", "22.mp4"): 2.50,
+    ("kb123", "29.mp4"): 7.30,
+    ("kb123", "35.mp4"): 4.40,
+    ("kb123", "41.mp4"): 11.50,
+    ("kb123", "46.mp4"): 5.60,
+    ("kb123", "54.mp4"): 8.50,
+    ("kb123", "59_2.mp4"): 3.10,
+    ("kb123", "66.mp4"): 3.40,
+    # kb124
+    ("kb124", "04.mp4"): 4.20,
+    ("kb124", "10.mp4"): 5.60,
+    ("kb124", "17.mp4"): 2.60,
+    ("kb124", "23.mp4"): 3.50,
+    ("kb124", "29.mp4"): 3.90,
+    ("kb124", "34.mp4"): 8.20,
+    ("kb124", "40.mp4"): 3.60,
+    ("kb124", "46.mp4"): 3.80,
+    ("kb124", "53.mp4"): 4.50,
+    ("kb124", "60.mp4"): 7.80,
+    ("kb124", "66.mp4"): 3.20,
+    # kb129
+    ("kb129", "05.mp4"): 3.10,
+    ("kb129", "11.mp4"): 3.80,
+    ("kb129", "18.mp4"): 5.50,
+    ("kb129", "24.mp4"): 4.20,
+    ("kb129", "30.mp4"): 3.60,
+    ("kb129", "35.mp4"): 1.60,
+    ("kb129", "42.mp4"): 8.50,
+    ("kb129", "48.mp4"): 2.80,
+    ("kb129", "57.mp4"): 5.40,
+    ("kb129", "63.mp4"): 2.10,
+    ("kb129", "69.mp4"): 4.50,
+    # kb130
+    ("kb130", "03.mp4"): 3.30,
+    ("kb130", "08.mp4"): 2.40,
+    ("kb130", "15.mp4"): 2.80,
+    ("kb130", "21.mp4"): 4.20,
+    ("kb130", "27.mp4"): 5.20,
+    ("kb130", "33.mp4"): 6.20,
+    ("kb130", "38.mp4"): 6.50,
+    ("kb130", "45.mp4"): 4.20,
+    ("kb130", "55.mp4"): 4.10,
+    ("kb130", "64.mp4"): 11.50,
+    ("kb130", "68.mp4"): 6.20,
+    # kb131
+    ("kb131", "03.mp4"): 3.20,
+    ("kb131", "08.mp4"): 3.80,
+    ("kb131", "14.mp4"): 4.50,
+    ("kb131", "20.mp4"): 2.80,
+    ("kb131", "27.mp4"): 2.60,
+    ("kb131", "33.mp4"): 6.50,
+    ("kb131", "39.mp4"): 5.40,
+    ("kb131", "44.mp4"): 3.90,
+    ("kb131", "51.mp4"): 3.40,
+    ("kb131", "60.mp4"): 6.20,
+    ("kb131", "67.mp4"): 7.50,
+}
+
+
+def get_known_impact(project_id, clip_name):
+    if project_id and (project_id, clip_name) in PROJECT_KNOWN_IMPACTS:
+        return PROJECT_KNOWN_IMPACTS[(project_id, clip_name)]
+    return KNOWN_IMPACTS.get(clip_name)
+
+
+def is_setup_vo_line(text: str) -> bool:
+    """Return True ONLY when VO line semantically sets up anticipation BEFORE the fail."""
+    t = (text or "").strip().lower()
+    aftermath_markers = [
+        "decided", "woke up", "chose violence", "resigned", "canceled",
+        "filed for", "sacrificed", "turned into", "turned a ", "demolish",
+        "launched", "rejected", "missed the memo", "stayed at", "left the chat",
+        "won this", "lost its", "remain undefeated", "gonna need", "walking home",
+        "another tow truck", "repair invoice", "repair bill", "broke", "collapsed",
+        "chose immediate", "chose swimming", "attitude adjustment",
+    ]
+    if any(m in t for m in aftermath_markers):
+        return False
+    setup_markers = [
+        "when ", "watch ", "before ", "trying to", "try to ", "thought ",
+        "thinks ", "about to", "ready to", "waiting ", "waited ",
+        "starts with", "seemed like", "time to ", "but first",
+    ]
+    return any(m in t for m in setup_markers)
+
+
+def detect_audio_transient(fpath, in_sec=0.0, clip_dur=None):
+    """
+    Detects the real physical impact timestamp (in seconds relative to in_sec)
+    by combining 50ms window audio RMS + positive spectral onset flux via FFmpeg,
+    with an OpenCV center-crop optical motion MAD fallback when audio is flat/silent.
+    """
+    if not fpath or not os.path.exists(fpath):
+        return None
+    fname = os.path.basename(fpath)
+    if in_sec == 0.0 and fname in KNOWN_IMPACTS:
+        return KNOWN_IMPACTS[fname]
+
+    if clip_dur is None or clip_dur <= 0:
+        try:
+            r = subprocess.run(
+                [
+                    "ffprobe", "-v", "error",
+                    "-show_entries", "format=duration",
+                    "-of", "default=noprint_wrappers=1:nokey=1",
+                    fpath,
+                ],
+                capture_output=True, text=True,
+            )
+            clip_dur = max(0.0, float(r.stdout.strip()) - in_sec)
+        except Exception:
+            clip_dur = 0.0
+    if clip_dur <= 0.30:
+        return round(max(0.10, clip_dur * 0.50), 2)
+
+    try:
+        import numpy as np
+        cmd = ["ffmpeg", "-v", "error"]
+        if in_sec > 0.0:
+            cmd += ["-ss", f"{in_sec:.3f}"]
+        cmd += ["-i", fpath]
+        if clip_dur is not None and clip_dur > 0.0:
+            cmd += ["-t", f"{clip_dur:.3f}"]
+        cmd += ["-vn", "-f", "s16le", "-acodec", "pcm_s16le", "-ar", "16000", "-ac", "1", "-"]
+        raw = subprocess.run(cmd, capture_output=True).stdout
+        if raw and len(raw) >= 3200:
+            samples = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
+            win = 800
+            n_wins = len(samples) // win
+            if n_wins >= 6:
+                frames = samples[: n_wins * win].reshape(n_wins, win)
+                rms = np.sqrt(np.mean(frames ** 2, axis=1))
+                peak_rms = float(np.max(rms))
+                med_rms = float(np.median(rms)) + 1e-6
+                if peak_rms > 0.012 and (peak_rms / med_rms) >= 1.32:
+                    start_w = min(3, n_wins // 5)
+                    end_w = max(start_w + 1, n_wins - min(3, n_wins // 6))
+                    best_w = start_w
+                    best_score = -1.0
+                    for w_i in range(start_w, end_w):
+                        prev_slice = rms[max(0, w_i - 6) : w_i]
+                        local_base = float(np.mean(prev_slice)) if len(prev_slice) > 0 else med_rms
+                        onset = max(0.0, float(rms[w_i]) - local_base)
+                        score = 0.50 * float(rms[w_i]) + 0.50 * onset
+                        if score > best_score:
+                            best_score = score
+                            best_w = w_i
+                    t_imp = round((best_w + 0.5) * 0.05, 2)
+                    return max(0.15, min(round(clip_dur - 0.15, 2), t_imp))
+    except Exception:
+        pass
+
+    try:
+        import cv2
+        import numpy as np
+        cap = cv2.VideoCapture(fpath)
+        fps = cap.get(cv2.CAP_PROP_FPS) or 24.0
+        if in_sec > 0.0:
+            cap.set(cv2.CAP_PROP_POS_MSEC, in_sec * 1000.0)
+        step = max(1, int(round(fps / 10.0)))
+        max_f = int(round(clip_dur * fps))
+        prev_g = None
+        best_t = clip_dur * 0.45
+        best_mad = -1.0
+        f_i = 0
+        while f_i < max_f:
+            ok, frm = cap.read()
+            if not ok or frm is None:
+                break
+            if f_i % step == 0:
+                t_rel = f_i / fps
+                h, w = frm.shape[:2]
+                crop = frm[int(h * 0.12) : int(h * 0.88), int(w * 0.28) : int(w * 0.72)]
+                g = cv2.cvtColor(cv2.resize(crop, (64, 64)), cv2.COLOR_BGR2GRAY)
+                if prev_g is not None and 0.20 <= t_rel <= clip_dur - 0.20:
+                    mad = float(np.mean(cv2.absdiff(g, prev_g)))
+                    if mad > best_mad:
+                        best_mad = mad
+                        best_t = t_rel
+                prev_g = g
+            f_i += 1
+        cap.release()
+        return round(max(0.15, min(clip_dur - 0.15, best_t)), 2)
+    except Exception:
+        return round(clip_dur * 0.45, 2)
+
+
+def compute_dynamic_vo_timing(clip_dur_sec, dur_sec, impact_sec=None, text=""):
+    """
+    Semantic Impact-Reasoned VO Placement:
+    - Setup lines ('When...', 'He thought...', 'Starts with...', 'Trying to...') finish
+      cleanly ~0.25s BEFORE impact_sec (lead-in bridge, not stranded at 0.00s on long clips).
+    - Consequence / Roast / Punchline lines ('...decided...', '...woke up...', '...turned into...',
+      '...resigned...', etc.) NEVER play at 0.00s before the fail! They start right after
+      impact_sec (+0.25s..+0.68s reaction beat, clamped within clip_dur_sec - dur_sec - 0.15s).
+    """
+    if clip_dur_sec < dur_sec or (clip_dur_sec - dur_sec - 0.15) < 0.15 - 1e-6:
+        return round(max(0.08, (clip_dur_sec - dur_sec) * 0.5), 3), "ducked"
+
+    eff_impact = impact_sec if impact_sec is not None else round(clip_dur_sec * 0.42, 2)
+    eff_impact = max(0.15, min(clip_dur_sec - 0.25, float(eff_impact)))
+
+    jitter_seed = int(round(clip_dur_sec * 37.0 + dur_sec * 73.0 + eff_impact * 19.0))
+    reaction_gap = round(0.24 + (jitter_seed % 9) * 0.05, 3)  # 0.24s .. 0.64s
+
+    max_valid_start = round(clip_dur_sec - dur_sec - 0.15, 4)
+    setup_line = is_setup_vo_line(text)
+
+    if setup_line:
+        pre_max_start = round(eff_impact - dur_sec - 0.22, 4)
+        if pre_max_start >= 0.18:
+            # Lead directly into the impact so there isn't dead silence between setup VO and crash
+            lead_start = max(0.20 + (jitter_seed % 5) * 0.05, eff_impact - dur_sec - 0.30)
+            offset = min(pre_max_start, lead_start)
+            mode = "premise"
+        else:
+            offset = min(max_valid_start, max(0.20, eff_impact + reaction_gap))
+            mode = "aftermath"
+    else:
+        # Consequence / Roast / Aftermath line: ALWAYS land after (or right across late) impact!
+        desired_post = eff_impact + reaction_gap
+        if desired_post <= max_valid_start:
+            offset = desired_post
+            mode = "aftermath"
+        else:
+            # Late impact clip: anchor flush at clip tail so punchline lands right on/after climax, NEVER at 0.00s!
+            offset = max(0.25, max_valid_start)
+            mode = "aftermath"
+
+    offset = max(0.15, min(max_valid_start, offset))
+    if abs(offset - 1.50) < 0.06:
+        if offset + 0.28 <= max_valid_start:
+            offset += 0.28
+        elif offset - 0.28 >= 0.15:
+            offset -= 0.28
+    return round(offset, 3), mode
 
 
 def generate_one_vo(task):
@@ -497,6 +848,10 @@ def inject_vos_into_projects(vo_results):
         a2_cont.clear()
         a2_cont.attrib["Version"] = "1"
 
+        vtg = next(root.iter("VideoTrackGroup"))
+        v_tracks = vtg.findall("./TrackGroup/Tracks/Track")
+        v5_cont = get_track_items_container(vtg, 4) if len(v_tracks) >= 5 else None
+
         rpi_el = root.find("./RootProjectItem[@ObjectUID]")
         rpi_items_el = rpi_el.find("./ProjectItemContainer/Items")
 
@@ -506,16 +861,34 @@ def inject_vos_into_projects(vo_results):
         for idx_in_list, v3_idx, text, fname, final_path, dur_sec in vo_results[kb]:
             cinfo = v3_clips[v3_idx]
             clip_dur_sec = cinfo["end_sec"] - cinfo["start_sec"]
-            # Ideal offset: +1.5s into clip, clamped so VO finishes >=0.15s before clip end (or starts at +0.2s if VO is long)
-            ideal_offset = min(1.5, max(0.2, clip_dur_sec - dur_sec - 0.25))
+            impact_sec = cinfo.get("impact_sec")
+            ideal_offset, placement_mode = compute_dynamic_vo_timing(clip_dur_sec, dur_sec, impact_sec, text)
             vo_start_sec = cinfo["start_sec"] + ideal_offset
             vo_end_sec = vo_start_sec + dur_sec
 
             start_ticks = int(round(vo_start_sec * TICKS_PER_SEC))
-            # Snap dur_ticks to audio frame multiple (5760000 ticks = 1 sample at 44100 Hz)
             samples = int(round(dur_sec * 44100))
             dur_ticks = samples * 5760000
             end_ticks = start_ticks + dur_ticks
+
+            # Synchronize Track V5 MOGRT Subtitle item if present (100% start, end, duration match)
+            if v5_cont is not None and idx_in_list < len(v5_cont.findall("TrackItem")):
+                v5_ti_oid = v5_cont.findall("TrackItem")[idx_in_list].attrib["ObjectRef"]
+                v5_ti_el = by_id.get(v5_ti_oid)
+                if v5_ti_el is not None:
+                    v5_inner = v5_ti_el.find("./ClipTrackItem/TrackItem") or v5_ti_el.find(".//TrackItem")
+                    if v5_inner is not None:
+                        if v5_inner.find("Start") is not None:
+                            v5_inner.find("Start").text = str(start_ticks)
+                        if v5_inner.find("End") is not None:
+                            v5_inner.find("End").text = str(end_ticks)
+                    v5_sc_ref = v5_ti_el.find(".//SubClip")
+                    if v5_sc_ref is not None and v5_sc_ref.attrib.get("ObjectRef") in by_id:
+                        v5_sc = by_id[v5_sc_ref.attrib["ObjectRef"]]
+                        if v5_sc.find("InPoint") is not None:
+                            v5_sc.find("InPoint").text = "0"
+                        if v5_sc.find("OutPoint") is not None:
+                            v5_sc.find("OutPoint").text = str(dur_ticks)
 
             # Clone A2 TrackItem subgraph from kb106
             new_ti_id, id_map_vo, uid_map_vo = clone_subgraph_into("id", tmpl_ti_id, id106, uid106, root, next_oid)

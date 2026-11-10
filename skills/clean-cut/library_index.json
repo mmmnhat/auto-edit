@@ -3511,6 +3511,1006 @@
       "aspect_ratio": "16:9",
       "hash_orig": 14757243408670825278,
       "hash_flip": 11067903828066688619
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_001.mp4",
+      "duration": 10.41,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15781498195999518846,
+      "hash_flip": 10256510183208429355
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_002.mp4",
+      "duration": 7.81,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15523850799295985920,
+      "hash_flip": 9672211760542018645
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_003.mp4",
+      "duration": 7.71,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10119570990416757734,
+      "hash_flip": 15580947445185926835
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_004.mp4",
+      "duration": 8.68,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13706360801100563991,
+      "hash_flip": 16961563152508867402
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_005.mp4",
+      "duration": 7.11,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9638804245052151338,
+      "hash_flip": 15030407725985637247
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_006.mp4",
+      "duration": 6.77,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9540944079859576022,
+      "hash_flip": 15077325060777195907
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_007.mp4",
+      "duration": 5.87,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15760959827031622863,
+      "hash_flip": 10371640547641872778
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_008.mp4",
+      "duration": 17.25,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15112159666696144622,
+      "hash_flip": 9578092575747576715
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_009.mp4",
+      "duration": 4.4,
+      "aspect_ratio": "16:9",
+      "hash_orig": 17145122046366471184,
+      "hash_flip": 13311210019940794823
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_010.mp4",
+      "duration": 10.14,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15117116748303055373,
+      "hash_flip": 9554277499704340296
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_011.mp4",
+      "duration": 4.27,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15984881692675818017,
+      "hash_flip": 10125466765956683646
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_012.mp4",
+      "duration": 5.17,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11467724193467885108,
+      "hash_flip": 14587404596287320929
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_013.mp4",
+      "duration": 6.17,
+      "aspect_ratio": "16:9",
+      "hash_orig": 12032625828528712798,
+      "hash_flip": 17557331688318679306
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_014.mp4",
+      "duration": 3.27,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9547771355074905149,
+      "hash_flip": 15120042053346956136
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_015.mp4",
+      "duration": 9.91,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9986289670034414288,
+      "hash_flip": 15979678123018456965
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_016.mp4",
+      "duration": 7.11,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15317044811578137545,
+      "hash_flip": 9351238981658840734
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_017.mp4",
+      "duration": 6.94,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11065862491287625290,
+      "hash_flip": 14755063531675175711
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_018.mp4",
+      "duration": 3.34,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15724381746852240451,
+      "hash_flip": 10335036250848151558
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_019.mp4",
+      "duration": 20.42,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9615439901710261489,
+      "hash_flip": 14998590887852494244
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_020.mp4",
+      "duration": 10.11,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10823993292629459929,
+      "hash_flip": 14079336349299021452
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_021.mp4",
+      "duration": 11.98,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10102456576139425372,
+      "hash_flip": 15665334721704633097
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_022.mp4",
+      "duration": 8.44,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14980812544519189209,
+      "hash_flip": 11147478844097241996
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_023.mp4",
+      "duration": 12.81,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14811381699628000975,
+      "hash_flip": 11014059161533624729
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_024.mp4",
+      "duration": 4.84,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11183438869714159142,
+      "hash_flip": 14872815827665326897
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_025.mp4",
+      "duration": 5.54,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14641268946832442983,
+      "hash_flip": 11413645231119303474
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_026.mp4",
+      "duration": 8.91,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14746830472757238128,
+      "hash_flip": 11092948054407171125
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_027.mp4",
+      "duration": 12.48,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11329311490883085388,
+      "hash_flip": 14442093562244313369
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_028.mp4",
+      "duration": 6.14,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10711361374762801435,
+      "hash_flip": 13975570393378229326
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_029.mp4",
+      "duration": 6.81,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11197397362055853030,
+      "hash_flip": 14857780642911446579
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_030.mp4",
+      "duration": 8.54,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14858071591915644109,
+      "hash_flip": 15809723976331112733
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_031.mp4",
+      "duration": 5.84,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13024860481195781466,
+      "hash_flip": 16398957319773485071
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_032.mp4",
+      "duration": 5.47,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10451847250398590316,
+      "hash_flip": 14148406654200373305
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_033.mp4",
+      "duration": 5.61,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15143127749336654793,
+      "hash_flip": 9759976736493614748
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_034.mp4",
+      "duration": 11.18,
+      "aspect_ratio": "16:9",
+      "hash_orig": 16347928044273441484,
+      "hash_flip": 13225617063575670664
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_035.mp4",
+      "duration": 13.78,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15330959727738973530,
+      "hash_flip": 9338169779928053775
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_036.mp4",
+      "duration": 12.88,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11074801842538048938,
+      "hash_flip": 14764150655023528191
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_037.mp4",
+      "duration": 5.81,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10579624310380404079,
+      "hash_flip": 14395533371425282330
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_038.mp4",
+      "duration": 8.61,
+      "aspect_ratio": "16:9",
+      "hash_orig": 12650809587019355543,
+      "hash_flip": 18070096606210835651
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_039.mp4",
+      "duration": 3.3,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15792647881228466228,
+      "hash_flip": 10263585630204685665
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_040.mp4",
+      "duration": 5.54,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13996330854335128014,
+      "hash_flip": 13216274440937616539
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_041.mp4",
+      "duration": 7.34,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14105014345593242626,
+      "hash_flip": 10874599381643743703
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_042.mp4",
+      "duration": 7.74,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10756517517350947261,
+      "hash_flip": 13840555499012824552
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_043.mp4",
+      "duration": 7.54,
+      "aspect_ratio": "16:9",
+      "hash_orig": 12071882100358551337,
+      "hash_flip": 17497229586739609724
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_044.mp4",
+      "duration": 9.24,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13793193285553029921,
+      "hash_flip": 16878947574137247348
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_045.mp4",
+      "duration": 6.87,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9919519261537695078,
+      "hash_flip": 15923711660197158963
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_046.mp4",
+      "duration": 20.45,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11185192019575032257,
+      "hash_flip": 14875000016108821660
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_047.mp4",
+      "duration": 11.78,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11313047746952265443,
+      "hash_flip": 14580212108303674294
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_048.mp4",
+      "duration": 8.41,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10276031423780605491,
+      "hash_flip": 15838764505747462950
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_049.mp4",
+      "duration": 5.11,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11075262598883256140,
+      "hash_flip": 14764534551393739289
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_050.mp4",
+      "duration": 8.58,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11230619821167372745,
+      "hash_flip": 14883966227187838108
+    },
+    {
+      "source_video": "seg_01",
+      "file_name": "s1_051.mp4",
+      "duration": 7.21,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14739309318329013042,
+      "hash_flip": 11068117866095986214
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_001.mp4",
+      "duration": 11.84,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14113992005633726776,
+      "hash_flip": 10847955057636609101
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_002.mp4",
+      "duration": 8.36,
+      "aspect_ratio": "16:9",
+      "hash_orig": 16208675416476522007,
+      "hash_flip": 13089058368094847562
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_003.mp4",
+      "duration": 6.96,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15118955817632491791,
+      "hash_flip": 9554254028953255002
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_004.mp4",
+      "duration": 10.92,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10163729783010718700,
+      "hash_flip": 15589640251528586937
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_005.mp4",
+      "duration": 10.2,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15626531557539068610,
+      "hash_flip": 10198897224161258134
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_006.mp4",
+      "duration": 12.92,
+      "aspect_ratio": "16:9",
+      "hash_orig": 17866908550234810992,
+      "hash_flip": 9412899239385890341
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_007.mp4",
+      "duration": 13.56,
+      "aspect_ratio": "1:1",
+      "hash_orig": 11948249094825219689,
+      "hash_flip": 17331507686397166396
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_008.mp4",
+      "duration": 5.44,
+      "aspect_ratio": "1:1",
+      "hash_orig": 10071074560957554079,
+      "hash_flip": 16038709915569446091
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_009.mp4",
+      "duration": 6.76,
+      "aspect_ratio": "1:1",
+      "hash_orig": 14249563813742271275,
+      "hash_flip": 10562572383200873070
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_010.mp4",
+      "duration": 14.8,
+      "aspect_ratio": "16:9",
+      "hash_orig": 17692046547447844281,
+      "hash_flip": 11588768772266875116
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_011.mp4",
+      "duration": 5.0,
+      "aspect_ratio": "4:5",
+      "hash_orig": 11319755302977952418,
+      "hash_flip": 14432502078197665783
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_012.mp4",
+      "duration": 10.92,
+      "aspect_ratio": "16:9",
+      "hash_orig": 16981763309614989470,
+      "hash_flip": 13834497942490731995
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_013.mp4",
+      "duration": 10.4,
+      "aspect_ratio": "16:9",
+      "hash_orig": 18007313712698454147,
+      "hash_flip": 12444432304569075158
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_014.mp4",
+      "duration": 15.64,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15399147186820007107,
+      "hash_flip": 9286870561799903126
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_015.mp4",
+      "duration": 14.96,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15783737892144056652,
+      "hash_flip": 10258721298054831288
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_016.mp4",
+      "duration": 9.6,
+      "aspect_ratio": "9:16",
+      "hash_orig": 17497209710548118625,
+      "hash_flip": 12071835932927015220
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_017.mp4",
+      "duration": 22.52,
+      "aspect_ratio": "1:1",
+      "hash_orig": 18304184965221254951,
+      "hash_flip": 13353404270785483890
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_018.mp4",
+      "duration": 12.52,
+      "aspect_ratio": "16:9",
+      "hash_orig": 12745304025583732404,
+      "hash_flip": 16552204374941832163
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_019.mp4",
+      "duration": 12.04,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14153057192114290451,
+      "hash_flip": 10483418769850314310
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_020.mp4",
+      "duration": 19.4,
+      "aspect_ratio": "16:9",
+      "hash_orig": 12516126502125990217,
+      "hash_flip": 17935413892838794260
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_021.mp4",
+      "duration": 18.0,
+      "aspect_ratio": "16:9",
+      "hash_orig": 16259880751128299126,
+      "hash_flip": 13039018441886110563
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_022.mp4",
+      "duration": 11.44,
+      "aspect_ratio": "16:9",
+      "hash_orig": 16204609432927551961,
+      "hash_flip": 13093942383949845916
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_023.mp4",
+      "duration": 15.88,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15046753685418750735,
+      "hash_flip": 9623519048087791130
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_024.mp4",
+      "duration": 30.72,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13903473226635485005,
+      "hash_flip": 10783405765685631517
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_025.mp4",
+      "duration": 22.84,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11003529256282778805,
+      "hash_flip": 14826191759839558112
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_026.mp4",
+      "duration": 8.84,
+      "aspect_ratio": "9:16",
+      "hash_orig": 12302312348774393480,
+      "hash_flip": 18370045044012626824
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_027.mp4",
+      "duration": 31.52,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15216949881140325680,
+      "hash_flip": 9761589704890775661
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_028.mp4",
+      "duration": 11.68,
+      "aspect_ratio": "4:5",
+      "hash_orig": 17047694994118699892,
+      "hash_flip": 13386036280319761461
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_029.mp4",
+      "duration": 10.16,
+      "aspect_ratio": "1:1",
+      "hash_orig": 10356221724468863785,
+      "hash_flip": 15775165686809244244
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_030.mp4",
+      "duration": 6.28,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10469825848363174872,
+      "hash_flip": 14130358799677431437
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_031.mp4",
+      "duration": 19.56,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15693314914617022420,
+      "hash_flip": 10132131153120002699
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_032.mp4",
+      "duration": 17.44,
+      "aspect_ratio": "4:5",
+      "hash_orig": 9240300031579805655,
+      "hash_flip": 14225040255707054722
+    },
+    {
+      "source_video": "seg_02",
+      "file_name": "s2_033.mp4",
+      "duration": 10.48,
+      "aspect_ratio": "1:1",
+      "hash_orig": 11104070650617571178,
+      "hash_flip": 14937525417671848476
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_001.mp4",
+      "duration": 9.48,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14321756015089115932,
+      "hash_flip": 10643251023690741353
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_002.mp4",
+      "duration": 6.21,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11808837515045683484,
+      "hash_flip": 17776900089793975369
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_003.mp4",
+      "duration": 9.31,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14165458764138101814,
+      "hash_flip": 10502540453968443747
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_004.mp4",
+      "duration": 11.71,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14685740940026547332,
+      "hash_flip": 10275858406151854481
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_005.mp4",
+      "duration": 8.71,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15843621267624755746,
+      "hash_flip": 10270613761673680743
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_006.mp4",
+      "duration": 7.21,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11226215947874349176,
+      "hash_flip": 14888569108612604972
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_007.mp4",
+      "duration": 7.04,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15842340472617507616,
+      "hash_flip": 10272176303301480052
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_008.mp4",
+      "duration": 15.28,
+      "aspect_ratio": "16:9",
+      "hash_orig": 17560274665200373209,
+      "hash_flip": 12026851330298091660
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_009.mp4",
+      "duration": 14.95,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10792966939231087762,
+      "hash_flip": 13879293036668796359
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_010.mp4",
+      "duration": 5.97,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15265352471001796130,
+      "hash_flip": 10270523152377633651
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_011.mp4",
+      "duration": 4.67,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13035675855676179774,
+      "hash_flip": 16545472186105876803
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_012.mp4",
+      "duration": 8.01,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9634862200666909761,
+      "hash_flip": 15627698836389210374
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_013.mp4",
+      "duration": 8.84,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15694988515583542916,
+      "hash_flip": 10203636901657973721
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_014.mp4",
+      "duration": 7.91,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10563716035327216432,
+      "hash_flip": 14397038886655336033
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_015.mp4",
+      "duration": 17.82,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14181193359362065976,
+      "hash_flip": 10491391984822047565
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_016.mp4",
+      "duration": 7.34,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14944995128453172836,
+      "hash_flip": 11110992392955648947
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_017.mp4",
+      "duration": 7.24,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15263714654284385924,
+      "hash_flip": 9693583470854067153
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_018.mp4",
+      "duration": 20.52,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15408093698852860135,
+      "hash_flip": 13872774363060266418
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_019.mp4",
+      "duration": 8.01,
+      "aspect_ratio": "16:9",
+      "hash_orig": 12308774700976173568,
+      "hash_flip": 18412078900628235605
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_020.mp4",
+      "duration": 8.68,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11369309812804694128,
+      "hash_flip": 14605932661680858789
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_021.mp4",
+      "duration": 1.74,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15978698556370854024,
+      "hash_flip": 9847871186226672861
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_022.mp4",
+      "duration": 4.84,
+      "aspect_ratio": "16:9",
+      "hash_orig": 12272895572681728527,
+      "hash_flip": 18376727211815040784
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_023.mp4",
+      "duration": 15.95,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15507758393834825411,
+      "hash_flip": 9395622961409323926
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_024.mp4",
+      "duration": 8.11,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15091228363115138272,
+      "hash_flip": 9528364925631756725
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_025.mp4",
+      "duration": 20.39,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14734497486499537504,
+      "hash_flip": 11037801727148799793
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_026.mp4",
+      "duration": 10.11,
+      "aspect_ratio": "16:9",
+      "hash_orig": 9952564020710077121,
+      "hash_flip": 15801944082257061776
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_027.mp4",
+      "duration": 8.54,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14857776931495752582,
+      "hash_flip": 11197136367066375891
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_028.mp4",
+      "duration": 13.35,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13512559141394506335,
+      "hash_flip": 17137064805892462430
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_029.mp4",
+      "duration": 13.18,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15748799715417007032,
+      "hash_flip": 10363817050452862189
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_030.mp4",
+      "duration": 9.98,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15462999124221698848,
+      "hash_flip": 9494378098296907381
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_031.mp4",
+      "duration": 7.21,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15753112768421337924,
+      "hash_flip": 10271331742220078643
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_032.mp4",
+      "duration": 15.55,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14369079415068772761,
+      "hash_flip": 10537416825696165068
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_033.mp4",
+      "duration": 5.54,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10678742300163534805,
+      "hash_flip": 13936343822913648768
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_034.mp4",
+      "duration": 16.25,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14452587008575694964,
+      "hash_flip": 11368547925891292513
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_035.mp4",
+      "duration": 11.18,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10681762708437165594,
+      "hash_flip": 13918493136180228943
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_036.mp4",
+      "duration": 3.84,
+      "aspect_ratio": "16:9",
+      "hash_orig": 13940921757353316291,
+      "hash_flip": 10749334938984272534
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_037.mp4",
+      "duration": 12.31,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14295946499755249296,
+      "hash_flip": 10606032976237288389
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_038.mp4",
+      "duration": 9.68,
+      "aspect_ratio": "16:9",
+      "hash_orig": 10700152370632770610,
+      "hash_flip": 13919437562370036070
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_039.mp4",
+      "duration": 15.82,
+      "aspect_ratio": "16:9",
+      "hash_orig": 14757960532914024976,
+      "hash_flip": 11068611726735206212
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_040.mp4",
+      "duration": 6.77,
+      "aspect_ratio": "16:9",
+      "hash_orig": 11428895925205656950,
+      "hash_flip": 14685900962839572513
+    },
+    {
+      "source_video": "seg_03",
+      "file_name": "s3_041.mp4",
+      "duration": 15.28,
+      "aspect_ratio": "16:9",
+      "hash_orig": 15248149511207145107,
+      "hash_flip": 9712323098616347590
     }
   ]
 }

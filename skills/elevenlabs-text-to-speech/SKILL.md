@@ -15,8 +15,8 @@ elevenlabs text-to-speech <method> [flags]
 
 - **Voice Name**: `ITV 5`
 - **Voice ID**: `ITLDKaHYPRfCyyrPpZu2`
-- **Model**: `eleven_v3`
-- **Default v3 Audio Tags**: `[absurdist narration, accelerando, rushed, extreme fast]`
+- **Model**: `eleven_v3` (`stability=0.0`, `similarity=0.75`, `language_code="auto"`)
+- **Default Audio Tags**: `[sarcastic, dry humor, rushed, fast, shout, fast-paced, mooth delivery]`
 
 ## API Resources
 

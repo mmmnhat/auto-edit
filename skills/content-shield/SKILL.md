@@ -100,6 +100,27 @@ python e:\.agents\skills\content-shield\scripts\shield_cli.py \
   --render
 ```
 
+### 5. `LocateAnything-3B` (Local ONNX INT4 KV-Cache) Full-Source Watermark & Emoji Grounding Engine
+Runs 100% offline on `Python 3.14` (`onnxruntime` INT4 KV-Cache, cached at `E:\.cache\locateanything_onnx_int4`, `~2.8s/frame`, fixed `14x20 = 280` patch grid):
+```bash
+# Scan 100% of an episode's source clips (HEAD / MID / TAIL) inside active AECrop & VH viewport
+python E:\.agents\skills\content-shield\scripts\locate_anything_engine.py \
+  --task scan-all-sources \
+  --kb kb124 \
+  --out-dir "E:\ITV\_scene\locate_anything_test"
+
+# Audit Track V4 Emojis and Track V3 Mask2 on an episode
+python E:\.agents\skills\content-shield\scripts\locate_anything_engine.py \
+  --task audit-project \
+  --kb kb124 \
+  --out-dir "E:\ITV\_scene\locate_anything_test"
+```
+* **4-Group Full-Source Audit Protocol (Mandatory `read_file` verification on generated `sheet_01..12.jpg`):**
+  1. **Eliminate False Positives (`Che thừa`):** Remove `Mask2` boxes that mistakenly blur indoor furniture/objects inside the `AECrop` boundary (e.g. a kitchen fan near `x = 0.222` when `105` and `FAILARMY` are already outside the `22.2%` crop) or blur empty sky/walls in the wrong corner.
+  2. **Catch False Negatives & Leaks (`Che sót / Hở chữ`):** Detect opposite-corner watermarks (e.g., top-left `LA` `[0.030, 0.035, 0.120, 0.175]` when a template wrongly targeted top-right), widen bottom masks to cover full multi-word watermarks (`Funny Animals Pets` `[0.385, 0.925, 0.615, 1.02]`), and increase `EPISODE_VH_MOTION_OVERRIDE` to `(128.0, 0.500, 0.485)` when 2-line `ViralHog + ring.com` watermarks extend down to `y = 0.115`.
+  3. **Tighten Oversized Boxes (`Thu gọn Mask2`):** Shrink wide caption masks (`HAHAHAHA`, `HOHOHO!!!`, `Imou`, `failSide moment`) to match `LocateAnything-3B` OCR bounds (`+0.015` padding) so blur never spills onto characters' legs or faces.
+  4. **Ground Track V4 Impact Emojis:** Verify that `EPISODE_V4_EMOJI_SPEC` keyframes track the actual fallen body on the floor (never floating in mid-air above a fallen subject) and start directly on the impacted body part (e.g. pelvis/groin at rail contact).
+
 ---
 
 ## Premiere Pro CLI & MCP Integration (High-Speed Channel Workflow)

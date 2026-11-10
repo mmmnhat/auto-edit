@@ -16,6 +16,7 @@ import csv
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -26,9 +27,31 @@ SHEET_ID = "1CIGzoztnlND2TU9Yg14OOQKR02BX4XZf1aHlqoNrt1s"
 DEVTOOLS_PORT_FILE = r"C:\Users\AMZ-HUY\AppData\Local\CocCoc\Browser\User Data\DevToolsActivePort"
 
 
-def parse_time_str(t_str):
-    """Parse 'M:SS' or 'H:MM:SS' into float seconds."""
-    parts = [float(p) for p in t_str.strip().split(":")]
+def get_video_duration(video_path: str) -> float:
+    """Read video duration in seconds via ffprobe."""
+    cmd = [
+        "ffprobe", "-v", "error",
+        "-show_entries", "format=duration",
+        "-of", "default=noprint_wrappers=1:nokey=1",
+        video_path,
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    try:
+        return float(res.stdout.strip())
+    except Exception:
+        return 0.0
+
+
+def parse_time_str(t_str: str) -> float:
+    """Parse 'M:SS', 'H:MM:SS', 'M.SS', or float seconds into float seconds."""
+    s = t_str.strip()
+    if ":" in s:
+        parts = [float(p) for p in s.split(":")]
+    elif "." in s:
+        parts = [float(p) for p in s.split(".")]
+    else:
+        return float(s)
+
     if len(parts) == 2:
         return parts[0] * 60.0 + parts[1]
     elif len(parts) == 3:
@@ -36,20 +59,140 @@ def parse_time_str(t_str):
     return float(parts[0])
 
 
-def parse_time_range(range_str):
+EXCLUDE_MARKER_RE = re.compile(r"(?:bỏ\s*đoạn|bo\s*doan|bỏ|bo|trừ|tru)", re.I)
+INCLUDE_MARKER_RE = re.compile(r"(?:lấy\s*từ|lay\s*tu|lấy|lay)", re.I)
+
+
+def _subtract_range(inc: tuple[float, float | None], exc: tuple[float, float | None]) -> list[tuple[float, float | None]]:
+    """Subtract excluded range from included range."""
+    inc_s, inc_e = inc[0], (float("inf") if inc[1] is None else inc[1])
+    exc_s, exc_e = exc[0], (float("inf") if exc[1] is None else exc[1])
+    if exc_e <= inc_s or exc_s >= inc_e:
+        return [inc]
+    res: list[tuple[float, float | None]] = []
+    if exc_s > inc_s:
+        res.append((inc_s, min(exc_s, inc_e) if inc[1] is not None else exc_s))
+    if exc_e < inc_e:
+        res.append((exc_e, inc[1]))
+    return [r for r in res if r[1] is None or r[1] > r[0]]
+
+
+def parse_time_ranges(range_str: str, total_dur: float | None = None) -> list[tuple[float, float | None]]:
     """
-    Parse a Google Sheet/AMZTool time range like '0:33 - 0:40' or '0:24 -0:29' or '15 giây đầu'.
-    Returns (start_sec, end_sec) or None if not a simple time range.
+    Parse one or more time ranges from a Google Sheet time column or AMZTool note:
+    - '0:33 - 0:38\n0:58 - 1:03' -> [(33.0, 38.0), (58.0, 63.0)]
+    - '4:53 - 5:09 | 5:20 - 5:23' -> [(293.0, 309.0), (320.0, 323.0)]
+    - '0:33 - 0:40' -> [(33.0, 40.0)]
+    - '0.33 - 0.40' -> [(33.0, 40.0)]
+    - 'lấy 0:10 - 0:40 bỏ đoạn 0:20 - 0:25' -> [(10.0, 20.0), (25.0, 40.0)]
+    - '15 giây cuối' / '15s cuối' -> [(st, total_dur)]
+    - '15 giây đầu' / '15s đầu' / '10s đầu' -> [(0.0, 15.0)] / [(0.0, 10.0)]
+    - '2:25 - hết' / '2:25 - đến hết' -> [(145.0, total_dur)]
+    - 'N về sau / tới hết' -> [(start, total_dur)]
+    Never merges via min/max.
     """
     if not range_str:
-        return None
-    m = re.search(r"(\d+:\d+(?::\d+)?)\s*-\s*(\d+:\d+(?::\d+)?)", range_str)
-    if m:
-        return parse_time_str(m.group(1)), parse_time_str(m.group(2))
-    m_first = re.search(r"(\d+)\s*giây\s*đầu", range_str, flags=re.I)
+        return []
+    s = range_str.strip().replace("–", "-").replace("—", "-")
+
+    # 0. Multi-line / pipe-separated clauses without exclude markers (e.g. '11s đầu\n25 - 31')
+    if not EXCLUDE_MARKER_RE.search(s) and re.search(r"[\r\n|]", s):
+        parts = [p.strip() for p in re.split(r"[\r\n|]+", s) if p.strip()]
+        if len(parts) > 1:
+            combined: list[tuple[float, float | None]] = []
+            for part in parts:
+                combined.extend(parse_time_ranges(part, total_dur=total_dur))
+            if combined:
+                return combined
+
+    # 1. Ranges with start - end and include/exclude context
+    token_re = re.compile(
+        r"(?P<start>(?:\d+[:.]\d+(?:[:.]\d+)?|\d+))\s*(?:-|tới|toi|to)\s*(?P<end>(?:\d+[:.]\d+(?:[:.]\d+)?|\d+|đến\s*hết|den\s*het|hết|het|end|cuối|cuoi))",
+        re.I,
+    )
+    candidates = list(token_re.finditer(s))
+    if candidates:
+        includes: list[tuple[float, float | None]] = []
+        excludes: list[tuple[float, float | None]] = []
+        mode = "include"
+        prev_end = 0
+        for m in candidates:
+            ctx = s[prev_end : m.start()]
+            last_inc = max((x.start() for x in INCLUDE_MARKER_RE.finditer(ctx)), default=-1)
+            last_exc = max((x.start() for x in EXCLUDE_MARKER_RE.finditer(ctx)), default=-1)
+            if last_exc > last_inc:
+                mode = "exclude"
+            elif last_inc > last_exc:
+                mode = "include"
+
+            st = parse_time_str(m.group("start"))
+            end_tok = m.group("end").strip().lower()
+            if re.match(r"^\d", end_tok):
+                en: float | None = parse_time_str(end_tok)
+                if en <= st:
+                    prev_end = m.end()
+                    continue
+            else:
+                en = total_dur
+
+            if mode == "exclude":
+                excludes.append((st, en))
+            else:
+                includes.append((st, en))
+            prev_end = m.end()
+
+        if not includes and excludes:
+            includes = [(0.0, total_dur)]
+
+        resolved: list[tuple[float, float | None]] = []
+        for inc in includes:
+            pending = [inc]
+            for exc in excludes:
+                nxt: list[tuple[float, float | None]] = []
+                for seg in pending:
+                    nxt.extend(_subtract_range(seg, exc))
+                pending = nxt
+            resolved.extend(pending)
+        if resolved:
+            return resolved
+
+    # 2. '15 giây cuối' / '15s cuối' / '15 giay cuoi' / '15s cuoi' / '15s trở về cuối'
+    m_last = re.search(
+        r"(\d+(?:\.\d+)?)\s*(?:giây|giay|s)\s*(?:cuối|cuoi|trở về cuối|tro ve cuoi)",
+        s,
+        flags=re.I,
+    )
+    if m_last:
+        dur = float(m_last.group(1))
+        st = max(0.0, total_dur - dur) if total_dur is not None else 0.0
+        return [(st, total_dur)]
+
+    # 3. '15 giây đầu' / '15s đầu' / '15 giay dau' / '15s dau' / '15s đổ lại'
+    m_first = re.search(
+        r"(\d+(?:\.\d+)?)\s*(?:giây|giay|s)\s*(?:đầu|dau|đổ lại|do lai)",
+        s,
+        flags=re.I,
+    )
     if m_first:
-        return 0.0, float(m_first.group(1))
-    return None
+        return [(0.0, float(m_first.group(1)))]
+
+    # 4. '2:25 về sau' / '2:25 tới hết' / '2:25 trở đi' / '5 về sau'
+    m_after = re.search(
+        r"((?:\d+[:.]\d+(?:[:.]\d+)?|\d+))\s*(?:về sau|ve sau|tới hết|toi het|trở đi|tro di)",
+        s,
+        flags=re.I,
+    )
+    if m_after:
+        st = parse_time_str(m_after.group(1))
+        return [(st, total_dur)]
+
+    return []
+
+
+def parse_time_range(range_str):
+    """Backwards compatible single-range parser."""
+    ranges = parse_time_ranges(range_str)
+    return ranges[0] if ranges else None
 
 
 def normalize_source_url(url):
@@ -60,11 +203,38 @@ def normalize_source_url(url):
     return url
 
 
+def fetch_sheet_via_gsheets_cli(sheet_tab: str, out_csv_path: str):
+    """
+    Fetches Google Sheet tab directly via `gsheets` OAuth CLI (strictly no browser on Google Workspace).
+    """
+    gsheets_bin = shutil.which("gsheets") or "gsheets.cmd"
+    cmd = [
+        gsheets_bin, "readonly", "read",
+        SHEET_ID,
+        f"'{sheet_tab}'!A1:Z100",
+        "--json",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", check=True)
+    payload = json.loads(res.stdout)
+    rows = payload if isinstance(payload, list) else payload.get("values", [])
+    with open(out_csv_path, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        for r in rows:
+            writer.writerow(r)
+    print(f"[gsheets CLI] Saved Google Sheet {sheet_tab} -> {out_csv_path} ({len(rows)} rows)")
+
+
 def fetch_from_coccoc_cdp(script_id, sheet_tab, out_json_path, out_csv_path, out_folder):
     """
-    Connects to Cốc Cốc CDP, auto-allows the remote debugging prompt,
-    fetches /api/scripts/<script_id> and Google Sheet CSV, and downloads missing 01.mp4..70.mp4 slots.
+    Fetches Google Sheet CSV via `gsheets` CLI (OAuth) and connects to Cốc Cốc CDP ONLY for
+    AMZTool (`ft.amzcollab.com`) to fetch /api/scripts/<script_id> and download 01.mp4..70.mp4 slots.
     """
+    if not os.path.exists(out_csv_path):
+        fetch_sheet_via_gsheets_cli(sheet_tab, out_csv_path)
+
+    if not script_id:
+        return
+
     from coccoc_auto_allow import spawn_auto_allow
     from playwright.sync_api import sync_playwright
 
@@ -78,21 +248,7 @@ def fetch_from_coccoc_cdp(script_id, sheet_tab, out_json_path, out_csv_path, out
             browser = p.chromium.connect_over_cdp(ws_url)
             ctx = browser.contexts[0]
 
-            # 1. Fetch Google Sheet CSV
-            sheet_page = next((pg for pg in ctx.pages if SHEET_ID in pg.url), None)
-            if sheet_page is None:
-                sheet_page = ctx.new_page()
-                sheet_page.goto(f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/edit", wait_until="domcontentloaded")
-            csv_text = sheet_page.evaluate(f"""async () => {{
-                const url = 'https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent('{sheet_tab}');
-                const r = await fetch(url);
-                return await r.text();
-            }}""")
-            with open(out_csv_path, "w", encoding="utf-8") as f:
-                f.write(csv_text)
-            print(f"[CDP] Saved Google Sheet {sheet_tab} -> {out_csv_path} ({len(csv_text)} bytes)")
-
-            # 2. Fetch AMZTool Script JSON & Download Footage
+            # Fetch AMZTool Script JSON & Download Footage
             if script_id:
                 amz_page = next((pg for pg in ctx.pages if "amzcollab.com" in pg.url), None)
                 if amz_page is None:
@@ -112,6 +268,8 @@ def fetch_from_coccoc_cdp(script_id, sheet_tab, out_json_path, out_csv_path, out
                 cookie_hdr = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
 
                 for slot in items:
+                    if slot.get("scriptStatus") == "replaced":
+                        continue
                     order = slot.get("sortOrder")
                     ft = slot.get("footage") or {}
                     fid = ft.get("driveFileId")
@@ -143,8 +301,9 @@ def download_and_slice_sheet_part1(csv_path, kb_name, project_dir):
     tasks = []
     last_stt = None
     for r in rows[1:]:
-        if len(r) < 6:
+        if not any(x.strip() for x in r):
             continue
+        r = list(r) + [""] * max(0, 8 - len(r))
         note_col0 = r[0].strip()
         desc = r[1].strip()
         link = r[2].strip()
@@ -153,26 +312,53 @@ def download_and_slice_sheet_part1(csv_path, kb_name, project_dir):
 
         if stt.isdigit():
             last_stt = int(stt)
-            out_name = f"itv.{kb_name}.{last_stt}.mp4"
-        elif "dự phòng" in link.lower() and last_stt is not None:
+            is_backup = False
+        elif ("dự phòng" in link.lower() or "du phong" in link.lower()) and last_stt is not None:
             link = re.sub(r"^.*?https://", "https://", link, flags=re.I)
-            out_name = f"itv.{kb_name}.{last_stt}-2.mp4"
+            is_backup = True
         else:
             continue
 
         if not link.startswith("http"):
             continue
-        tasks.append({
-            "stt": last_stt,
-            "out_name": out_name,
-            "link": normalize_source_url(link),
-            "raw_link": link,
-            "time_col": time_col,
-            "desc": desc,
-            "note_col0": note_col0,
-        })
+
+        ranges = parse_time_ranges(time_col)
+        clean_url = normalize_source_url(link)
+        if len(ranges) > 1:
+            for r_idx, r in enumerate(ranges, 1):
+                base_name = f"itv.{kb_name}.{last_stt}" if not is_backup else f"itv.{kb_name}.{last_stt}-2"
+                out_name = f"{base_name}_{r_idx}.mp4"
+                tasks.append({
+                    "stt": last_stt,
+                    "sub_idx": r_idx,
+                    "out_name": out_name,
+                    "link": clean_url,
+                    "raw_link": link,
+                    "time_col": time_col,
+                    "ranges": [r],
+                    "desc": f"{desc} [part {r_idx}]",
+                    "note_col0": note_col0,
+                })
+        else:
+            out_name = f"itv.{kb_name}.{last_stt}.mp4" if not is_backup else f"itv.{kb_name}.{last_stt}-2.mp4"
+            tasks.append({
+                "stt": last_stt,
+                "sub_idx": None,
+                "out_name": out_name,
+                "link": clean_url,
+                "raw_link": link,
+                "time_col": time_col,
+                "ranges": ranges,
+                "desc": desc,
+                "note_col0": note_col0,
+            })
 
     url_to_cache = {}
+    for t in tasks:
+        u = t["link"]
+        if u not in url_to_cache:
+            url_to_cache[u] = os.path.join(cache_dir, f"src_{len(url_to_cache)+1:02d}.mp4")
+
     for t in tasks:
         out_path = os.path.join(source_dir, t["out_name"])
         if os.path.exists(out_path) and os.path.getsize(out_path) > 10000:
@@ -180,30 +366,37 @@ def download_and_slice_sheet_part1(csv_path, kb_name, project_dir):
             continue
 
         u = t["link"]
-        if u not in url_to_cache:
-            cache_file = os.path.join(cache_dir, f"src_{len(url_to_cache)+1:02d}.mp4")
-            url_to_cache[u] = cache_file
-            if not (os.path.exists(cache_file) and os.path.getsize(cache_file) > 10000):
-                print(f"[Sheet Download] Fetching {u} -> {os.path.basename(cache_file)} ...")
-                cmd = [
-                    "yt-dlp",
-                    "-f", "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best",
-                    "--merge-output-format", "mp4",
-                    "-o", cache_file,
-                    t["raw_link"],
-                ]
+        cache_file = url_to_cache[u]
+        if not (os.path.exists(cache_file) and os.path.getsize(cache_file) > 10000):
+            print(f"[Sheet Download] Fetching {u} -> {os.path.basename(cache_file)} ...")
+            cmd = [
+                "yt-dlp",
+                "-N", "16",
+                "-f", "bestvideo[height<=1080][vcodec^=avc1][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best",
+                "--merge-output-format", "mp4",
+                "-o", cache_file,
+                t["raw_link"],
+            ]
+            try:
                 subprocess.run(cmd, check=True)
+            except Exception as e_dl:
+                print(f"[WARN] yt-dlp failed for {t['out_name']} ({u}): {e_dl}")
+                continue
 
         src_file = url_to_cache[u]
-        tr = parse_time_range(t["time_col"])
-        if tr is not None:
-            st_sec, en_sec = tr
+        if not (os.path.exists(src_file) and os.path.getsize(src_file) > 10000):
+            print(f"[WARN] Missing source cache for {t['out_name']}, skipping.")
+            continue
+        ranges = t.get("ranges") or []
+        if ranges:
+            st_sec, en_sec = ranges[0]
+            en_sec = en_sec if en_sec is not None else 999999.0
             dur_sec = max(0.5, en_sec - st_sec)
             print(f"[Sheet Slice] {t['out_name']}: {st_sec:.2f}s .. {en_sec:.2f}s ({dur_sec:.2f}s) | {t['desc']}")
             ff_cmd = [
                 "ffmpeg", "-y", "-v", "error",
                 "-ss", f"{st_sec:.3f}", "-i", src_file, "-t", f"{dur_sec:.3f}",
-                "-c:v", "h264_nvenc", "-preset", "p4", "-cq", "19",
+                "-c:v", "libx264", "-preset", "fast", "-crf", "19",
                 "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
                 out_path,
             ]
@@ -213,11 +406,87 @@ def download_and_slice_sheet_part1(csv_path, kb_name, project_dir):
             ff_cmd = [
                 "ffmpeg", "-y", "-v", "error",
                 "-i", src_file,
-                "-c:v", "h264_nvenc", "-preset", "p4", "-cq", "19",
+                "-c:v", "libx264", "-preset", "fast", "-crf", "19",
                 "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
                 out_path,
             ]
             subprocess.run(ff_cmd, check=True)
+
+
+def slice_amz_part2_clips(json_path: str, out_folder: str):
+    """
+    Slices Part 2 clips based on AMZTool script JSON:
+    - Multi-timestamp notes (e.g. '0:33 - 0:38\n0:58 - 1:03', '4:53 - 5:09 | 5:20 - 5:23')
+      are split into discrete files: {order:02d}_1.mp4, {order:02d}_2.mp4.
+      Zero concat jumpcuts! Zero min/max merging!
+    - Single timestamp notes are sliced to 100% of note duration.
+    - Clips without notes preserve 100% of raw file duration (zero 5.5s..6.2s clamp!).
+    """
+    if not os.path.exists(json_path) or not os.path.exists(out_folder):
+        return
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    items = data.get("items") or data.get("data", {}).get("footages", [])
+    for slot in items:
+        order = slot.get("sortOrder")
+        if not order:
+            continue
+        order_int = int(order)
+        raw_mp4 = os.path.join(out_folder, f"{order_int:02d}.mp4")
+        if not os.path.exists(raw_mp4):
+            continue
+
+        note = (slot.get("note") or "").strip()
+        orig_bak = raw_mp4[:-4] + ".orig.mp4" if raw_mp4.endswith(".mp4") else raw_mp4 + ".orig.mp4"
+        src_for_dur = orig_bak if (os.path.exists(orig_bak) and os.path.getsize(orig_bak) > 10000) else raw_mp4
+        tot_dur = get_video_duration(src_for_dur)
+        ranges = parse_time_ranges(note, total_dur=tot_dur if tot_dur > 0 else None)
+        if not ranges:
+            # 100% raw file duration preserved, no clamp
+            continue
+
+        if not os.path.exists(orig_bak) or os.path.getsize(orig_bak) < 10000:
+            shutil.copy2(raw_mp4, orig_bak)
+        alt_bak = raw_mp4 + ".orig.mp4"
+        if not os.path.exists(alt_bak) or os.path.getsize(alt_bak) < 10000:
+            shutil.copy2(orig_bak, alt_bak)
+
+        if len(ranges) > 1:
+            print(f"[Part 2 Multi-Split] Slot {order_int:02d} has {len(ranges)} ranges: {ranges}")
+            for r_idx, (st_sec, en_sec) in enumerate(ranges, 1):
+                sub_mp4 = os.path.join(out_folder, f"{order_int:02d}_{r_idx}.mp4")
+                dur_sec = max(0.5, (en_sec or 999999.0) - st_sec)
+                cmd = [
+                    "ffmpeg", "-y", "-v", "error",
+                    "-ss", f"{st_sec:.3f}", "-i", orig_bak, "-t", f"{dur_sec:.3f}",
+                    "-c:v", "libx264", "-preset", "fast", "-crf", "19",
+                    "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+                    sub_mp4,
+                ]
+                try:
+                    subprocess.run(cmd, check=True)
+                except Exception as e_slice:
+                    print(f"Warning: ffmpeg multi-split slice failed for {sub_mp4}: {e_slice}")
+                print(f"  ✓ {os.path.basename(sub_mp4)}: [{st_sec:.2f}..{en_sec:.2f}s] ({dur_sec:.2f}s)")
+        elif len(ranges) == 1:
+            st_sec, en_sec = ranges[0]
+            dur_sec = max(0.5, (en_sec or 999999.0) - st_sec)
+            print(f"[Part 2 Note Slice] Slot {order_int:02d}: [{st_sec:.2f}..{en_sec:.2f}s] ({dur_sec:.2f}s)")
+            tmp_sliced = raw_mp4 + ".tmp.mp4"
+            cmd = [
+                "ffmpeg", "-y", "-v", "error",
+                "-ss", f"{st_sec:.3f}", "-i", orig_bak, "-t", f"{dur_sec:.3f}",
+                "-c:v", "libx264", "-preset", "fast", "-crf", "19",
+                "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+                tmp_sliced,
+            ]
+            try:
+                subprocess.run(cmd, check=True)
+                shutil.move(tmp_sliced, raw_mp4)
+            except Exception as e_slice:
+                print(f"Warning: ffmpeg note slice failed for {raw_mp4}: {e_slice}")
 
 
 if __name__ == "__main__":
@@ -239,10 +508,15 @@ if __name__ == "__main__":
 
     if args.amz_zip and os.path.exists(args.amz_zip):
         os.makedirs(out_folder, exist_ok=True)
+        import zipfile
         with zipfile.ZipFile(args.amz_zip, "r") as zf:
             zf.extractall(out_folder)
 
     if not os.path.exists(csv_path) or (args.script_id and not os.path.exists(out_folder)):
         fetch_from_coccoc_cdp(args.script_id, sheet_tab, json_path, csv_path, out_folder)
 
-    download_and_slice_sheet_part1(csv_path, args.kb, proj_dir)
+    if os.path.exists(csv_path):
+        download_and_slice_sheet_part1(csv_path, args.kb, proj_dir)
+
+    if os.path.exists(json_path):
+        slice_amz_part2_clips(json_path, out_folder)

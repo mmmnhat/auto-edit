@@ -10,11 +10,28 @@
   },
   "channel_pacing_archetypes": {
     "archetype_1_stomp_clap_action_rock": {
-      "channels": ["TMax Moment (@TMaxMoment)", "Bzac TV Global (@bzactvgloobal)", "TLS - Idiots At Work (@tlsidiotsatwork99)", "Failicious TV (@failicioustv)"],
-      "total_intro_duration_sec": [16.5, 20.5],
-      "teaser_clip_count": [7, 10],
-      "teaser_mean_dur_sec": [1.56, 2.40],
-      "teaser_median_dur_sec": [1.14, 1.82],
+      "channels": [
+        "TMax Moment (@TMaxMoment)",
+        "Bzac TV Global (@bzactvgloobal)",
+        "TLS - Idiots At Work (@tlsidiotsatwork99)",
+        "Failicious TV (@failicioustv)"
+      ],
+      "total_intro_duration_sec": [
+        16.5,
+        20.5
+      ],
+      "teaser_clip_count": [
+        7,
+        10
+      ],
+      "teaser_mean_dur_sec": [
+        1.56,
+        2.4
+      ],
+      "teaser_median_dur_sec": [
+        1.14,
+        1.82
+      ],
       "music_bed": "Stomp-Clap Action Rock Guitar Riff (boom-boom-clap + overdrive guitar slide)",
       "vo_structure": "4-Beat Continuous or 1-Gap Split: Greeting (0.0..3.5s) -> [1.2s Crash Gap] -> Escalation Promise (4.8..13.5s) -> [1.2s Crash Gap] -> Launch CTA ('Let's roll!' / 'Let's jump into it!' / 'Let's go!') -> Warning Card (18.0..20.5s)",
       "hook_loop_rule": "Cold-Open Clip #1 (0.00s..2.00s) is replayed in full as Body Clip #1 (TLS #353 at 20.4s) or Body Clip #3-#5 (TMax #480 at 61.3s, Bzac Global #397 at 61.4s).",
@@ -25,14 +42,30 @@
       },
       "body_pacing": {
         "clip_duration_mean_sec": 10.7,
-        "clip_duration_p25_p75_sec": [4.5, 17.2],
-        "macro_bundle_duration_min": [35, 70, 237]
+        "clip_duration_p25_p75_sec": [
+          4.5,
+          17.2
+        ],
+        "macro_bundle_duration_min": [
+          35,
+          70,
+          237
+        ]
       }
     },
     "archetype_2_cctv_clause_weaving": {
-      "channels": ["IZZI - Camera Fails (@IZZICameraFails)", "TLS Security Camera Series"],
-      "total_intro_duration_sec": [18.5, 20.8],
-      "teaser_clip_count": [6, 8],
+      "channels": [
+        "IZZI - Camera Fails (@IZZICameraFails)",
+        "TLS Security Camera Series"
+      ],
+      "total_intro_duration_sec": [
+        18.5,
+        20.8
+      ],
+      "teaser_clip_count": [
+        6,
+        8
+      ],
       "teaser_mean_dur_sec": 3.17,
       "teaser_median_dur_sec": 3.12,
       "music_bed": "Stomp-Clap Action Rock Guitar Riff",
@@ -44,14 +77,28 @@
       "body_pacing": {
         "clip_duration_mean_sec": 10.96,
         "clip_duration_median_sec": 12.52,
-        "clip_duration_p25_p75_sec": [7.87, 12.57],
-        "macro_bundle_duration_min": [35.5]
+        "clip_duration_p25_p75_sec": [
+          7.87,
+          12.57
+        ],
+        "macro_bundle_duration_min": [
+          35.5
+        ]
       }
     },
     "archetype_3_hadeus_3spurt_breathing": {
-      "channels": ["MEO - Incredible Moments (@MEOincrediblemoments - Moments When Things Went Wrong series)", "FailSide Moment"],
-      "total_intro_duration_sec": [15.0, 16.0],
-      "teaser_clip_count": [12, 13],
+      "channels": [
+        "MEO - Incredible Moments (@MEOincrediblemoments - Moments When Things Went Wrong series)",
+        "FailSide Moment"
+      ],
+      "total_intro_duration_sec": [
+        15.0,
+        16.0
+      ],
+      "teaser_clip_count": [
+        12,
+        13
+      ],
       "teaser_mean_dur_sec": 1.16,
       "teaser_median_dur_sec": 1.06,
       "music_bed": "Hadeus.mp4 (Upbeat synth/funk guitar riff)",
@@ -62,12 +109,20 @@
       },
       "body_pacing": {
         "clip_duration_mean_sec": 16.48,
-        "macro_bundle_duration_min": [31, 75]
+        "macro_bundle_duration_min": [
+          31,
+          75
+        ]
       }
     },
     "archetype_4_cinematic_disaster_riser": {
-      "channels": ["MEO - Incredible Moments (@MEOincrediblemoments - Seconds Before Disasters series)"],
-      "total_intro_duration_sec": [15.5, 16.5],
+      "channels": [
+        "MEO - Incredible Moments (@MEOincrediblemoments - Seconds Before Disasters series)"
+      ],
+      "total_intro_duration_sec": [
+        15.5,
+        16.5
+      ],
       "teaser_clip_count": 12,
       "teaser_mean_dur_sec": 1.33,
       "teaser_median_dur_sec": 1.05,
@@ -78,11 +133,18 @@
       },
       "body_pacing": {
         "clip_duration_mean_sec": 16.82,
-        "macro_bundle_duration_min": [31, 75]
+        "macro_bundle_duration_min": [
+          31,
+          75
+        ]
       }
     },
     "archetype_5_zero_vo_cold_open": {
-      "channels": ["FailArmy (@failarmy)", "Bzac TV (@bzactv #280)", "Fail Time / Bonk! Funny Moments"],
+      "channels": [
+        "FailArmy (@failarmy)",
+        "Bzac TV (@bzactv #280)",
+        "Fail Time / Bonk! Funny Moments"
+      ],
       "total_intro_duration_sec": 0.0,
       "vo_structure": "Zero Voiceover. Starts at 0.00s with a high-shock or contagious-wheeze-laugh clip.",
       "body_pacing": {
@@ -236,5 +298,1650 @@
       "itv_spin": "Hello everyone! Buckle up — this is today's wild ride through the craziest workplace disasters around the world! Let's get started!",
       "eleven_v3_prompt": "[absurdist narration, accelerando, rushed, extreme fast] HELLOOOO, EVERYONE! BUCKLE UP — THIS IS TODAY'S WILD RIDE THROUGH THE CRAZIEST WORKPLACE DISASTERS AROUND THE WORLD! [accelerando, rushed, energetic, shouting] LET'S GET STARTED!!!"
     }
-  ]
+  ],
+  "intro_timeline_presets": {
+    "bzac189_qdwurg8gj50_1to1": {
+      "preset_id": "bzac189_qdwurg8gj50_1to1",
+      "preset_name": "Bzac New #189 (QDwurG8gJ50) — 5-Spurt Weaving & Caption-Blanking 1:1 Intro Preset for ITV Moments",
+      "created_at": "2026-10-29",
+      "source_reference": {
+        "video_id": "QDwurG8gJ50",
+        "url": "https://www.youtube.com/watch?v=QDwurG8gJ50",
+        "channel_name": "Bzac New",
+        "channel_handle": "@Bzacnew68",
+        "episode_title": "TOTAL IDIOTS AT WORK #189 | Instant Regret Fails Compilation 2026 | Best of the Week",
+        "upload_date": "2026-10-11",
+        "views_at_capture": 258460,
+        "source_resolution": [
+          1920,
+          1080
+        ],
+        "source_fps": 29.97,
+        "source_intro_duration_sec": 18.09,
+        "source_teaser_montage_sec": 16.82,
+        "source_warning_card_sec": [
+          16.82,
+          18.09
+        ],
+        "vault_template_id": "BZAC_08",
+        "raw_transcript": "Hello everyone! We are back with a fresh batch of chaos, fails, and massive regrets that will turn your day around. Grab a seat because everything is about to go wrong. Let's get it on!",
+        "whisper_word_timestamps_sec": [
+          {
+            "word": "Hello",
+            "start": 0.0,
+            "end": 0.6
+          },
+          {
+            "word": "everyone,",
+            "start": 0.6,
+            "end": 1.64
+          },
+          {
+            "word": "we",
+            "start": 3.5,
+            "end": 3.72
+          },
+          {
+            "word": "are",
+            "start": 3.72,
+            "end": 3.86
+          },
+          {
+            "word": "back",
+            "start": 3.86,
+            "end": 4.16
+          },
+          {
+            "word": "with",
+            "start": 4.16,
+            "end": 4.34
+          },
+          {
+            "word": "a",
+            "start": 4.34,
+            "end": 4.46
+          },
+          {
+            "word": "fresh",
+            "start": 4.46,
+            "end": 4.74
+          },
+          {
+            "word": "batch",
+            "start": 4.74,
+            "end": 5.02
+          },
+          {
+            "word": "of",
+            "start": 5.02,
+            "end": 5.28
+          },
+          {
+            "word": "chaos,",
+            "start": 5.28,
+            "end": 5.56
+          },
+          {
+            "word": "fails,",
+            "start": 6.74,
+            "end": 7.14
+          },
+          {
+            "word": "and",
+            "start": 7.94,
+            "end": 8.04
+          },
+          {
+            "word": "massive",
+            "start": 8.04,
+            "end": 8.48
+          },
+          {
+            "word": "regrets",
+            "start": 8.48,
+            "end": 8.88
+          },
+          {
+            "word": "that",
+            "start": 8.88,
+            "end": 9.18
+          },
+          {
+            "word": "will",
+            "start": 9.18,
+            "end": 9.3
+          },
+          {
+            "word": "turn",
+            "start": 9.3,
+            "end": 9.58
+          },
+          {
+            "word": "your",
+            "start": 9.58,
+            "end": 9.82
+          },
+          {
+            "word": "day",
+            "start": 9.82,
+            "end": 10.04
+          },
+          {
+            "word": "around.",
+            "start": 10.04,
+            "end": 10.58
+          },
+          {
+            "word": "Grab",
+            "start": 11.24,
+            "end": 11.48
+          },
+          {
+            "word": "a",
+            "start": 11.48,
+            "end": 11.62
+          },
+          {
+            "word": "seat",
+            "start": 11.62,
+            "end": 11.78
+          },
+          {
+            "word": "because",
+            "start": 11.85,
+            "end": 12.1
+          },
+          {
+            "word": "everything",
+            "start": 12.1,
+            "end": 12.64
+          },
+          {
+            "word": "is",
+            "start": 12.64,
+            "end": 12.9
+          },
+          {
+            "word": "about",
+            "start": 12.9,
+            "end": 13.2
+          },
+          {
+            "word": "to",
+            "start": 13.2,
+            "end": 13.42
+          },
+          {
+            "word": "go",
+            "start": 13.42,
+            "end": 13.62
+          },
+          {
+            "word": "wrong.",
+            "start": 13.62,
+            "end": 13.88
+          },
+          {
+            "word": "Let's",
+            "start": 14.91,
+            "end": 15.34
+          },
+          {
+            "word": "get",
+            "start": 15.34,
+            "end": 15.48
+          },
+          {
+            "word": "it",
+            "start": 15.48,
+            "end": 15.62
+          },
+          {
+            "word": "on!",
+            "start": 15.62,
+            "end": 15.8
+          }
+        ]
+      },
+      "six_secret_sauce_rules": {
+        "1_five_spurt_six_gap_audio_weaving": "Slice Track A2 Intro VO into 5 vocal spurts separated by 6 Crash Gaps (Gap #1: 1.80s after greeting; Gap #2: 1.00s visual / 0.44s VO pause after 'OF CHAOS,'; Gap #3: 0.68s visual / 0.80s VO pause after 'FAILS,'; Gap #4: 0.70s full silence after Sentence 1; Gap #5: 0.87s full silence before CTA; Gap #6: 1.02s full silence after CTA before Warning). Unmask Track A1 to 0 dB (or -5..-10 dB on micro-gaps) during every gap.",
+        "2_sub_scene_caption_blanking": "Track V8 Komika Axis phrase cards MUST terminate at the exact frame physical impact begins (Part B crash window). Never leave text overlays sitting over the frame during explosions or high-velocity impacts (S01b, S04b, S05b, S09, S13, S14b).",
+        "3_semantic_visual_lyric_sync": "Map teaser clips semantically to the spoken words on Track A2/V8: 'OF CHAOS' -> explosion/fireball; 'FAILS' -> head-smash/slapstick; 'AND MASSIVE REGRETS' -> groin impact on pole/rail; 'TURN YOUR DAY AROUND' -> car/dashcam collision; 'GRAB A SEAT' -> chair/ledge wipeout; 'IS ABOUT TO GO WRONG' -> massive tire/equipment explosion; 'LET'S GET IT ON / STARTED' -> 1st-person POV motorcycle/camera crash.",
+        "4_setup_to_impact_internal_jump_cut": "For dashcam/CCTV clips requiring context (S07 -> S08), place a 0.50s (12f @ 23.976fps) calm setup slice immediately followed by an internal jump-cut into the 1.00s-1.10s (24-27f) crash slice of the same source clip, while keeping a single continuous Track V8 caption card spanning across the jump-cut.",
+        "5_three_point_impact_zoom_transitions": "Keep all 12 internal montage cuts between S02 and S14 as razor-sharp Hard Cuts. Apply AE.AE_Impact_Warp / AE.Impact_Cross_Zoom (8-10 frames) strictly at 3 structural boundaries: (1) End of Cold-Open Teaser #1b (f_c2_start), (2) Entry into Warning card (warning_start), and (3) Exit from Warning card into Main Body Clip #1 (warning_end).",
+        "6_teaser_4_payoff_bridge_loop": "Place the climax explosion of Main Body Clip #1 (itv.kb*.1.mp4) at Teaser #4 (S04a + S04b on 'OF CHAOS'), cutting away right as the subject hits the ground to create an open curiosity loop. Reserve Final Teaser (S14a + S14b) for a 1st-person POV camera-hit jump-scare that triggers the Warning card, then immediately resolve Teaser #4 by playing the full 4-Beat clip (itv.kb*.1.mp4) as Body Clip #1."
+      },
+      "source_forensic_breakdown_2997fps": [
+        {
+          "id": "S01a",
+          "role": "Cold-Open Setup + Greeting",
+          "sec": [
+            0.0,
+            1.64
+          ],
+          "frames_2997": [
+            0,
+            49
+          ],
+          "frames_23976": [
+            0,
+            39
+          ],
+          "vo_text": "HELLOOO EVERYONE",
+          "v8_color_hex": "#F8FA6D",
+          "a1_db": -15,
+          "visual": "2 guys drinking beer by cafe window as black SUV approaches outside"
+        },
+        {
+          "id": "S01b",
+          "role": "Crash Gap #1 (Unmasked Cold-Open Hit)",
+          "sec": [
+            1.64,
+            3.44
+          ],
+          "frames_2997": [
+            49,
+            103
+          ],
+          "frames_23976": [
+            39,
+            82
+          ],
+          "vo_text": null,
+          "v8_color_hex": null,
+          "a1_db": 0,
+          "transition_out": "Impact Cross Zoom (f98..f105)",
+          "visual": "SUV smashes through glass window right behind the 2 guys"
+        },
+        {
+          "id": "S02",
+          "role": "Fast Cut #2",
+          "sec": [
+            3.44,
+            4.2
+          ],
+          "frames_2997": [
+            103,
+            126
+          ],
+          "frames_23976": [
+            82,
+            101
+          ],
+          "vo_text": "WE ARE BACK",
+          "v8_color_hex": "#8BFA6D",
+          "a1_db": -15,
+          "visual": "Woman in gym pulled forward face-first by dumbbell"
+        },
+        {
+          "id": "S03",
+          "role": "Fast Cut #3",
+          "sec": [
+            4.2,
+            5.04
+          ],
+          "frames_2997": [
+            126,
+            151
+          ],
+          "frames_23976": [
+            101,
+            121
+          ],
+          "vo_text": "WITH A FRESH BATCH",
+          "v8_color_hex": "#FA6DEE",
+          "a1_db": -15,
+          "visual": "Woman trying to scoop rat with shovel; rat leaps at her"
+        },
+        {
+          "id": "S04a",
+          "role": "Fast Cut #4a (Body Clip #1 Hook Setup)",
+          "sec": [
+            5.04,
+            5.74
+          ],
+          "frames_2997": [
+            151,
+            172
+          ],
+          "frames_23976": [
+            121,
+            138
+          ],
+          "vo_text": "OF CHAOS,",
+          "v8_color_hex": "#F8FA6D",
+          "a1_db": -15,
+          "visual": "Mechanic leaning over Honda Odyssey hood with jumper cables"
+        },
+        {
+          "id": "S04b",
+          "role": "Crash Gap #2 (Body Clip #1 Explosion + Caption Blanking)",
+          "sec": [
+            5.74,
+            6.74
+          ],
+          "frames_2997": [
+            172,
+            202
+          ],
+          "frames_23976": [
+            138,
+            162
+          ],
+          "vo_text": null,
+          "v8_color_hex": null,
+          "a1_db": 0,
+          "visual": "Car battery explodes in yellow fireball; mechanic blown backward onto gravel"
+        },
+        {
+          "id": "S05a",
+          "role": "Fast Cut #5a (Setup)",
+          "sec": [
+            6.74,
+            7.2
+          ],
+          "frames_2997": [
+            202,
+            216
+          ],
+          "frames_23976": [
+            162,
+            173
+          ],
+          "vo_text": "FAILS,",
+          "v8_color_hex": "#6DFAEA",
+          "a1_db": -15,
+          "visual": "Man in Kumamon shirt winds up to headbutt rigged watermelon"
+        },
+        {
+          "id": "S05b",
+          "role": "Crash Gap #3 (Watermelon Blast + Caption Blanking)",
+          "sec": [
+            7.2,
+            7.88
+          ],
+          "frames_2997": [
+            216,
+            236
+          ],
+          "frames_23976": [
+            173,
+            189
+          ],
+          "vo_text": null,
+          "v8_color_hex": null,
+          "a1_db": -5,
+          "visual": "Watermelon explodes in red mist directly into his face"
+        },
+        {
+          "id": "S06",
+          "role": "Fast Cut #6 (Semantic Match: Regrets)",
+          "sec": [
+            7.88,
+            8.94
+          ],
+          "frames_2997": [
+            236,
+            268
+          ],
+          "frames_23976": [
+            189,
+            214
+          ],
+          "vo_text": "AND MASSIVE REGRETS",
+          "v8_color_hex": "#8BFA6D",
+          "a1_db": -10,
+          "visual": "BMX rider jumps stairs and slams groin directly into metal sign pole"
+        },
+        {
+          "id": "S07",
+          "role": "Fast Cut #7a (Dashcam Pre-Jump-Cut Setup)",
+          "sec": [
+            8.94,
+            9.44
+          ],
+          "frames_2997": [
+            268,
+            283
+          ],
+          "frames_23976": [
+            214,
+            226
+          ],
+          "vo_text": "THAT WILL TURN YOUR DAY AROUND",
+          "v8_color_hex": "#FA6DEE",
+          "a1_db": -15,
+          "visual": "2 women sitting calmly inside car (0.50s setup before internal jump-cut)"
+        },
+        {
+          "id": "S08",
+          "role": "Fast Cut #7b (Dashcam Jump-Cut Impact)",
+          "sec": [
+            9.44,
+            10.54
+          ],
+          "frames_2997": [
+            283,
+            316
+          ],
+          "frames_23976": [
+            226,
+            253
+          ],
+          "vo_text": "THAT WILL TURN YOUR DAY AROUND",
+          "v8_color_hex": "#FA6DEE",
+          "a1_db": -10,
+          "visual": "Internal jump-cut to exact frame car crashes; both women thrown forward"
+        },
+        {
+          "id": "S09",
+          "role": "Crash Gap #4 (Inter-Sentence Silent VO Hit)",
+          "sec": [
+            10.54,
+            11.24
+          ],
+          "frames_2997": [
+            316,
+            337
+          ],
+          "frames_23976": [
+            253,
+            270
+          ],
+          "vo_text": null,
+          "v8_color_hex": null,
+          "a1_db": 0,
+          "visual": "Kid wearing VR headset punches dad holding iPad directly in the groin"
+        },
+        {
+          "id": "S10",
+          "role": "Fast Cut #9 (Accelerando 0.60s)",
+          "sec": [
+            11.24,
+            11.85
+          ],
+          "frames_2997": [
+            337,
+            355
+          ],
+          "frames_23976": [
+            270,
+            284
+          ],
+          "vo_text": "GRAB A SEAT",
+          "v8_color_hex": "#6DFAEA",
+          "a1_db": -15,
+          "visual": "Man slips and falls headfirst off yellow inflatable wall"
+        },
+        {
+          "id": "S11",
+          "role": "Fast Cut #10",
+          "sec": [
+            11.85,
+            12.71
+          ],
+          "frames_2997": [
+            355,
+            381
+          ],
+          "frames_23976": [
+            284,
+            305
+          ],
+          "vo_text": "BECAUSE EVERYTHING",
+          "v8_color_hex": "#F8FA6D",
+          "a1_db": -15,
+          "visual": "Gym resistance band snaps back and whips woman in front"
+        },
+        {
+          "id": "S12",
+          "role": "Fast Cut #11 (Semantic Match: Go Wrong)",
+          "sec": [
+            12.71,
+            14.05
+          ],
+          "frames_2997": [
+            381,
+            421
+          ],
+          "frames_23976": [
+            305,
+            337
+          ],
+          "vo_text": "IS ABOUT TO GO WRONG",
+          "v8_color_hex": "#6DB8FA",
+          "a1_db": -5,
+          "visual": "Giant tractor tire on trailer explodes in massive white smoke cloud"
+        },
+        {
+          "id": "S13",
+          "role": "Crash Gap #5 (Pre-CTA Silent VO Hit)",
+          "sec": [
+            14.05,
+            14.91
+          ],
+          "frames_2997": [
+            421,
+            447
+          ],
+          "frames_23976": [
+            337,
+            358
+          ],
+          "vo_text": null,
+          "v8_color_hex": null,
+          "a1_db": 0,
+          "visual": "Compressed suspension coil spring violently explodes into mechanic"
+        },
+        {
+          "id": "S14a",
+          "role": "Final Teaser #13a (POV CTA Lead-in)",
+          "sec": [
+            14.91,
+            15.8
+          ],
+          "frames_2997": [
+            447,
+            474
+          ],
+          "frames_23976": [
+            358,
+            379
+          ],
+          "vo_text": "LET'S GET IT ON!",
+          "v8_color_hex": "#FA6D6D",
+          "a1_db": -15,
+          "visual": "1st-person POV motorcycle rider approaching intersection with pickup truck"
+        },
+        {
+          "id": "S14b",
+          "role": "Crash Gap #6 (POV Pre-Warning Crash)",
+          "sec": [
+            15.8,
+            16.82
+          ],
+          "frames_2997": [
+            474,
+            504
+          ],
+          "frames_23976": [
+            379,
+            403
+          ],
+          "vo_text": null,
+          "v8_color_hex": null,
+          "a1_db": 0,
+          "transition_out": "Impact Cross Zoom (f500..f508)",
+          "visual": "POV motorcycle slams directly into pickup truck bed; camera tumbles"
+        },
+        {
+          "id": "S15",
+          "role": "WARNING Card",
+          "sec": [
+            16.82,
+            18.09
+          ],
+          "frames_2997": [
+            504,
+            542
+          ],
+          "frames_23976": [
+            403,
+            434
+          ],
+          "vo_text": null,
+          "v8_color_hex": null,
+          "a1_db": -25,
+          "transition_out": "Impact Cross Zoom (f538..f545)",
+          "visual": "Red/White WARNING! disclaimer card on black background"
+        },
+        {
+          "id": "BODY_01",
+          "role": "Main Body Clip #1 (Full Payoff of S04)",
+          "sec": [
+            18.09,
+            30.53
+          ],
+          "frames_2997": [
+            542,
+            915
+          ],
+          "frames_23976": [
+            434,
+            732
+          ],
+          "vo_text": null,
+          "v8_safety_text": "*HE WASN'T INJURED*",
+          "a1_db": 0,
+          "visual": "Full 2-angle 12.44s clip of S04 mechanic battery explosion + co-worker running out to check on him"
+        }
+      ],
+      "itv_moments_1to1_implementation": {
+        "preserved_itv_visual_packaging": {
+          "V1": "Duplicate of V3 at Scale=500% + AE.Impact_Blur_FX (bg blur 100%) — replaces Bzac New static grey/green sidebars",
+          "V2": "ITV Moments Brand Frame PNG (Opacity=99%, Scale=115%x114.77%), split with AE_Impact_Warp at f_c2_start and warning_start",
+          "V6_V7": "Only-Logo.png (V6 top-left) and wtm.png (V7 bottom-center Opacity=3%), cut cleanly during the 20-frame Warning card",
+          "A6": "Hadeus.mp4 (0..warning_end) ducked to 0.0526 linear under VO and swelling to 0.1446 linear into Warning card with 20-frame Custom Fade"
+        },
+        "color_palette_komika_axis_rgb": {
+          "YELLOW": [
+            248,
+            250,
+            109
+          ],
+          "GREEN": [
+            139,
+            250,
+            109
+          ],
+          "PINK": [
+            250,
+            109,
+            238
+          ],
+          "CYAN": [
+            109,
+            250,
+            234
+          ],
+          "BLUE": [
+            109,
+            184,
+            250
+          ],
+          "RED_CTA": [
+            250,
+            109,
+            109
+          ]
+        },
+        "mode_1_compact_370f_itv_standard": {
+          "description": "Scaled 1:1 proportionally to ITV Moments 370-frame (15.43s @ 23.976fps) Gold-Standard Intro window (Warning = 350..370f)",
+          "warning_start": 350,
+          "warning_end": 370,
+          "f_c2_start": 74,
+          "f_c4_end": 318,
+          "a2_clauses": [
+            [
+              0,
+              36,
+              0
+            ],
+            [
+              74,
+              122,
+              38
+            ],
+            [
+              142,
+              224,
+              88
+            ],
+            [
+              240,
+              286,
+              172
+            ],
+            [
+              300,
+              318,
+              220
+            ]
+          ],
+          "v8_cards": [
+            [
+              "7434",
+              0,
+              36,
+              "HELLO EVERYONE!",
+              "YELLOW"
+            ],
+            [
+              "7435",
+              74,
+              90,
+              "WE ARE BACK",
+              "GREEN"
+            ],
+            [
+              "7436",
+              90,
+              108,
+              "WITH A FRESH BATCH",
+              "PINK"
+            ],
+            [
+              "7437",
+              108,
+              122,
+              "OF CHAOS,",
+              "YELLOW"
+            ],
+            [
+              "7438",
+              142,
+              154,
+              "FAILS,",
+              "CYAN"
+            ],
+            [
+              "7439",
+              164,
+              188,
+              "AND MASSIVE REGRETS",
+              "GREEN"
+            ],
+            [
+              "7440",
+              188,
+              224,
+              "TURN YOUR DAY AROUND",
+              "PINK"
+            ],
+            [
+              "7441",
+              240,
+              253,
+              "GRAB A SEAT",
+              "CYAN"
+            ],
+            [
+              "7442",
+              253,
+              268,
+              "BECAUSE EVERYTHING",
+              "YELLOW"
+            ],
+            [
+              "7435",
+              268,
+              286,
+              "IS ABOUT TO GO WRONG!",
+              "BLUE"
+            ],
+            [
+              "7436",
+              300,
+              318,
+              "LET'S GET STARTED!",
+              "RED_CTA"
+            ]
+          ],
+          "teasers_template": [
+            {
+              "slot": "TEASER_01_PART_A",
+              "start_f": 0,
+              "end_f": 36,
+              "in_f": 24,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Setup under Greeting VO"
+            },
+            {
+              "slot": "TEASER_01_PART_B",
+              "start_f": 36,
+              "end_f": 74,
+              "in_f": 60,
+              "a1_db": 0,
+              "is_final_b": false,
+              "note": "CRASH GAP #1 (Unmasked 0dB crash + Impact_Warp at f74)"
+            },
+            {
+              "slot": "TEASER_02",
+              "start_f": 74,
+              "end_f": 90,
+              "in_f": 30,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Fast Cut #2 ('WE ARE BACK')"
+            },
+            {
+              "slot": "TEASER_03",
+              "start_f": 90,
+              "end_f": 108,
+              "in_f": 36,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Fast Cut #3 ('WITH A FRESH BATCH')"
+            },
+            {
+              "slot": "BODY_CLIP_1_PART_A",
+              "start_f": 108,
+              "end_f": 122,
+              "in_f": 36,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Hook Loop Setup of itv.kb*.1.mp4 ('OF CHAOS,')"
+            },
+            {
+              "slot": "BODY_CLIP_1_PART_B",
+              "start_f": 122,
+              "end_f": 142,
+              "in_f": 50,
+              "a1_db": 0,
+              "is_final_b": false,
+              "note": "CRASH GAP #2 (0dB explosion of itv.kb*.1.mp4 + V8 Caption Blanking)"
+            },
+            {
+              "slot": "TEASER_05_PART_A",
+              "start_f": 142,
+              "end_f": 154,
+              "in_f": 30,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Fast Cut #5a Setup ('FAILS,')"
+            },
+            {
+              "slot": "TEASER_05_PART_B",
+              "start_f": 154,
+              "end_f": 164,
+              "in_f": 42,
+              "a1_db": -10,
+              "is_final_b": false,
+              "note": "CRASH GAP #3 (Impact + V8 Caption Blanking)"
+            },
+            {
+              "slot": "TEASER_06_REGRET",
+              "start_f": 164,
+              "end_f": 188,
+              "in_f": 36,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Groin/pole impact ('AND MASSIVE REGRETS')"
+            },
+            {
+              "slot": "TEASER_07_JUMPCUT_A",
+              "start_f": 188,
+              "end_f": 200,
+              "in_f": 12,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Dashcam/CCTV 0.5s calm setup before internal jump-cut"
+            },
+            {
+              "slot": "TEASER_07_JUMPCUT_B",
+              "start_f": 200,
+              "end_f": 224,
+              "in_f": 65,
+              "a1_db": -10,
+              "is_final_b": false,
+              "note": "Dashcam/CCTV internal jump-cut directly to impact ('TURN YOUR DAY AROUND')"
+            },
+            {
+              "slot": "TEASER_08_SILENT_GAP",
+              "start_f": 224,
+              "end_f": 240,
+              "in_f": 30,
+              "a1_db": 0,
+              "is_final_b": false,
+              "note": "CRASH GAP #4 (0dB punch/hit between sentences, 0 VO, 0 V8 Text)"
+            },
+            {
+              "slot": "TEASER_09_FAST",
+              "start_f": 240,
+              "end_f": 253,
+              "in_f": 30,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Fast 13f fall ('GRAB A SEAT')"
+            },
+            {
+              "slot": "TEASER_10_FAST",
+              "start_f": 253,
+              "end_f": 268,
+              "in_f": 30,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "Fast 15f snap/slip ('BECAUSE EVERYTHING')"
+            },
+            {
+              "slot": "TEASER_11_EXPLOSION",
+              "start_f": 268,
+              "end_f": 286,
+              "in_f": 36,
+              "a1_db": -10,
+              "is_final_b": false,
+              "note": "Big smoke/tire explosion ('IS ABOUT TO GO WRONG!')"
+            },
+            {
+              "slot": "TEASER_12_PRE_CTA_GAP",
+              "start_f": 286,
+              "end_f": 300,
+              "in_f": 40,
+              "a1_db": 0,
+              "is_final_b": false,
+              "note": "CRASH GAP #5 (0dB sudden spring/tool blast before CTA, 0 VO, 0 V8 Text)"
+            },
+            {
+              "slot": "FINAL_POV_PART_A",
+              "start_f": 300,
+              "end_f": 318,
+              "in_f": 36,
+              "a1_db": -15,
+              "is_final_b": false,
+              "note": "POV approach under Red CTA ('LET'S GET STARTED!')"
+            },
+            {
+              "slot": "FINAL_POV_PART_B",
+              "start_f": 318,
+              "end_f": 350,
+              "in_f": 54,
+              "a1_db": 0,
+              "is_final_b": true,
+              "note": "CRASH GAP #6 (0dB POV camera crash -> Impact_Warp into Warning 350..370f)"
+            }
+          ]
+        },
+        "mode_2_exact_423f_uncompressed": {
+          "description": "Exact 1:1 unscaled timing from QDwurG8gJ50 at 23.976fps (Montage 0..403f = 16.81s, Warning 403..423f = 0.83s, Total = 17.64s)",
+          "warning_start": 403,
+          "warning_end": 423,
+          "f_c2_start": 82,
+          "f_c4_end": 379,
+          "a2_clauses": [
+            [
+              0,
+              39,
+              0
+            ],
+            [
+              82,
+              138,
+              42
+            ],
+            [
+              162,
+              253,
+              98
+            ],
+            [
+              270,
+              337,
+              190
+            ],
+            [
+              358,
+              379,
+              258
+            ]
+          ]
+        }
+      }
+    },
+    "failside290_ni4ecuy7duk_hyper15": {
+      "preset_id": "failside290_ni4ecuy7duk_hyper15",
+      "preset_name": "FailSide Moment #290 (NI4ECuy7DUk) — 15-Clip Hyper-Montage & Clean-Screen Camera-Hit Intro Preset",
+      "created_at": "2026-10-29",
+      "source_reference": {
+        "video_id": "NI4ECuy7DUk",
+        "url": "https://www.youtube.com/watch?v=NI4ECuy7DUk",
+        "channel_name": "FailSide Moment",
+        "episode_title": "TOTAL IDIOTS AT WORK #290 | Instant Regret Fails Compilation 2026 | Best of the Month",
+        "upload_date": "2026-10-28",
+        "views_at_capture": 31320,
+        "source_resolution": [
+          1920,
+          1080
+        ],
+        "source_fps": 29.97,
+        "source_intro_duration_sec": 17.72,
+        "source_teaser_montage_sec": 16.08,
+        "source_warning_card_sec": [
+          16.08,
+          17.72
+        ],
+        "vault_template_id": "BZAC_17",
+        "raw_transcript": "Hello everyone! We've gathered some of the funniest fails this week, from slip-ups, painful regrets, to bozo disasters guaranteed for you to drop jaws. Let's dive right in!",
+        "whisper_word_timestamps_sec": [
+          {
+            "word": "Hello",
+            "start": 0.0,
+            "end": 0.6
+          },
+          {
+            "word": "everyone!",
+            "start": 0.6,
+            "end": 1.66
+          },
+          {
+            "word": "We've",
+            "start": 3.02,
+            "end": 3.78
+          },
+          {
+            "word": "gathered",
+            "start": 3.78,
+            "end": 3.98
+          },
+          {
+            "word": "some",
+            "start": 3.98,
+            "end": 4.3
+          },
+          {
+            "word": "of",
+            "start": 4.3,
+            "end": 4.42
+          },
+          {
+            "word": "the",
+            "start": 4.42,
+            "end": 4.5
+          },
+          {
+            "word": "funniest",
+            "start": 4.5,
+            "end": 5.02
+          },
+          {
+            "word": "fails",
+            "start": 5.02,
+            "end": 5.4
+          },
+          {
+            "word": "this",
+            "start": 5.4,
+            "end": 5.74
+          },
+          {
+            "word": "week,",
+            "start": 5.74,
+            "end": 6.06
+          },
+          {
+            "word": "from",
+            "start": 6.3,
+            "end": 6.68
+          },
+          {
+            "word": "slip-ups,",
+            "start": 6.68,
+            "end": 7.36
+          },
+          {
+            "word": "painful",
+            "start": 7.64,
+            "end": 7.88
+          },
+          {
+            "word": "regrets,",
+            "start": 7.88,
+            "end": 8.4
+          },
+          {
+            "word": "to",
+            "start": 8.94,
+            "end": 8.98
+          },
+          {
+            "word": "bozo",
+            "start": 8.98,
+            "end": 9.46
+          },
+          {
+            "word": "disasters",
+            "start": 9.46,
+            "end": 10.1
+          },
+          {
+            "word": "guaranteed",
+            "start": 10.1,
+            "end": 10.8
+          },
+          {
+            "word": "for",
+            "start": 10.8,
+            "end": 11.38
+          },
+          {
+            "word": "you",
+            "start": 11.38,
+            "end": 11.66
+          },
+          {
+            "word": "to",
+            "start": 11.66,
+            "end": 11.92
+          },
+          {
+            "word": "drop",
+            "start": 11.92,
+            "end": 12.22
+          },
+          {
+            "word": "jaws.",
+            "start": 12.22,
+            "end": 12.62
+          },
+          {
+            "word": "Let's",
+            "start": 13.14,
+            "end": 13.9
+          },
+          {
+            "word": "dive",
+            "start": 13.9,
+            "end": 14.12
+          },
+          {
+            "word": "right",
+            "start": 14.12,
+            "end": 14.32
+          },
+          {
+            "word": "in!",
+            "start": 14.32,
+            "end": 14.64
+          }
+        ]
+      },
+      "core_distinctions_vs_bzac189": {
+        "1_zero_caption_clean_screen_option": "FailSide Moment #290 uses ZERO text captions during the entire intro (0.00s..16.08s) so the viewer's eye locks 100% onto the rapid-fire physical action. (When adapted to ITV Moments, can either run Clean-Screen or use compact V8 Komika Axis with Caption Blanking).",
+        "2_hyper_15_clip_density": "Packs 15 distinct clips into 16.08s (mean 1.07s/clip; middle 13 clips are 0.53s..0.90s each = 13f..21f @ 23.976fps), creating a 30% faster visual cut rate than Bzac New #189.",
+        "3_nature_shock_cold_open_347s": "Clip #1 (0.00s..3.47s) is a 3.47s force-of-nature shock clip: 1.80s calm palm trees under 'Hello everyone!' -> 1.67s massive lightning bolt striking the palm tree at 1.97s with blinding white flash + camera drop -> Impact Cross Zoom at 3.47s.",
+        "4_camera_hit_snowboard_finale_250s": "Final Teaser #15 (13.58s..16.08s, 2.50s) is a direct-into-lens collision: 1.06s snowboarder approaching camera under 'Let's dive right in!' (13.14s..14.64s) -> 1.44s unmasked crash gap where the snowboarder slams directly into the cameraman at 15.60s..16.08s (Peak -2.0 dB).",
+        "5_acoustic_vacuum_ember_warning_card": "During the WARNING! card (16.08s..17.72s, 1.64s with animated fire embers), audio drops to near-total silence (-37 dB to -68 dB) — creating an acoustic vacuum before Body Clip #1 hits.",
+        "6_heavy_vehicle_ escalation_at_body_start": "Instead of replaying an intro clip at Body Clip #1, FailSide Moment opens the main body (17.72s..35.0s) with 3 consecutive brand-new heavy-vehicle/industrial disasters (runaway dump truck crashing parked cars -> raised dump bed hitting highway gantry -> semi-truck wind rollover)."
+      },
+      "source_forensic_breakdown_2997fps": [
+        {
+          "id": "S01_S02",
+          "clip_num": 1,
+          "role": "Cold-Open Setup + Greeting",
+          "sec": [
+            0.0,
+            1.8
+          ],
+          "frames_2997": [
+            0,
+            54
+          ],
+          "frames_23976": [
+            0,
+            43
+          ],
+          "vo_text": "Hello everyone!",
+          "a1_db": -15,
+          "visual": "Palm trees swaying against dark storm clouds by the ocean"
+        },
+        {
+          "id": "S03_S05",
+          "clip_num": 1,
+          "role": "Crash Gap #1 (Lightning Strike + Camera Tumble)",
+          "sec": [
+            1.8,
+            3.47
+          ],
+          "frames_2997": [
+            54,
+            104
+          ],
+          "frames_23976": [
+            43,
+            83
+          ],
+          "vo_text": null,
+          "a1_db": 0,
+          "transition_out": "Impact Cross Zoom (f100..f107)",
+          "visual": "Red lightning bolt strikes palm tree at 1.97s, blinding white explosion at 2.37s, camera tumbles across balcony"
+        },
+        {
+          "id": "S06",
+          "clip_num": 2,
+          "role": "Hyper-Cut #2 (0.70s)",
+          "sec": [
+            3.47,
+            4.17
+          ],
+          "frames_2997": [
+            104,
+            125
+          ],
+          "frames_23976": [
+            83,
+            100
+          ],
+          "vo_text": "We've gathered some",
+          "a1_db": -15,
+          "visual": "Man steps through unfinished wooden staircase joists and falls"
+        },
+        {
+          "id": "S07",
+          "clip_num": 3,
+          "role": "Hyper-Cut #3 (0.90s)",
+          "sec": [
+            4.17,
+            5.07
+          ],
+          "frames_2997": [
+            125,
+            152
+          ],
+          "frames_23976": [
+            100,
+            122
+          ],
+          "vo_text": "of the funniest",
+          "a1_db": -12,
+          "visual": "Dad accidentally bounces basketball off little girl's head"
+        },
+        {
+          "id": "S08",
+          "clip_num": 4,
+          "role": "Hyper-Cut #4 (0.77s)",
+          "sec": [
+            5.07,
+            5.84
+          ],
+          "frames_2997": [
+            152,
+            175
+          ],
+          "frames_23976": [
+            122,
+            140
+          ],
+          "vo_text": "fails this week,",
+          "a1_db": -12,
+          "visual": "Man in lab coat riding mini-bike inside office hallway wipes out"
+        },
+        {
+          "id": "S09",
+          "clip_num": 5,
+          "role": "Hyper-Cut #5 (0.63s + Micro-Gap)",
+          "sec": [
+            5.84,
+            6.47
+          ],
+          "frames_2997": [
+            175,
+            194
+          ],
+          "frames_23976": [
+            140,
+            155
+          ],
+          "vo_text": "from",
+          "a1_db": -10,
+          "visual": "Sleeping shirtless man blasted in the face with air/water nozzle"
+        },
+        {
+          "id": "S10",
+          "clip_num": 6,
+          "role": "Hyper-Cut #6 (0.83s - Semantic: Slip-ups)",
+          "sec": [
+            6.47,
+            7.31
+          ],
+          "frames_2997": [
+            194,
+            219
+          ],
+          "frames_23976": [
+            155,
+            175
+          ],
+          "vo_text": "slip-ups,",
+          "a1_db": -12,
+          "visual": "Girl on roller skates slips on quarter-pipe ramp and slams tailbone"
+        },
+        {
+          "id": "S11",
+          "clip_num": 7,
+          "role": "Hyper-Cut #7 (0.83s - Semantic: Painful Regrets)",
+          "sec": [
+            7.31,
+            8.14
+          ],
+          "frames_2997": [
+            219,
+            244
+          ],
+          "frames_23976": [
+            175,
+            195
+          ],
+          "vo_text": "painful regrets,",
+          "a1_db": -10,
+          "visual": "Snowboarder launches into giant airbag and faceplants"
+        },
+        {
+          "id": "S12",
+          "clip_num": 8,
+          "role": "Crash Gap #2 (0.73s Clause Breath)",
+          "sec": [
+            8.14,
+            8.88
+          ],
+          "frames_2997": [
+            244,
+            266
+          ],
+          "frames_23976": [
+            195,
+            213
+          ],
+          "vo_text": null,
+          "a1_db": -5,
+          "visual": "Girl wrapped in blanket cartwheels in living room and crashes into table"
+        },
+        {
+          "id": "S13",
+          "clip_num": 9,
+          "role": "Hyper-Cut #9 (0.70s)",
+          "sec": [
+            8.88,
+            9.58
+          ],
+          "frames_2997": [
+            266,
+            287
+          ],
+          "frames_23976": [
+            213,
+            230
+          ],
+          "vo_text": "to bozo",
+          "a1_db": -12,
+          "visual": "Man on porch yanked off his feet by dog bolting on leash"
+        },
+        {
+          "id": "S14",
+          "clip_num": 10,
+          "role": "Hyper-Cut #10 (0.83s - Semantic: Disasters)",
+          "sec": [
+            9.58,
+            10.41
+          ],
+          "frames_2997": [
+            287,
+            312
+          ],
+          "frames_23976": [
+            230,
+            250
+          ],
+          "vo_text": "disasters",
+          "a1_db": -8,
+          "visual": "Heavy object flies into silver car front fender inside garage, denting it"
+        },
+        {
+          "id": "S15",
+          "clip_num": 11,
+          "role": "Hyper-Cut #11 (0.83s)",
+          "sec": [
+            10.41,
+            11.24
+          ],
+          "frames_2997": [
+            312,
+            337
+          ],
+          "frames_23976": [
+            250,
+            270
+          ],
+          "vo_text": "guaranteed",
+          "a1_db": -12,
+          "visual": "Tall standing mirror tips over onto girl holding soccer ball in bedroom"
+        },
+        {
+          "id": "S16",
+          "clip_num": 12,
+          "role": "Hyper-Cut #12 (0.53s Ultra-Fast)",
+          "sec": [
+            11.24,
+            11.78
+          ],
+          "frames_2997": [
+            337,
+            353
+          ],
+          "frames_23976": [
+            270,
+            282
+          ],
+          "vo_text": "for you",
+          "a1_db": -15,
+          "visual": "Hands holding hot glass bowl of soup with potholders slip and spill"
+        },
+        {
+          "id": "S17",
+          "clip_num": 13,
+          "role": "Hyper-Cut #13 (0.57s - Semantic: Drop Jaws)",
+          "sec": [
+            11.78,
+            12.35
+          ],
+          "frames_2997": [
+            353,
+            370
+          ],
+          "frames_23976": [
+            282,
+            296
+          ],
+          "vo_text": "to drop jaws.",
+          "a1_db": -12,
+          "visual": "Deer leaps across driveway directly into white pickup truck bed"
+        },
+        {
+          "id": "S18_S19",
+          "clip_num": 14,
+          "role": "Crash Gap #3 (1.23s Pre-CTA Wakeboard Wipeout)",
+          "sec": [
+            12.35,
+            13.58
+          ],
+          "frames_2997": [
+            370,
+            407
+          ],
+          "frames_23976": [
+            296,
+            326
+          ],
+          "vo_text": null,
+          "a1_db": -5,
+          "visual": "Wakeboarder catches edge and violently faceplants into water spray"
+        },
+        {
+          "id": "S20a",
+          "clip_num": 15,
+          "role": "Final Teaser #15a (1.06s Camera-Hit Setup + CTA)",
+          "sec": [
+            13.58,
+            14.64
+          ],
+          "frames_2997": [
+            407,
+            439
+          ],
+          "frames_23976": [
+            326,
+            351
+          ],
+          "vo_text": "Let's dive right in!",
+          "a1_db": -15,
+          "visual": "Snowboarder in bunny-ear hood riding straight toward camera"
+        },
+        {
+          "id": "S20b",
+          "clip_num": 15,
+          "role": "Crash Gap #4 (1.44s Direct Camera-Hit Collision)",
+          "sec": [
+            14.64,
+            16.08
+          ],
+          "frames_2997": [
+            439,
+            482
+          ],
+          "frames_23976": [
+            351,
+            385
+          ],
+          "vo_text": null,
+          "a1_db": 0,
+          "visual": "Snowboarder loses control and slams directly into the camera lens with loud scream"
+        },
+        {
+          "id": "S21",
+          "clip_num": 0,
+          "role": "WARNING Card (Acoustic Vacuum -40dB)",
+          "sec": [
+            16.08,
+            17.72
+          ],
+          "frames_2997": [
+            482,
+            531
+          ],
+          "frames_23976": [
+            385,
+            425
+          ],
+          "vo_text": null,
+          "a1_db": -40,
+          "visual": "WARNING! card with rising fire embers on black background"
+        },
+        {
+          "id": "S22",
+          "clip_num": 16,
+          "role": "Main Body Clip #1 (New Heavy Truck CCTV Crash)",
+          "sec": [
+            17.72,
+            27.53
+          ],
+          "frames_2997": [
+            531,
+            825
+          ],
+          "frames_23976": [
+            425,
+            660
+          ],
+          "vo_text": null,
+          "a1_db": 0,
+          "visual": "Parking lot CCTV: runaway dump truck plows through trees and parked cars"
+        }
+      ],
+      "itv_moments_1to1_implementation_370f": {
+        "description": "15-Clip Hyper-Montage scaled to ITV Moments 370-frame (15.43s @ 23.976fps) standard intro window (Warning = 350..370f)",
+        "warning_start": 350,
+        "warning_end": 370,
+        "f_c2_start": 76,
+        "f_c4_end": 316,
+        "a2_clauses": [
+          [
+            0,
+            36,
+            0
+          ],
+          [
+            76,
+            140,
+            38
+          ],
+          [
+            146,
+            192,
+            105
+          ],
+          [
+            205,
+            286,
+            156
+          ],
+          [
+            298,
+            316,
+            240
+          ]
+        ]
+      }
+    }
+  },
+  "body_vo_placement_presets": {
+    "u_shaped_3anchor_vo_placement": {
+      "preset_id": "u_shaped_3anchor_vo_placement",
+      "preset_name": "U-Shaped 3-Anchor Body VO Placement (Bzac New #189 & FailSide Moment #290 1:1 Standard)",
+      "created_at": "2026-10-29",
+      "target_channel": "itv_moments",
+      "forensic_sources": [
+        {
+          "video_id": "QDwurG8gJ50",
+          "channel": "Bzac New (@Bzacnew68)",
+          "title": "TOTAL IDIOTS AT WORK #189",
+          "body_vos_in_9m": 13,
+          "avg_cadence_sec": 39.5,
+          "first_body_vo_sec": 102.09,
+          "tv_static_lead_in_ratio": 0.692,
+          "body_subtitles_enabled": false
+        },
+        {
+          "video_id": "NI4ECuy7DUk",
+          "channel": "FailSide Moment",
+          "title": "TOTAL IDIOTS AT WORK #290",
+          "body_vos_in_9m": 22,
+          "avg_cadence_sec": 23.8,
+          "first_body_vo_sec": 39.54,
+          "mid_episode_engagement_cta_sec": 269.83,
+          "body_subtitles_enabled": false
+        }
+      ],
+      "core_philosophy": "Eliminate dead-center 45%-55% VO placement. Anchor every Body VO either flush to the clip head (Anchor A: Cold-Start Lead-In at +0.18s..0.48s before impact) or flush to the clip tail (Anchor B: Tail-Flush Aftermath Roast ending 0.18s..0.48s before scene cut after impact), leaving the middle crash zone 100% open for raw Track A1 camera audio.",
+      "real_impact_detection_spec": {
+        "function": "detect_audio_transient(fpath, in_sec=0.0, clip_dur=None)",
+        "stage_1_acoustic_rms_and_flux": "Decode 16kHz mono PCM via FFmpeg over [in_sec, in_sec + clip_dur]. Compute 50ms window RMS energy and positive onset spectral flux above 300ms local baseline across [0.15s .. dur - 0.15s].",
+        "stage_2_visual_motion_fallback": "If audio stream is silent/flat (peak RMS <= 0.012 or dynamic crest ratio < 1.35), compute center-crop (12%-88% H, 30%-70% W) frame-to-frame pixel MAD at ~10fps to locate physical climax.",
+        "forbidden_patterns": [
+          "NEVER return hardcoded round(dur * 0.48, 2) or round(dur * 0.45, 2) when media file exists.",
+          "NEVER use blind rotating modulo ratio arrays like [0.22, 0.35, 0.48, 0.62, 0.74] to fake impact_sec."
+        ]
+      },
+      "three_anchor_modes": {
+        "anchor_A_cold_start_lead_in": {
+          "mode_name": "premise",
+          "target_share_pct": 55,
+          "trigger_condition": "t_impact >= vo_dur + 0.40s (impact occurs in second half of clip or after setup window) or VO text is setup/premise",
+          "start_offset_formula": "head_anchor in [0.18s .. 0.48s] right at clip start (or immediately after 9-frame TV Static transition)",
+          "end_clearance_rule": "vo_end <= t_impact - 0.20s (leaves 1.5s..11.0s tail completely open for raw crash audio on Track A1)",
+          "competitor_examples": [
+            "QDwurG8gJ50 VO#02 (132.60s): StartOff=0.00s after TV Static, finishes 0.81s before beer crates collapse",
+            "QDwurG8gJ50 VO#07 (298.62s): StartOff=+0.66s after TV Static, leaves 4.40s tail for crane concrete drop on car",
+            "NI4ECuy7DUk VO#21 (463.92s): StartOff=0.00s on 15.79s clip, leaves 11.19s open for full gas station action"
+          ]
+        },
+        "anchor_B_tail_flush_aftermath_roast": {
+          "mode_name": "aftermath",
+          "target_share_pct": 35,
+          "trigger_condition": "t_impact < clip_dur * 0.50 and clip_dur - (t_impact + 0.35s) >= vo_dur + 0.15s (impact occurs early in clip)",
+          "start_offset_formula": "max(t_impact + 0.35s, clip_dur - vo_dur - tail_margin) where tail_margin in [0.18s .. 0.48s]",
+          "end_clearance_rule": "EndRem = 0.18s .. 0.48s before scene cut (punchline finishes flush with clip cut or TV Static trigger)",
+          "competitor_examples": [
+            "QDwurG8gJ50 VO#11 (459.10s): Impact at +3.5s, VO enters at +3.95s, finishes 0.28s before TV Static cut",
+            "QDwurG8gJ50 VO#13 (515.33s): VO finishes at EndRem=0.00s right on scene cut",
+            "NI4ECuy7DUk VO#08 (198.01s): Mud slip at +2.10s, VO enters at +2.75s, finishes flush at EndRem=0.00s"
+          ]
+        },
+        "anchor_C_long_clip_pre_climax_bridge": {
+          "mode_name": "premise",
+          "target_share_pct": 10,
+          "trigger_condition": "Long multi-phase clip (clip_dur >= 11.5s) where t_impact >= vo_dur + 5.5s and text is not an immediate cold-start hook",
+          "start_offset_formula": "max(0.20s, t_impact - vo_dur - 0.35s) — bridges the build-up right before the climax while leaving >= 2.4s tail for the crash",
+          "competitor_examples": [
+            "QDwurG8gJ50 VO#01 (102.09s on 16.95s clip): StartOff=+6.66s, finishes 5.89s before end",
+            "QDwurG8gJ50 VO#04 (184.04s on 13.38s clip): StartOff=+6.23s, finishes 2.41s before end"
+          ]
+        }
+      },
+      "pacing_and_sequencing_rules": {
+        "first_body_vo_breathing_room": "Never place a Body VO on Main Body Clip #1..#3 right after the Warning card. Start Body VO #1 at Clip #4..#6 (~35s..45s into the video).",
+        "tv_static_combo_rule": "When a 9-frame TV Static transition (V10/A8) precedes a VO clip, prefer Anchor A (Cold-Start Lead-In at +0.18s..0.38s) to create a sharp chapter-reset hook.",
+        "part2_vo_window_slicing_rule": "When trimming a non-note Part 2 clip that carries a Body VO, slice [in_point_sec, out_point_sec] around raw_impact_sec: either place raw_impact_sec near the tail (for Anchor A Cold-Start VO) or at 1.2s..1.6s from clip start (for Anchor B Tail-Flush VO). Never slice blindly at 35%-45% of raw duration.",
+        "track_v5_mogrt_subtitle_sync": "100% start, end, and duration sync with Track A2 VO. Because VOs are placed at Anchor A (head) or Anchor B (tail), V5 subtitles automatically clear the screen during the physical impact frame."
+      }
+    }
+  }
 }
