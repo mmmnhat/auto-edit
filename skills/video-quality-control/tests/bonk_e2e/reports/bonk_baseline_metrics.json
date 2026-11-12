@@ -1,0 +1,1042 @@
+{
+  "timestamp": "2026-11-11T03:09:41.383236+00:00",
+  "elapsed_sec": 2.882,
+  "total_assertions": 160,
+  "total_passed": 160,
+  "total_failed": 0,
+  "overall_pass_rate": 100.0,
+  "projects": {
+    "kb33": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 336.2,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb33.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=109, duration=905.2s (15.09m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/109, V2 missing Lumetri=0/109"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=109, V2=109, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 101 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=127, BinnedCPIs=127 (orphans=0)"
+        }
+      ]
+    },
+    "kb34": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 321.7,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb34.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=110, duration=907.4s (15.12m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/110, V2 missing Lumetri=0/110"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=110, V2=110, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 102 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=128, BinnedCPIs=128 (orphans=0)"
+        }
+      ]
+    },
+    "kb35": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 288.5,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb35.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=110, duration=909.1s (15.15m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/110, V2 missing Lumetri=0/110"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=110, V2=110, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 102 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=128, BinnedCPIs=128 (orphans=0)"
+        }
+      ]
+    },
+    "kb36": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 321.3,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb36.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=108, duration=910.5s (15.17m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/108, V2 missing Lumetri=0/108"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=108, V2=108, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 100 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=126, BinnedCPIs=126 (orphans=0)"
+        }
+      ]
+    },
+    "kb37": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 320.5,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb37.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=110, duration=905.7s (15.09m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/110, V2 missing Lumetri=0/110"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=110, V2=110, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 102 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=128, BinnedCPIs=128 (orphans=0)"
+        }
+      ]
+    },
+    "kb38": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 361.5,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb38.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=112, duration=907.5s (15.13m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/112, V2 missing Lumetri=0/112"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=112, V2=112, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 104 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=130, BinnedCPIs=130 (orphans=0)"
+        }
+      ]
+    },
+    "kb39": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 360.9,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb39.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=120, duration=908.6s (15.14m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/120, V2 missing Lumetri=0/120"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=120, V2=120, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 112 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=138, BinnedCPIs=138 (orphans=0)"
+        }
+      ]
+    },
+    "kb40": {
+      "passed": 20,
+      "failed": 0,
+      "total": 20,
+      "pass_rate": 100.0,
+      "parse_ms": 362.4,
+      "assertions": [
+        {
+          "id": "BONK-R1-01",
+          "title": "Zero-Fluff Cold Open at 00:00",
+          "passed": true,
+          "details": "First clip 'bonk.kb40.1.mp4' starts at 0.000s"
+        },
+        {
+          "id": "BONK-R1-02",
+          "title": "Episode Clip Count (80-130) & Duration (7.5m / 15m)",
+          "passed": true,
+          "details": "V2 clips=106, duration=910.8s (15.18m)"
+        },
+        {
+          "id": "BONK-R1-03",
+          "title": "Explicit Note Duration Fidelity (Zero ~5.3s Center-Crop)",
+          "passed": true,
+          "details": "All explicit AMZ notes honored"
+        },
+        {
+          "id": "BONK-R1-04",
+          "title": "Multi-Source ('2 sr' / Multi-TS) Discrete Split",
+          "passed": true,
+          "details": "All multi-source entries properly split"
+        },
+        {
+          "id": "BONK-R2-01",
+          "title": "V1 Blur/Darken Chain & V2 Lumetri Pop/Sharpen Chain",
+          "passed": true,
+          "details": "V1 incomplete=0/106, V2 missing Lumetri=0/106"
+        },
+        {
+          "id": "BONK-R2-02",
+          "title": "Readable Text Clip No-Flip Guard ('có text')",
+          "passed": true,
+          "details": "0 text clips flipped"
+        },
+        {
+          "id": "BONK-R2-03",
+          "title": "ViralHog Zoom-Only Rule (Effective Zoom >= 115%, 0 Blur)",
+          "passed": true,
+          "details": "0 ViralHog violations"
+        },
+        {
+          "id": "BONK-R2-04",
+          "title": "Full-Timeline Brand Logos on Track V3 & Track V4",
+          "passed": true,
+          "details": "V3 coverage=100.0%, V4 coverage=100.0%"
+        },
+        {
+          "id": "BONK-R3-01",
+          "title": "Strict Zero-VO Policy (Track A2 100% Empty)",
+          "passed": true,
+          "details": "Track A2 active items=0"
+        },
+        {
+          "id": "BONK-R3-02",
+          "title": "Strict Ban on 37 Verbal Interjection SFX Files",
+          "passed": true,
+          "details": "0 interjection SFX in timeline or project XML"
+        },
+        {
+          "id": "BONK-R3-03",
+          "title": "Copyright Music Mute Guard ('có nhạc' / 'tắt nhạc gốc')",
+          "passed": true,
+          "details": "All flagged music clips muted on A1"
+        },
+        {
+          "id": "BONK-R3-04",
+          "title": "100% Foley/Impact SFX Rescue on Silent Clips (A3/A4)",
+          "passed": true,
+          "details": "All 8 silent clips covered by SFX"
+        },
+        {
+          "id": "BONK-R4-01",
+          "title": "Censor Note ('che') Shield / Blur Coverage",
+          "passed": true,
+          "details": "All 'che' notes covered"
+        },
+        {
+          "id": "BONK-R4-02",
+          "title": "Context Clarification ('note ...') Overlay on Track V5",
+          "passed": true,
+          "details": "All viewer clarification notes overlaid"
+        },
+        {
+          "id": "BONK-R4-03",
+          "title": "Zero Static Center (0.50, 0.50) Emojis on Track V5",
+          "passed": true,
+          "details": "0 static center emojis"
+        },
+        {
+          "id": "BONK-R6-01",
+          "title": "INV-01 Zero Black Gaps on Primary Track V2",
+          "passed": true,
+          "details": "0 black gaps on V2"
+        },
+        {
+          "id": "BONK-R6-02",
+          "title": "1:1 Track V1 == Track V2 Frame Synchronization",
+          "passed": true,
+          "details": "V1=106, V2=106, drifted_pairs=0"
+        },
+        {
+          "id": "BONK-R6-03",
+          "title": "Zero Track V2 == Track A1 Audio Sync Drift",
+          "passed": true,
+          "details": "0 drift across 98 audible A1 clips"
+        },
+        {
+          "id": "BONK-R6-04",
+          "title": "Zero Foreign Donor Episode Path Leaks",
+          "passed": true,
+          "details": "0 foreign kb path leaks"
+        },
+        {
+          "id": "BONK-R6-05",
+          "title": "7-Point .prproj Hygiene (0 Dangling, 0 .pek, 0 Orphan MCs)",
+          "passed": true,
+          "details": "dangling=0, pek_tags=0, MasterClips=124, BinnedCPIs=124 (orphans=0)"
+        }
+      ]
+    }
+  }
+}

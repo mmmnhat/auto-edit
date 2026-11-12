@@ -1,0 +1,3852 @@
+{
+  "timestamp": "2026-11-10T07:17:08.164655+00:00",
+  "total_assertions": 360,
+  "total_passed": 360,
+  "total_failed": 0,
+  "overall_pass_rate_percent": 100.0,
+  "projects": {
+    "kb132": {
+      "project_id": "kb132",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1546.2339999976393,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/7 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/33 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "19/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb132.11.mp4",
+            "itv.kb132.11.mp4",
+            "itv.kb132.2.mp4",
+            "itv.kb132.5.mp4",
+            "itv.kb132.14.mp4",
+            "itv.kb132.15.mp4",
+            "itv.kb132.15.mp4",
+            "itv.kb132.19.mp4",
+            "itv.kb132.19.mp4",
+            "itv.kb132.2.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=889.30s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb132.2.mp4: 32f",
+            "itv.kb132.5.mp4: 32f",
+            "itv.kb132.6.mp4: 32f",
+            "itv.kb132.6.mp4: 12f",
+            "itv.kb132.9.mp4: 27f",
+            "itv.kb132.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "889.30s (14.82m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb133": {
+      "project_id": "kb133",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1409.6919000003254,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/5 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/34 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "11/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb133.2.mp4",
+            "itv.kb133.6.mp4",
+            "itv.kb133.6.mp4",
+            "itv.kb133.9.mp4",
+            "itv.kb133.2.mp4",
+            "itv.kb133.3.mp4",
+            "itv.kb133.6.mp4",
+            "itv.kb133.7.mp4",
+            "itv.kb133.9.mp4",
+            "itv.kb133.17.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=880.92s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb133.2.mp4: 32f",
+            "itv.kb133.5.mp4: 32f",
+            "itv.kb133.6.mp4: 32f",
+            "itv.kb133.6.mp4: 12f",
+            "itv.kb133.9.mp4: 27f",
+            "itv.kb133.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "880.92s (14.68m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb134": {
+      "project_id": "kb134",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1453.8740999996662,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/7 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/35 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "20/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb134.11.mp4",
+            "itv.kb134.11.mp4",
+            "itv.kb134.6.mp4",
+            "itv.kb134.6.mp4",
+            "itv.kb134.10.mp4",
+            "itv.kb134.14.mp4",
+            "itv.kb134.15.mp4",
+            "itv.kb134.15.mp4",
+            "itv.kb134.19.mp4",
+            "itv.kb134.19.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=868.11s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb134.2.mp4: 32f",
+            "itv.kb134.5.mp4: 32f",
+            "itv.kb134.6.mp4: 32f",
+            "itv.kb134.6.mp4: 12f",
+            "itv.kb134.9.mp4: 27f",
+            "itv.kb134.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "868.11s (14.47m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb135": {
+      "project_id": "kb135",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1422.7451000006113,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/7 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/36 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "16/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb135.2.mp4",
+            "itv.kb135.6.mp4",
+            "itv.kb135.6.mp4",
+            "itv.kb135.9.mp4",
+            "itv.kb135.10.mp4",
+            "itv.kb135.14.mp4",
+            "itv.kb135.19.mp4",
+            "itv.kb135.19.mp4",
+            "itv.kb135.2.mp4",
+            "itv.kb135.6.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=871.37s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb135.2.mp4: 32f",
+            "itv.kb135.5.mp4: 32f",
+            "itv.kb135.6.mp4: 32f",
+            "itv.kb135.6.mp4: 12f",
+            "itv.kb135.9.mp4: 27f",
+            "itv.kb135.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "871.37s (14.52m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb136": {
+      "project_id": "kb136",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1244.4805999984965,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/8 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/36 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "13/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb136.6.mp4",
+            "itv.kb136.6.mp4",
+            "itv.kb136.10.mp4",
+            "itv.kb136.14.mp4",
+            "itv.kb136.19.mp4",
+            "itv.kb136.19.mp4",
+            "itv.kb136.3.mp4",
+            "itv.kb136.6.mp4",
+            "itv.kb136.10.mp4",
+            "itv.kb136.14.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=867.90s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb136.2.mp4: 32f",
+            "itv.kb136.5.mp4: 32f",
+            "itv.kb136.6.mp4: 32f",
+            "itv.kb136.6.mp4: 12f",
+            "itv.kb136.9.mp4: 27f",
+            "itv.kb136.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "867.90s (14.47m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb137": {
+      "project_id": "kb137",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1523.1182999996236,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/5 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/36 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "22/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb137.2.mp4",
+            "itv.kb137.6.mp4",
+            "itv.kb137.6.mp4",
+            "itv.kb137.9.mp4",
+            "itv.kb137.10.mp4",
+            "itv.kb137.14.mp4",
+            "itv.kb137.15.mp4",
+            "itv.kb137.15.mp4",
+            "itv.kb137.19.mp4",
+            "itv.kb137.19.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=869.78s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb137.2.mp4: 32f",
+            "itv.kb137.5.mp4: 32f",
+            "itv.kb137.6.mp4: 32f",
+            "itv.kb137.6.mp4: 12f",
+            "itv.kb137.9.mp4: 27f",
+            "itv.kb137.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "869.78s (14.50m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb138": {
+      "project_id": "kb138",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1429.5977000001585,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/5 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/34 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "17/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb138.11.mp4",
+            "itv.kb138.11.mp4",
+            "itv.kb138.5.mp4",
+            "itv.kb138.9.mp4",
+            "itv.kb138.10.mp4",
+            "itv.kb138.15.mp4",
+            "itv.kb138.15.mp4",
+            "itv.kb138.19.mp4",
+            "itv.kb138.19.mp4",
+            "itv.kb138.5.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=876.25s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb138.2.mp4: 32f",
+            "itv.kb138.5.mp4: 32f",
+            "itv.kb138.6.mp4: 32f",
+            "itv.kb138.6.mp4: 12f",
+            "itv.kb138.9.mp4: 27f",
+            "itv.kb138.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "876.25s (14.60m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb139": {
+      "project_id": "kb139",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1362.42829999901,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/6 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/34 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "15/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb139.11.mp4",
+            "itv.kb139.11.mp4",
+            "itv.kb139.9.mp4",
+            "itv.kb139.15.mp4",
+            "itv.kb139.15.mp4",
+            "itv.kb139.19.mp4",
+            "itv.kb139.19.mp4",
+            "itv.kb139.7.mp4",
+            "itv.kb139.9.mp4",
+            "itv.kb139.11.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=874.28s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb139.2.mp4: 32f",
+            "itv.kb139.5.mp4: 32f",
+            "itv.kb139.6.mp4: 32f",
+            "itv.kb139.6.mp4: 12f",
+            "itv.kb139.9.mp4: 27f",
+            "itv.kb139.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "874.28s (14.57m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    },
+    "kb140": {
+      "project_id": "kb140",
+      "total_assertions": 40,
+      "passed_assertions": 40,
+      "failed_assertions": 0,
+      "duration_ms": 1396.176899997954,
+      "results": [
+        {
+          "assertion_id": "TEST-R1-01",
+          "requirement": "R1 Duration",
+          "description": "Zero timeline OVERRIDES on Part 1 clips (InPoint == 0)",
+          "passed": true,
+          "observed_value": "0 overridden clips",
+          "expected_threshold": "0 overrides",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-02",
+          "requirement": "R1 Duration",
+          "description": "100% Google Sheet duration match (|tl_dur - sheet_dur| <= 0.60s)",
+          "passed": true,
+          "observed_value": "0/20 duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.60s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-03",
+          "requirement": "R1 Duration",
+          "description": "100% note duration match for Part 2 clips (|tl_dur - note_dur| <= 0.30s)",
+          "passed": true,
+          "observed_value": "0/6 note duration mismatches",
+          "expected_threshold": "0 mismatches (tolerance <= 0.30s)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-04",
+          "requirement": "R1 Duration",
+          "description": "VisionCut climax duration preservation for non-note clips (0 arbitrary flat 5.6s cap)",
+          "passed": true,
+          "observed_value": "0/36 non-note clips out of spec",
+          "expected_threshold": "0 flat-capped or mismatched clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R1-05",
+          "requirement": "R1 Duration",
+          "description": "Multi-timestamp sources split into >= 2 separate files (0 concat)",
+          "passed": true,
+          "observed_value": "0/0 unsplit multi-ts sources",
+          "expected_threshold": "0 unsplit sources (>= 2 separate files each)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-03",
+          "requirement": "R2 Watermark",
+          "description": "ViralHog clips zoomed to Scale >= 115.0%",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with Scale < 115.0%",
+          "expected_threshold": "Scale >= 115.0% on all ViralHog clips",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-04",
+          "requirement": "R2 Watermark",
+          "description": "Strict zero blur mask on ViralHog clips",
+          "passed": true,
+          "observed_value": "0/30 ViralHog clips with blur masks",
+          "expected_threshold": "0 blur masks on ViralHog",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R2-02",
+          "requirement": "R2 Watermark",
+          "description": "Zero blind blur template 8000 applied across all Part 1 clips",
+          "passed": true,
+          "observed_value": "16/33 Part 1 clips with blur",
+          "expected_threshold": "Channel-specific selective presets (not 100% blind assignment)",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb140.11.mp4",
+            "itv.kb140.11.mp4",
+            "itv.kb140.5.mp4",
+            "itv.kb140.10.mp4",
+            "itv.kb140.14.mp4",
+            "itv.kb140.15.mp4",
+            "itv.kb140.15.mp4",
+            "itv.kb140.5.mp4",
+            "itv.kb140.10.mp4",
+            "itv.kb140.11.mp4"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R2-01",
+          "requirement": "R2 Watermark",
+          "description": "Channel watermark preset and crop validity",
+          "passed": true,
+          "observed_value": "0 invalid crop clips",
+          "expected_threshold": "0 invalid crop settings",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-01",
+          "requirement": "R3 SFX",
+          "description": "Zero collision SFX on audible Track A1 camera audio (Part 1)",
+          "passed": true,
+          "observed_value": "0 collision SFX on Part 1",
+          "expected_threshold": "0 collision SFX on live camera audio",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-02",
+          "requirement": "R3 SFX",
+          "description": "100% SFX coverage on silent clips under Track A5 BGM",
+          "passed": true,
+          "observed_value": "100.0% (0/9 uncovered)",
+          "expected_threshold": "100% SFX coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-03",
+          "requirement": "R3 SFX",
+          "description": "Zero overlap between Track A3/A4 SFX and Track A2 Voiceover",
+          "passed": true,
+          "observed_value": "0.000s overlap",
+          "expected_threshold": "0.000s overlap",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R3-04",
+          "requirement": "R3 SFX",
+          "description": "Strict ban on interjection SFX on timeline and in configs",
+          "passed": true,
+          "observed_value": "0 timeline items, 0 catalog violations",
+          "expected_threshold": "0 interjection SFX entries",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-01",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Zero static center emojis on Track V4 (no 0.50, 0.50 center clustering)",
+          "passed": true,
+          "observed_value": "0 static center emojis",
+          "expected_threshold": "0 static center emojis",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-02",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V4 valid impact duration (0.2-0.8s) or corner reaction GIF (1.5-2.3s)",
+          "passed": true,
+          "observed_value": "0/5 non-compliant V4 items",
+          "expected_threshold": "0 non-compliant items",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R4-03",
+          "requirement": "R4 Emojis & Graphics",
+          "description": "Track V8 safety graphics modulo loop eliminated & semantic text mapping",
+          "passed": true,
+          "observed_value": "modulo_loop=False, unknown_texts=0",
+          "expected_threshold": "modulo_loop=False, 100% semantic matching",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-01",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Dynamic VO offset reasoning (eliminate fixed +1.50s formula)",
+          "passed": true,
+          "observed_value": "0/15 VOs at fixed +1.50s (variance=1.706)",
+          "expected_threshold": "<= 3 fixed 1.5s offsets and variance > 0.35s^2",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-03",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "Track V5 MOGRT subtitles 100% synchronized with Track A2 VO",
+          "passed": true,
+          "observed_value": "0 timing mismatches (V5 count=15, A2 count=15)",
+          "expected_threshold": "0 mismatches, V5 count == A2 count",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R5-02",
+          "requirement": "R5 Voiceover & Subs",
+          "description": "VO respects Premise/Aftermath boundaries without spilling past clips",
+          "passed": true,
+          "observed_value": "0 boundary violations",
+          "expected_threshold": "0 boundary violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-01",
+          "requirement": "R6 Invariants",
+          "description": "INV-01: Audio Coverage = 100% (A1 | A5 | A8)",
+          "passed": true,
+          "observed_value": "100.00%",
+          "expected_threshold": "100.0% coverage",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-02",
+          "requirement": "R6 Invariants",
+          "description": "INV-02: V1 == V3 Full Sync (Start, End, InPoint, OutPoint)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-03",
+          "requirement": "R6 Invariants",
+          "description": "INV-03: V5 == A2 Full Sync (Start, End)",
+          "passed": true,
+          "observed_value": "0 mismatches",
+          "expected_threshold": "0 mismatches",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-04",
+          "requirement": "R6 Invariants",
+          "description": "INV-04: Zero Black Gaps on Video (V3 | V10) and duration <= 960.0s",
+          "passed": true,
+          "observed_value": "coverage=100.00%, duration=872.91s",
+          "expected_threshold": "coverage=100.0%, duration <= 960.0s",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R6-05",
+          "requirement": "R6 Invariants",
+          "description": "INV-05: Clean .prproj XML & Referential Integrity (0 dangling pointers)",
+          "passed": true,
+          "observed_value": "0 dangling references",
+          "expected_threshold": "0 dangling references",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-01",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth kb111-kb117 'Hello everyone!' greeting with unique episode body hook",
+          "passed": true,
+          "observed_value": "valid_script=True, 0 violations",
+          "expected_threshold": "valid_script=True, 0 violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-02",
+          "requirement": "R7 Intro Architecture",
+          "description": "Ground-truth Intro architecture present (A6 Hadeus.mp4, Teaser 1a/1b split)",
+          "passed": true,
+          "observed_value": "A6_Hadeus=True, Teaser1_split=True, intro_cuts=14",
+          "expected_threshold": "A6_Hadeus=True, Teaser1_split=True, intro_cuts>=6",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "TEST-R7-03",
+          "requirement": "R7 Intro Architecture",
+          "description": "Middle fast-cut teasers (6-8 rapid climax cuts of 15-32 frames)",
+          "passed": true,
+          "observed_value": "8 rapid cuts (total mid clips=8)",
+          "expected_threshold": ">= 5 rapid cuts between 15f and 32f",
+          "error_message": "",
+          "affected_items": [
+            "itv.kb140.2.mp4: 32f",
+            "itv.kb140.5.mp4: 32f",
+            "itv.kb140.6.mp4: 32f",
+            "itv.kb140.6.mp4: 12f",
+            "itv.kb140.9.mp4: 27f",
+            "itv.kb140.10.mp4: 28f"
+          ]
+        },
+        {
+          "assertion_id": "TEST-R7-04",
+          "requirement": "R7 Intro Architecture",
+          "description": "20-frame Warning card & Intro boundary before Part 1 body clips",
+          "passed": true,
+          "observed_value": "has_warning=True, part1_start_frame=375",
+          "expected_threshold": "has_warning=True, part1_start_frame >= 320",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-01",
+          "requirement": "R1 Duration Boundary",
+          "description": "Part 1 cut boundary snap within +-0.30s per transition",
+          "passed": true,
+          "observed_value": "0 clips exceeded snap boundary",
+          "expected_threshold": "max snap deviation <= 0.60s total",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-02",
+          "requirement": "R6 Duration Boundary",
+          "description": "Sequence total duration bounded: 420.0s <= duration <= 960.0s",
+          "passed": true,
+          "observed_value": "872.91s (14.55m)",
+          "expected_threshold": "[420.0s .. 960.0s]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-DUR-03",
+          "requirement": "R1 Duration Boundary",
+          "description": "Long clips (>= 15s raw) preserve valid VisionCut climax window",
+          "passed": true,
+          "observed_value": "0 long clips out of bounds",
+          "expected_threshold": "0 long clips out of bounds",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-01",
+          "requirement": "R2 Scale Boundary",
+          "description": "ViralHog clips satisfy Scale >= 115.00% lower bound",
+          "passed": true,
+          "observed_value": "0/30 below lower bound",
+          "expected_threshold": "Scale >= 115.00%",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SCALE-02",
+          "requirement": "R2 Crop Boundary",
+          "description": "Pillarbox crop within bounds [20.0% .. 38.0%]",
+          "passed": true,
+          "observed_value": "0 out-of-bound crop clips",
+          "expected_threshold": "[20.0% .. 38.0%]",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-01",
+          "requirement": "R3 SFX Boundary",
+          "description": "A2 Voiceover and A3/A4 SFX overlap boundary strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-SFX-02",
+          "requirement": "R6 Audio Boundary",
+          "description": "A1 camera audio and A5 BGM overlap strictly < 1 frame",
+          "passed": true,
+          "observed_value": "0.0000s overlap",
+          "expected_threshold": "< 0.0417s (0 frames)",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-01",
+          "requirement": "R7 Intro Boundary",
+          "description": "Intro section duration bounded [335 .. 390] frames",
+          "passed": true,
+          "observed_value": "375 frames (15.64s)",
+          "expected_threshold": "[335 .. 390] frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "BOUND-INTRO-02",
+          "requirement": "R7 Intro Boundary",
+          "description": "Warning card duration strictly 20 frames",
+          "passed": true,
+          "observed_value": "[20] frames",
+          "expected_threshold": "exactly 20 frames",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VH-PILLAR-01",
+          "requirement": "R2 Combination Synergy",
+          "description": "ViralHog + Pillarbox dual constraint: Crop + Compensated Scale >= 120% + 0 Blur",
+          "passed": true,
+          "observed_value": "0/0 combo violations",
+          "expected_threshold": "0 combo violations",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-MULTITS-A1-01",
+          "requirement": "R1 Multi-TS Synergy",
+          "description": "Multi-TS discrete splitting produces paired V3 video and A1 audio track items",
+          "passed": true,
+          "observed_value": "0/0 unpaired multi-ts sources",
+          "expected_threshold": "0 unpaired sources",
+          "error_message": "",
+          "affected_items": []
+        },
+        {
+          "assertion_id": "COMBO-VO-SUB-V8-01",
+          "requirement": "R4/R5 Narrative Synergy",
+          "description": "1-to-1 sync between Track V5 subtitles, Track A2 VO, and Track V8 graphics",
+          "passed": true,
+          "observed_value": "V5 count=15, A2 count=15, V8 count=26",
+          "expected_threshold": "V5 == A2, 0 sync mismatches",
+          "error_message": "",
+          "affected_items": []
+        }
+      ]
+    }
+  }
+}

@@ -45,26 +45,15 @@
         "A8": "TV Static Transition Audio (0.38s, synced with V10)"
       },
       "unblur_policy": {
-        "method": "premiere_crop_effect",
-        "effect_name": "Crop",
-        "match_name": "AE.ADBE AECrop",
-        "sidebar_logos_auto_cropped": [
-          "LA",
-          "FAILARMY",
-          "FAILSIDE MOMENT",
-          "TMAX",
-          "REC",
-          "MEC",
-          "22"
-        ],
-        "pillarbox_crop_range_percent": [
-          25.0,
-          34.5
-        ]
+        "enabled": false,
+        "method": "none",
+        "rule": "No crop required — keep original frame without AECrop"
       },
       "scale_and_logo_policy": {
+        "enabled": false,
         "base_scale_formula": "min(1920 / width, 1080 / height) * 100",
-        "edge_logo_zoom_factor": 1.15,
+        "rule": "No watermark/logo blur, no crop, and no zoom-crop required. Keep native fit_scale on 1920x1080.",
+        "edge_logo_zoom_factor": 1.0,
         "edge_crop_scales_16x9": [
           105.47,
           108.0,
@@ -269,40 +258,38 @@
         "blind_blur_cloning_deprecated": true
       },
       "compilation_sequencing_policy": {
-        "total_clips_range": [
-          85,
-          90
-        ],
-        "max_duration_sec": 540,
+        "target_duration_sec": 900,
+        "target_duration_minutes": 15,
         "target_duration_sec_range": [
-          485,
-          530
+          885,
+          930
         ],
+        "max_duration_sec": 960,
+        "full_scene_preservation": true,
+        "content_selection_and_slicing_rules": {
+          "target_duration_rule": "Total video duration increased to 15 minutes (~900 seconds).",
+          "full_scene_preservation": "Do not truncate or shorten scene content. Preserve the full natural progression of every scene from setup through climax to complete reaction/aftermath (only trim hard-cut boundary bleed at clip edges).",
+          "clean_native_visual_and_audio": "No watermark/logo blur, no crop (AECrop), no emoji overlays (0 emojis on Track V4), and no SFX overlays (0 SFX on Track A3/A4).",
+          "aspect_ratio_priority": "Prioritize 16:9 widescreen clips (1920x1080 / 1280x720) over pillarboxed 9:16 or 1:1 footage.",
+          "quality_and_clarity_gate": "Reject blurry, low-resolution, heavily pixelated, over/under-exposed, or obscured clips where the subject/action is not clearly visible.",
+          "strict_audio_gate": "Reject all silent clips and clips with weak/inaudible audio. Require authentic audible sound > 20dB (diem_tieng > 20, peak_db > -20 dB). 0 silent montage clips.",
+          "zero_duplicate_scene_gate": "Enforce 0 duplicate scenes within the same video AND 0 reused scenes across subsequent episodes/scripts (Strict Cross-Episode Zero-Reuse Gate: any scene used in an episode must NEVER be reused in subsequent episodes; verified via canh_id + Source Interval + Multi-anchor Active-Core pHash/dHash/Patch L1 + Flip-Invariant + AI Vision Contact Sheet).",
+          "no_scene_reuse_across_scripts_gate": "Scenes already used in a previous script/episode must NEVER be reused in the next script or any subsequent episode. Enforce cross-episode deduplication against the historical used-scene registry (Source Video ID + Time Interval + Multi-anchor Active-Core pHash/dHash/Patch L1 + Flip-Invariant).",
+          "unified_single_folder_and_prefix": "When slicing sources and assembling the project, DO NOT split into 2 segments/folders (itv.kbx_x and x). Consolidate all clips into 1 unified folder with the 'itv' prefix (e.g., itv.kbx_1.mp4, itv.kbx_2.mp4, ...) and purge unused .mp4 files.",
+          "child_and_animal_safety_gate": "Strictly exclude any scenes involving strong physical impacts, hard falls, or harmful actions toward animals or children.",
+          "intro_hook_selection_rule": "First shortlist the 40 best scenes of the episode (16:9, high motion peak, strong live audio, clear visual action), then filter down to the 11 best climax scenes to build the Intro Hook (13 teaser subclips across 11 unique scenes before Warning)."
+        },
         "blocks": [
           {
-            "block": "1. Part 1 (source/itv.kb*.mp4)",
-            "count_range": [
-              18,
-              20
-            ],
-            "ordering_rule": "Keep exact script numbering (1 -> 20; if both X-2 and X exist, place X-2 immediately before X). Trim any transition bleed frames at clip head/tail."
-          },
-          {
-            "block": "2. Part 2 Audible (ITV-Moments-script-*/*.mp4 with peak_db > -24 dB)",
-            "ordering_rule": "Keep ascending numerical order (01 -> 70), cut to 4-Beat Narrative Core (Premise -> Escalation -> Punchline -> Aftermath), apply Dead-Middle Micro-Cut on long wait intervals."
-          },
-          {
-            "block": "3. Part 2 Silent Montage (ITV-Moments-script-*/*.mp4 with peak_db <= -25 dB or missing audio stream)",
-            "count_range": [
-              7,
-              11
-            ],
-            "ordering_rule": "Group all silent Part 2 clips at the end of the timeline, remove dead-silent A1 items, cover 100% of silent intervals with upbeat BGM on Track A5, and layer 2-track SFX (A3 + A4) at every climax."
+            "block": "Unified Audible Sequence (15 minutes, 1 folder, prefix 'itv', 100% audible > 20dB, full scene content, 0 blur/crop/emoji/sfx)",
+            "ordering_rule": "Consolidate all sliced clips into 1 shared folder with prefix 'itv' reaching ~15 minutes (~900s) total duration. Keep full un-truncated scene content, 0 watermark/logo blur, 0 crop, 0 emoji, 0 SFX, 100% audio > 20dB, 0 duplicate scenes, and 0 strong impacts on animals or children."
           }
         ]
       },
       "emoji_impact_shield_policy": {
-        "purpose": "Cover strong physical impacts to the face, head, groin/crotch, or body organs (tools kicking back, objects hitting face, groin rail straddles, head-first slams)",
+        "enabled": false,
+        "rule": "No emoji required (0 emojis on Track V4)",
+        "purpose": "Disabled per channel rule update — do not place emoji overlays on timeline",
         "asset_dirs": [
           "E:\\Video Asset\\Animated emojis",
           "E:\\ITV\\rerender\\emoji"
@@ -432,10 +419,12 @@
         }
       },
       "sfx_placement_policy": {
+        "enabled": false,
+        "rule": "No SFX required (0 SFX on Track A3/A4)",
         "track": "A3",
         "asset_dir": "E:\\Video Asset\\SFX",
         "catalog_file": "E:\\.agents\\skills\\visioncut\\resources\\sfx_full_catalog.json",
-        "density": "~1 SFX per 20-25s (selective, high-impact moments only; ~15-24 SFX in 8m15s)",
+        "density": "0 SFX (disabled per channel rule update)",
         "categories": {
           "physical_impacts_and_falls": [
             "bonk.mp3",
@@ -2727,277 +2716,121 @@
       ],
       "fps": 23.976,
       "style_reference": {
-        "reference_channel": "Fail Time (https://youtu.be/tCDcOXhHaBs)",
-        "editorial_identity": "Zero-VO, Fast-Paced Pure Fail & Slapstick Compilation (~84-89 clips in 7m15s..7m45s, ~5.2s-5.8s median clip duration)",
+        "editorial_identity": "15-Minute Full-Scene Multi-Source Mix Compilation (~900s target duration, 12-to-1 Duplicated Hook + kb32 Intro, Zero-VO, Zero-SFX, Zero-Emoji, Zero-Note-Overlay, V1=1:1 Duplicate of V2 with Empty FX, V2 with Crop + Transform Scale 120 Rotate 3 + Flip)",
         "core_principles": [
-          "1. Zero-Fluff Cold Open (00:00): Start immediately at 0.00s with a high-visual-shock, contagious-laughter clip (no long intro card, no AI narrator voiceover).",
-          "2. Ultra-Tight 5.5s Pacing (~10.2 clips/min): Mean duration 5.2s..6.0s (P25=3.5s, P75=7.5s, hard cap 12.0s). Enter 0.8s..1.8s before action onset, keep the full impact, and cut right at the peak of cameraman laughter.",
-          "3. Rhythmic Alternation: After any 8s..11s story clip, chain 2-3 rapid-fire 3.0s..5.0s impact clips to prevent viewer fatigue.",
-          "4. 2-Shot Punchline Zoom-In (Fail Time Signature): On clips with priceless facial reactions or aftermath messes (e.g., powder cannon to face, exploding pan), razor-split right after impact and punch in (150%..200% scale) on the subject's face for the final 1.5s..2.5s.",
-          "5. 2-Stage Acoustic Rescue for Silent/Weak Clips (A3 Foley + A4 Non-Verbal Comedy/Impact SFX): Never leave silent clips dead. Pair a peak-aligned physical Foley/Setup SFX on A3 (slip.mp3, woosh-2.wav, splash.m4a, falling-whistle-weeeee.mp3) with a peak-aligned impact or non-verbal reaction stinger on A4 (bonk.mp3, metallic-bonk-and-rattle.mp3, cartoon-boing-2.mp3, teakettle-steam.mp3, duck-quack.mp3, metal-gear-solid.mp3, windows-error.mp3). STRICT BAN on all 37 verbal interjection SFX files."
+          "1. Full-Source Scene Slicing & Multi-Source Mixing: Slice all individual scenes from long compilation source videos and interleave/mix them together across sources into a single unified folder with prefix 'bonk' (bonk.kb<N>_1.mp4, bonk.kb<N>_2.mp4, ...).",
+          "2. ~15-Minute Target Duration & Full-Scene Preservation (Zero Truncation): Target ~15 minutes (~900s, 870s..930s) per video. NEVER truncate or fast-cut scene content; preserve the full natural length and narrative arc of each scene, trimming only transition bleed frames at scene boundaries.",
+          "3. Strict Audible Source Gate (Zero Silent Clips): Never use silent sources or clips without original audio. Require clear original sound (> 20dB, diem_tieng > 20, peak_db > -20 dB).",
+          "4. Zero Emoji, Zero Note Overlay, Zero SFX: Do NOT place any Emojis, Note Overlays, or SFX. Keep Track V5, Track A3, and Track A4 100% empty.",
+          "5. V1 Clean Duplicate (Empty FX) & V2 Signature FX: Track V1 is an exact 1:1 duplicate of Track V2 with FX left completely empty (DefaultMotion=true, 0 extra FX). Track V2 applies: Crop blurred sidebars (AE.ADBE AECrop), Transform (AE.ADBE Geometry2: Scale=120, Rotation=3), and Horizontal Flip (AE.ADBE Horizontal Flip).",
+          "6. Hook (12-to-1 Selection) + Intro (kb32 Template): Screen the 12 sharpest & most hook-worthy scenes in the episode via AI Vision Contact Sheet, filter down to 1 best scene duplicated at 0.00s as the Hook (split at T_hook - 3.10s so A1 ducks under Capture It.mp3 on A2), followed immediately by the kb32 Intro (8.mp4 Scale=50 + Capture It.mp3 Custom Fade + RENDER.mp4 4x Speed + TV Static Sound Effect - Bzz.mp4, with V3/V4 logos paused during the 4.83s Intro)."
         ]
       },
       "tracks": {
-        "V1": "Blurred & Darkened Background Duplicate (1:1 clone of V2 clips, Motion Scale=400%, Crop Left/Right matching V2, Lumetri Exposure=-2.0, AE.Impact_Blur_FX Amount=35)",
-        "V2": "Primary Active Video Clips (84-89 clips: Block 1 source/bonk.kb*.mp4 -> Block 2 Audible Bonk-script-* -> Block 3 Silent Bonk-script-*; Dual Lumetri color/sharpen boost + Crop Left/Right unblur + Channel Watermark Presets / ViralHog Zoom-Only + Horizontal Flip skipped on text clips)",
-        "V3": "Top-Right Channel Logo (E:\\Video Asset\\Brand - Bonk\\??i_n?n_tr?ng_202609081721.png, Motion Position=[0.9268, 0.0845], Scale=16%, spanning full timeline)",
-        "V4": "Bottom-Center Subtle Watermark (E:\\Video Asset\\Brand - Bonk\\??i_th?nh_d?ng_monochrome_mark_202609081722 (1).jpeg, Motion Position=[0.5, 0.8694], Scale=25%, Opacity=10%, Blend Mode=Multiply/3, spanning full timeline)",
-        "V5": "Keyframed Impact Emoji Shields (512 (1).gif, mnhat_emoji_37.gif, 512 (4).gif, 512 (7).gif), Context Clarification Note Overlays (*_note_overlay.png), & Bottom-Left Semantic Safety Disclaimers (*HE'S FINE, *SHE'S FINE, *ALL SAFE, *DON'T TRY THIS at Position=[0.015625, 0.972222])",
-        "A1": "Original Camera Audio (100% frame-synced with V2; muted Level=0 or removed on Block 3 silent clips and Sheet/AMZ 'c? nh?c' / 't?t nh?c g?c' clips)",
-        "A2": "RESERVED 100% EMPTY (Zero Voiceover policy for Bonk Funny Moments)",
-        "A3": "Primary Foley / Whoosh / Environmental / Slip SFX (peak-aligned via sfx_full_catalog.json: sfx_start = impact_time - peak_offset_sec; 0 interjection files)",
-        "A4": "Secondary Impact & Non-Verbal Reaction SFX (bonk.mp3, metallic-bonk-and-rattle.mp3, metal-clang.mp3, cartoon-boing-2.mp3, teakettle-steam.mp3, duck-quack.mp3; 0 interjection files)"
+        "V1": "Exact 1:1 Duplicate of V2 clips without FX (Hook + Intro + Body synced 1:1, DefaultMotion=true, AE.ADBE Motion Scale=100, Position=0.5:0.5, Rotation=0 — leave FX completely empty on Hook/Body)",
+        "V2": "Primary Active Video Clips (Hook duplicated from 1-of-12 best scenes at 0..T_hook -> Intro [8.mp4 Scale=50 at T_hook..T_hook+4.27s + RENDER.mp4 Speed 400% at T_hook+4.27s..T_hook+4.83s] -> Full-length mixed body scenes in 1 folder with prefix 'bonk'; FX chain on Hook & Body: Crop blurred sidebars if present [AE.ADBE AECrop] + Transform [AE.ADBE Geometry2: Scale=120, Rotation=3] + Horizontal Flip [AE.ADBE Horizontal Flip])",
+        "V3": "Top-Right Channel Logo (E:\\Video Asset\\Brand - Bonk\\Đổi_nền_trắng_202609081721.png, Motion Position=[0.9268, 0.0845], Scale=16%, spanning Hook [0..T_hook] and Body [T_hook+4.83s..End], paused during Intro)",
+        "V4": "Bottom-Center Subtle Watermark (E:\\Video Asset\\Brand - Bonk\\đổi_thành_dạng_monochrome_mark_202609081722 (1).jpeg, Motion Position=[0.5, 0.8694], Scale=25%, Opacity=10%, Blend Mode=Multiply/3, spanning Hook [0..T_hook] and Body [T_hook+4.83s..End], paused during Intro)",
+        "V5": "RESERVED 100% EMPTY (Zero Emoji, Zero Note Overlay)",
+        "A1": "Original Camera Audio (Hook split at T_hook-3.10s with tail ducked Gain=0.5972 -> Intro 8.mp4 audio with 0.50s Constant Power tail fade + TV Static Sound Effect - Bzz.mp4 [1.83s..2.40s] -> 100% audible > 20dB Body clips)",
+        "A2": "Intro Music Only (E:\\Video Asset\\Brand - Bonk\\New folder\\Capture It.mp3 at T_hook-3.10s..T_hook+4.27s, In=10.77s..18.13s, Gain=0.1836, Head Custom Fade 1.60s, Tail Custom Fade 0.50s; 0 Voiceover, 0 body clips)",
+        "A3": "RESERVED 100% EMPTY (Zero SFX)",
+        "A4": "RESERVED 100% EMPTY (Zero SFX)"
       },
       "compilation_sequencing_policy": {
-        "total_clips_range": [
-          84,
-          89
-        ],
+        "target_duration_sec": 900,
         "target_duration_sec_range": [
-          430,
-          465
+          870,
+          930
         ],
+        "content_selection_and_slicing_rules": {
+          "full_source_slicing_and_mixing": "Slice all scenes from long source videos and mix/interleave them together across different sources.",
+          "full_scene_preservation_no_truncation": "Preserve full natural duration of each scene without cutting off content (no mechanical ~5.5s fast-cut caps); only remove boundary transition bleed.",
+          "aspect_ratio_priority": "Prioritize 16:9 widescreen clips (1920x1080 / 1280x720) over pillarboxed 9:16 or 1:1 footage.",
+          "quality_and_clarity_gate": "Reject blurry, low-resolution, heavily pixelated, over/under-exposed, or obscured clips where the subject/action is not clearly visible.",
+          "strict_audio_gate": "Reject all silent sources/clips and clips with weak/inaudible audio. Require authentic audible sound > 20dB (diem_tieng > 20, peak_db > -20 dB). 0 silent clips.",
+          "zero_duplicate_scene_gate": "Enforce 0 duplicate scenes within the same video AND 0 reused scenes across subsequent episodes/scripts (Strict Cross-Episode Zero-Reuse Gate: any scene used in an episode must NEVER be reused in subsequent episodes; verified via canh_id + Source Interval + Multi-anchor Active-Core pHash/dHash/Patch L1 + Flip-Invariant + AI Vision Contact Sheet).",
+          "unified_single_folder_and_prefix": "Consolidate all clips into 1 unified folder with the 'bonk' prefix (e.g., bonk.kbx_1.mp4, bonk.kbx_2.mp4, ...) and purge unused .mp4 files.",
+          "child_and_animal_safety_gate": "Strictly exclude any scenes involving strong physical impacts, hard falls, or harmful actions toward animals or children.",
+          "v1_v2_fx_and_zero_overlay_rule": "No emojis, no note overlays, no SFX. V1 is a 1:1 duplicate of V2 with empty FX; V2 has Crop (blurred sidebars), Transform (Scale=120, Rotation=3), and Horizontal Flip."
+        },
         "blocks": [
           {
-            "block": "1. Part 1 (source/bonk.kb<N>.1..40.mp4)",
-            "count_range": [
-              38,
-              42
-            ],
-            "ordering_rule": "Keep ascending script numbering (1 -> 40; if X-2/X-3 multi-part clips exist, place in sub-order). Trim head/tail bleed and dead wait time to keep clips punchy (3.5s..7.0s)."
-          },
-          {
-            "block": "2. Part 2 Audible (Bonk-script-<N>/01..50.mp4 with audible original audio)",
-            "count_range": [
-              38,
-              43
-            ],
-            "ordering_rule": "Keep ascending numerical order (01 -> 50), cut to fast 4-Beat Fail Time pacing (mean ~5.5s), preserve contagious cameraman laughter in Aftermath."
-          },
-          {
-            "block": "3. Part 2 Silent Montage (Bonk-script-<N>/*.mp4 with silent/dead audio, e.g. 5-8 clips at tail)",
-            "count_range": [
-              4,
-              8
-            ],
-            "ordering_rule": "Group all silent Part 2 clips at the end of the timeline, mute A1 (Level=0), and layer dual-track comedy sound design (A3 setup/slip/environment + A4 impact/bonk/human reaction at exact climax offset)."
+            "block": "Unified Multi-Source Mixed Full-Scene Sequence (~15 minutes, 1 folder, prefix 'bonk', 100% audible > 20dB, Zero SFX)",
+            "ordering_rule": "Slice all scenes from long source compilations, keep full scene content without truncation, filter for clear 16:9 audible (> 20dB) safe non-duplicate scenes, interleave/mix across sources to ~15 minutes (~900s), consolidate into 1 folder with prefix 'bonk', place on V2 (Crop blurred sidebars + Transform Scale=120, Rotate=3 + Flip) with exact 1:1 clean duplicate on V1 (empty FX) and 1:1 audio on A1 (0 Emoji, 0 Note Overlay, 0 SFX)."
           }
         ]
       },
       "visual_treatment_policy": {
-        "V1_background_chain": [
-          {
-            "effect": "Motion (AE.ADBE Motion)",
-            "Position": [
-              0.5,
-              0.5
-            ],
-            "Scale": 400.0
-          },
+        "V1_background_chain": [],
+        "V2_foreground_chain": [
           {
             "effect": "Crop (AE.ADBE AECrop)",
             "Left_Right_range": [
               23.0,
               36.0
             ],
-            "note": "Match V2 pillarbox crop"
+            "note": "Crop blurred sidebars if present on pillarboxed sources"
           },
           {
             "effect": "Transform (AE.ADBE Geometry2)",
-            "Scale_Height": 122.0,
-            "Scale_Width": 100.0,
-            "Rotation": 3.0,
-            "note": "Or Rotation=0, Uniform Scale=105..115% for clean vertical borders like Fail Time"
+            "Uniform_Scale": 120.0,
+            "Scale_Height": 120.0,
+            "Scale_Width": 120.0,
+            "Rotation": 3.0
           },
           {
-            "effect": "Horizontal Flip (AE.ADBE Horizontal Flip)",
-            "note": "Skip on clips containing readable text/signage"
-          },
-          {
-            "effect": "Lumetri Color (AE.ADBE Lumetri)",
-            "Exposure": -2.0
-          },
-          {
-            "effect": "Gaussian Blur (AE.Impact_Blur_FX)",
-            "Amount": 35.0,
-            "Thickness": 35.0,
-            "Uniform_Blur": true,
-            "Edge_Behavior": 1
+            "effect": "Horizontal Flip (AE.ADBE Horizontal Flip)"
           }
         ],
-        "V2_foreground_chain": [
-          {
-            "effect": "Lumetri Color #1 (Warmth & Pop)",
-            "Temperature": 30.0,
-            "Tint": -2.0,
-            "Saturation": 105.0,
-            "Exposure": 0.2,
-            "Contrast": 10.0,
-            "Highlights": -10.0
-          },
-          {
-            "effect": "Lumetri Color #2 (Crisp Sharpen)",
-            "Contrast": 10.0,
-            "Sharpen": 100.0
-          },
-          {
-            "effect": "Crop (AE.ADBE AECrop)",
-            "Left_Right_range": [
-              23.0,
-              36.0
-            ],
-            "note": "Strip blurred sidebars from 9:16/4:3 sources"
-          }
-        ]
-      },
-      "note_and_boundary_policy": {
-        "part1_single_frame_boundary_guard": "Google Sheet time column records integer seconds (MM:SS - MM:SS). Always probe [START - 0.5s .. END + 2.0s] via single-frame contact strips (read_file): place IN at first sharp frame after opening transition and OUT 1 frame before next transition after impact + laughter hold. Split rows with >= 2 timestamps into discrete _1.mp4, _2.mp4 files.",
-        "part2_context_and_note_fidelity": "STRICT BAN on mechanical center-window caps (~5.3s..5.6s) and donor .bak InPoint inheritance. 'N gi?y ??u' / 'v?i s ??u' / 'm?y s ??u' must start at 0.00s..0.10s; explicit ranges (MM:SS - MM:SS) and 'full' must preserve 100% requested duration; '2 sr' splits into >= 2 subclips; 'n?i ti?p sr tr??c' isolates the matching raccord scene; 'l?y c? kh?c ??ng d?y' uses 2-beat Dead-Middle Micro-Cut. Verify 100% with 4-column [IN | PRE-HIT | CLIMAX | OUT] filmstrips.",
-        "special_notes_handling": {
-          "co_nhac_or_tat_nhac": "Mute A1 (Level=0 / silent) to prevent Content ID copyright claims and cover with peak-aligned A3+A4 Foley/Impact SFX.",
-          "co_text": "Disable AE.ADBE Horizontal Flip (no_flip=true) on both V1 and V2 whenever Sheet/AMZ notes 'c? text' or AI Vision detects readable signage/captions.",
-          "che": "Place keyframed Track V5 Impact Emoji Shield or V2 Masked AE.Impact_Blur_FX over the target area, verified via premiere-cli export-frame + view_file (0 static (0.5, 0.5) center emojis).",
-          "note_clarification": "When Sheet/AMZ specifies 'note ...' (e.g. 'note just waxing', 'note ?ang ng?', 'd?a r?n gi?'), generate and place a clean *_note_overlay.png or bottom-left Safety Graphic on Track V5."
-        }
-      },
-      "scale_and_logo_policy": {
-        "base_scale_formula": "min(1920 / width, 1080 / height) * 100",
-        "pillarbox_crop_range_percent": [
-          23.0,
-          36.0
-        ],
-        "viralhog_policy": {
-          "rule": "Scale Zoom-Only (115% - 125%)",
-          "blur_forbidden": true,
-          "description": "When ViralHog watermark is present, zoom Scale to 115%..125% (compensating for any pillarbox crop) to push logo outside 1920x1080. NEVER place blur masks over ViralHog."
-        },
-        "channel_watermark_presets": {
-          "failside_a": {
-            "description": "FailSide Variant A: Dual Blur [TL + BC]",
-            "masks": [
-              {
-                "name": "TL",
-                "pos": [
-                  0.051,
-                  0.073
-                ]
-              },
-              {
-                "name": "BC",
-                "pos": [
-                  0.499,
-                  0.834
-                ]
-              }
-            ]
-          },
-          "failside_b": {
-            "description": "FailSide Variant B: Dual Blur [TR + BC]",
-            "masks": [
-              {
-                "name": "TR",
-                "pos": [
-                  0.906,
-                  0.087
-                ]
-              },
-              {
-                "name": "BC",
-                "pos": [
-                  0.494,
-                  0.966
-                ]
-              }
-            ]
-          },
-          "dual_top_corners": {
-            "description": "Dual Top Corners [TR + TL]",
-            "masks": [
-              {
-                "name": "TR",
-                "pos": [
-                  0.87,
-                  0.072
-                ]
-              },
-              {
-                "name": "TL",
-                "pos": [
-                  0.096,
-                  0.13
-                ]
-              }
-            ]
-          },
-          "single_bc": {
-            "description": "Single Bottom Center",
-            "masks": [
-              {
-                "name": "BC",
-                "pos": [
-                  0.498,
-                  0.832
-                ]
-              }
-            ]
-          },
-          "single_tl": {
-            "description": "Single Top Left",
-            "masks": [
-              {
-                "name": "TL",
-                "pos": [
-                  0.082,
-                  0.111
-                ]
-              }
-            ]
-          },
-          "single_tr": {
-            "description": "Single Top Right",
-            "masks": [
-              {
-                "name": "TR",
-                "pos": [
-                  0.927,
-                  0.111
-                ]
-              }
-            ]
-          },
-          "pillarbox_crop": {
-            "description": "Crop Left/Right without redundant blur",
-            "crop_left_pct": 26.5,
-            "crop_right_pct": 26.5
-          },
-          "viralhog": {
-            "description": "ViralHog Zoom-Only",
-            "scale": 115.0,
-            "blur_forbidden": true
-          }
-        },
-        "blind_blur_cloning_deprecated": true
+        "note": "V1 is a clean 1:1 duplicate of V2 with empty FX (DefaultMotion=true, 0 extra FX). V2 applies Crop (for blurred sidebars), Transform (Scale=120, Rotate=3), and Horizontal Flip."
       },
       "sfx_peak_sync_policy": {
-        "catalog_path": "E:\\.agents\\skills\\visioncut\\resources\\sfx_full_catalog.json",
-        "alignment_formula": "sfx_start = timeline_impact_sec - peak_offset_sec",
-        "strict_interjection_ban": true,
-        "banned_folder": "E:\\Video Asset\\SFX\\interjection",
-        "no_collision_sfx_over_clean_live_a1": true,
-        "silent_block_sfx_coverage_target": 1.0,
-        "track_a2_zero_vo_strict": true
+        "sfx_enabled": false,
+        "emoji_enabled": false,
+        "note_overlay_enabled": false,
+        "track_a2_zero_vo_strict": true,
+        "track_a3_zero_sfx_strict": true,
+        "track_a4_zero_sfx_strict": true,
+        "track_v5_zero_overlay_strict": true
       },
       "prproj_hygiene_and_live_guard_policy": {
         "live_premiere_session_guard": "Check running Adobe Premiere Pro.exe and .prproj st_mtime before any mutation. Never overwrite an active open .prproj on disk; hot-swap re-cut .mp4 in-place preserving original audio sample_rate when Premiere is live, or back up .prproj and apply surgical XML patch + ripple-shift when Premiere is closed.",
         "seven_point_hygiene": [
           "1. OpenSequenceGuidList.1 set to target Sequence ObjectUID + updated lastknowngoodprojectpath (0 donor kb<M> path leaks).",
           "2. Purge 100% cloned <PeakFilePath> and <ConformedAudioPath> .pek elements.",
-          "3. Consolidate 1 canonical MasterClip per media file and bin every ClipProjectItem into source / Bonk-script-XX (0 orphan MasterClips).",
-          "4. Mux 48000 Hz stereo silent AAC stream into any video-only .mp4.",
+          "3. Consolidate 1 canonical MasterClip per media file and bin every ClipProjectItem into the unified folder bin (0 orphan MasterClips).",
+          "4. Require authentic audible 48000 Hz stereo audio stream (> 20dB) on all clips (0 silent clips).",
           "5. Sync VideoStream/AudioStream FrameRect, FrameRate, Duration, OriginalDuration to real ffprobe disk values.",
-          "6. Enable <ScaleToFramePolicy>1</ScaleToFramePolicy> + centered AE.ADBE Motion on non-1920x1080 clips.",
-          "7. Clamp Track A3/A4 SFX OutPoint <= real_ffprobe_dur - 1 frame and run BFS ObjectID canonicalization from Project ObjectID=1."
+          "6. Enable <ScaleToFramePolicy>1</ScaleToFramePolicy> + default centered AE.ADBE Motion (0 extra FX).",
+          "7. Run BFS ObjectID canonicalization from Project ObjectID=1."
         ]
+      }
+    },
+    "animal_whoops": {
+      "name": "Animal Whoops",
+      "workspace_pattern": "E:\\Animal Whoops\\aw*",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fps": 23.976,
+      "content_selection_rules": {
+        "quality_and_clarity_gate": "Strictly exclude blurry, low-resolution, heavily pixelated, dark/overexposed, or visually unclear scenes.",
+        "audio_gate": "Strictly exclude silent clips (0 silent montage clips) and clips with weak/inaudible audio; require clear original audio (> 20dB / diem_tieng > 20 / peak_db > -20 dB).",
+        "deduplication_gate": "Zero duplicate scenes within the same video (verified via source interval + active-core multi-anchor pHash/dHash/patch L1 + flip-invariant + AI Vision Contact Sheet).",
+        "unified_single_folder_rule": "When slicing sources and building timelines, NEVER split clips into 2 folders/parts (bonk.awx_x and x_fxxx). Consolidate 100% of sliced clips into 1 unified folder with prefix 'awx' (e.g. aw1_1.1_f307.mp4).",
+        "animal_welfare_gate": "Strictly exclude any scenes involving harsh/violent physical impacts, dangerous falls, or harm/distress to animals."
+      },
+      "tracks": {
+        "V5": "Watermark: E:\\Video Asset\\Animal Whoops\\wtm.jpg | Position 960:940 (0.5 : 0.87037038803100586), Scale 30, Opacity 10%, Blend Mode Screen (17), spanning Hook (0..hook_end) and Body (intro_end..end)",
+        "V4": "Channel Logo: E:\\Video Asset\\Animal Whoops\\Logo Animal Whoops.png | Position 1820:100 (0.94791668653488159 : 0.092592589557170868), Scale 12, spanning Hook (0..hook_end) and Body (intro_end..end)",
+        "V3": "Primary Video Track: Hook (screen 15 candidate sources from body, select top 3 sources duplicated at start before intro) -> Intro (E:\\Video Asset\\Animal Whoops\\intro.mp4, 6.006s, Scale 50) -> Body clips with Speed 106% (PlaybackSpeed=1.06, Optical Flow / TimeInterpolationType=2), Crop blurred sidebars if present (AE.ADBE AECrop), Transform (AE.ADBE Geometry2: Scale=120, Rotation=3), Horizontal Flip (AE.ADBE Horizontal Flip), and Lumetri Color",
+        "V2": "Adjustment Layer spanning Hook (0..hook_end) and Body (intro_end..end) with Lumetri Color (AE.ADBE Lumetri: Exposure = -5.0)",
+        "V1": "Duplicate 1:1 from Track V3 Hook + Body clips without FX, OG (DefaultMotion=true, AE.ADBE Motion Scale=100, Position=0.5:0.5, Rotation=0, synced at Speed 106% Optical Flow)",
+        "A1": "Original Audio: 3 Hook clips + intro.mp4 + Body clips synced 1:1 with Track V3 (PlaybackSpeed=1.06, MaintainAudioPitch=true, 100% audible > 20dB, 0 muted clips)",
+        "A2": "Comedy / Reaction SFX",
+        "A3": "Secondary SFX"
       }
     }
   },

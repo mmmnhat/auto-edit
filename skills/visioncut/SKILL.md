@@ -99,67 +99,44 @@ python skills/visioncut/scripts/generate_storyboard.py "<path_to_video>" "state/
        - **CHỈ DÙNG ELEVENLABS** (cấm tuyệt đối `edge-tts`, `gtts`, `pyttsx3`): Tạo file MP3 vào thư mục `E:\ITV\Project\<kb>\voice\` qua ElevenLabs API (`https://api.us.elevenlabs.io/v1/text-to-dialogue`) với giọng **`ITV 5`** (**Voice ID: `ITLDKaHYPRfCyyrPpZu2`**), model **`eleven_v3`**, **`stability = 0.0`**, `similarity = 0.75`, **`lang = auto`** (không truyền `language_code`), tag **`[sarcastic, dry humor, rushed, fast, shout, fast-paced, mooth delivery]`** (chuẩn hóa Xing TOC header ở `44100 Hz` mono `128 kbps`).
        - Đặt lên **Track A2** theo thuật toán suy luận thời gian động **`Premise` vs `Aftermath`** (xóa bỏ hoàn toàn công thức cộng cứng `+1.50s`; `Premise` kết thúc trước `impact_sec - 0.20s`, `Aftermath` bắt đầu sau `impact_sec + 0.35s`; đồng bộ 100% `Track V5` MOGRT Subtitles với `Track A2` VO), gắn đầy đủ bộ lọc **Essential Sound Dialog** (Reduce Sibilance, Dynamics, EQ, Vocal Enhancer, ESP.Tag=dialog), và **tuyệt đối không để `Track A3`/`A4` SFX đè lên `Track A2` VO (`0.000s` overlap)**.
 
-1. **Cấu Trúc Xếp Clip 3 Khối Chuẩn ITV (`85–90 clips`, tổng thời lượng `[420.0s .. 1800.0s]` — Bảo toàn 100% thời lượng gốc của mọi source theo kịch bản `R1`):**
-   - **Khối 1 — Phần 1 (`source/itv.kb*.mp4`, ~18–20 clips):** Giữ nguyên đúng thứ tự đánh số kịch bản (`1 -> 20`; nếu có cặp tách đôi `_1` và `_2` thì xếp nối tiếp nhau), giữ trọn 100% thời lượng cột `time` trên Google Sheet (`InPoint = 0`, `0` timeline `OVERRIDES`) và cắt sạch mọi đoạn bleed chuyển cảnh ở đầu/cuối clip.
-   - **Khối 2 — Phần 2 Có Tiếng (`ITV-Moments-script-*/*.mp4` có `peak_db > -24 dB`):** Xếp theo thứ tự số tăng dần (`01 -> 70`, khử trùng lặp `sortOrder`), giữ trọn 100% thời lượng `Ghi chú cho Editor` (`note`) trên AMZTool và 100% thời lượng gốc của các clip không có `note`.
-   - **Khối 3 — Phần 2 Montage Câm (`ITV-Moments-script-*/*.mp4` bị câm hoặc `peak_db <= -25 dB`, 7–11 clips cuối timeline):**
-     - Gom toàn bộ các clip câm ở Phần 2 về cuối sequence (nếu file gốc thiếu stream audio thì mux thêm stereo silent stream trước khi import để đồng bộ 1:1 khi cắt, sau đó khi hoàn thiện 10-track thì gỡ bỏ các `A1` câm trong vùng có BGM).
-     - **Nhạc nền BGM (`Track A5`) CHỈ đặt vào các đoạn clip không có âm thanh gốc:** Chọn nhạc nền đúng nhịp (`Kazoom`, `Angel Lover`, `Greaser`, `ChaCha Fontanez`, `Brain Trust`, `City Blocks`, `Standoff`), đặt trên `Track A5` phủ kín các khoảng clip câm sao cho `Coverage(A1 | A5 | A8) = 100.00%` và `Overlap(A1, A5) = 0.000s` (tuyệt đối không chèn BGM đè lên tiếng hiện trường gốc của các clip có tiếng).
+1. **Quy Tắc Tuyển Chọn Nội Dung, Băm Source & Xếp Clip Toàn Tập Chuẩn ITV (Tổng Thời Lượng `15 Phút` / `~900s`):**
+   - **Tổng thời lượng video `15 phút` (`~900s`):** Tăng tổng thời lượng mỗi tập video thành phẩm lên **`15 phút` (`~900s`)**.
+   - **Không cắt hụt nội dung cảnh (`Full Scene Preservation`):** Giữ trọn vẹn 100% diễn biến tự nhiên của từng cảnh (từ mở đầu `Setup`, diễn biến `Climax` đến hết phản ứng `Aftermath/Reaction`). Tuyệt đối không bóp ngắn hay cắt cụt nội dung cảnh để ép thời lượng; chỉ cắt sạch đúng ranh giới chuyển cảnh (boundary bleed).
+   - **Ưu tiên cảnh có tỉ lệ `16:9` (`16:9 Aspect Ratio Priority Gate`):** Ưu tiên tuyển chọn và sử dụng các cảnh khung ngang `16:9` chuẩn (`1920x1080` / `1280x720`), hạn chế tối đa các cảnh dọc `9:16` hoặc vuông `1:1` có viền mờ.
+   - **Không dùng những cảnh kém chất lượng, không nhìn rõ (`Quality & Clarity Gate`):** Loại bỏ toàn bộ các cảnh bị mờ nhòe, vỡ hạt nặng, rung lắc mất nét, thiếu sáng/chói sáng hoặc chủ thể quá nhỏ, bị che khuất không nhìn rõ hành động.
+   - **Không dùng những cảnh không có âm thanh, âm thanh `> 20dB` (`Strict Audio Gate — Zero Silent Clips`):** Tuyệt đối không dùng cảnh câm (`0` clip câm, không dựng đoạn Silent Montage đè nhạc BGM ở cuối video). Chỉ sử dụng các cảnh có âm thanh hiện trường gốc rõ ràng (`diem_tieng > 20` / ngưỡng âm lượng `> 20dB`, `peak_db > -20 dB`).
+   - **Không trùng lặp các cảnh trong cùng một video (`Zero Duplicate Scene Gate`):** Kiểm tra đa tầng (Source Interval `(vcode, start, end)` + Multi-anchor Active-Core pHash/dHash/Patch L1 + Flip-Invariant + AI Vision Contact Sheet) đảm bảo **0 cảnh trùng lặp** trong cùng một tập, cắt sạch mọi đoạn bleed chuyển cảnh ở đầu/cuối clip.
+   - **Không dùng lại những cảnh đã dùng trong kịch bản kế tiếp (`No Scene Reuse Across Subsequent Scripts`):** Những cảnh đã sử dụng trong một kịch bản/tập video tuyệt đối không được dùng lại trong kịch bản kế tiếp (và các kịch bản sau). Bắt buộc đối chiếu chéo với kho lịch sử các cảnh đã dùng của các tập trước (`Source Video ID + Time Interval` và `Multi-anchor Active-Core pHash/dHash/Patch L1 + Flip-Invariant`) để loại bỏ 100% cảnh tái sử dụng.
+   - **Đồng bộ dồn vào 1 folder chung với tiền tố `itv` (`Unified Single-Folder & Prefix Rule`):** Khi băm source và dựng **KHÔNG chia làm 2 đoạn / 2 thư mục** (`itv.kbx_x` trong `source/` và `x` trong `ITV-Moments-script-xx/`). Đồng bộ dồn toàn bộ clip vào **1 folder chung duy nhất** với **tiền tố `itv`** thống nhất (ví dụ: `itv.kbx_1.mp4`, `itv.kbx_2.mp4`, ...) và dọn sạch các file `.mp4` dư thừa không nằm trên timeline.
+   - **Loại bỏ những cảnh tác động mạnh động vật và trẻ em (`Child & Animal Safety Gate`):** Tuyệt đối loại bỏ mọi cảnh có tác động vật lý mạnh, ngã đau, va đập nguy hiểm hoặc gây tổn thương/phản cảm đối với **động vật** và **trẻ em**.
+   - **Quy tắc chọn Intro Hook (`Top-40 to 11 Intro Hook Selection Rule`):** Trong mỗi tập, lọc ra **`40 cảnh hay nhất`** (khung `16:9` sắc nét, cao trào mạnh, âm thanh hiện trường sống động), sau đó sàng lọc trực quan bằng mắt AI ra đúng **`11 cảnh xuất sắc nhất`** để dựng phần **Intro Hook** ở đầu video (cắt `InPoint..OutPoint` trúng ngay đỉnh va chạm/cao trào của từng cảnh).
 
-2. **Quy Trình Bắt Buộc Khi Đặt Emoji Che Va Chạm (`Track V4`) & Mask Che Logo (`Track V2`/`V3`) — CẤM ĐOÁN MÙ TỌA ĐỘ & CẤM ĐẶT TĨNH GIỮA MÀN HÌNH `(0.50, 0.50)` (`R4`):**
-   - **Tuyệt đối cấm** đoán thời điểm va chạm hoặc tọa độ `(x, y)` từ bảng thumbnail thô chưa qua `Scale`/`Crop`, **tuyệt đối cấm** để `<DefaultMotion>true</DefaultMotion>` thiếu component `AE.ADBE Motion` khiến emoji nằm tĩnh ở tâm `(0.50, 0.50)`, và **tuyệt đối cấm** dùng OpenCV vẽ giả lập thay cho hình xuất thật từ Premiere Pro!
-   - **Quy trình 4 bước `premiere-cli` + AI Vision (`view_file`) bắt buộc:**
-     1. *Dò chính xác thời điểm va chạm bằng dải frame dày đặc (`0.08s – 0.10s/frame`) & Tỉ lệ Emoji cân đối cơ thể (`17% – 24%`):* Xuất dải frame quanh pha va chạm và gọi `read_file` để chốt chính xác frame bắt đầu chạm (`t_hit_start`, đón trước `1–2 frames`) và kết thúc (`6–10 frames` = `0.25s – 0.42s` cho Impact Shield với **`Scale = 17.0% – 24.0%`** cân đối với chủ thể, tránh phóng `34%–42%` che khuất nhân vật; hoặc `1.50s – 2.30s` cho Corner Reaction GIF đặt ở góc dưới trái/phải `x <= 0.30` hoặc `x >= 0.70`, `y >= 0.65`). Không bao giờ đặt emoji sớm khi nhân vật vẫn đang đứng/di chuyển trước lúc va chạm hoặc để đứng tĩnh quanh tâm `(0.50 ± 0.05, 0.50 ± 0.05)`!
-     2. *Chọn đúng Emoji theo bộ phận & ngữ cảnh vật lý (`E:\Video Asset\Animated emojis` / `E:\ITV\rerender\emoji`):*
-        - `🙈` (`512 (1).gif` — `monkey_eyes`): Chỉ dùng khi va đập trực tiếp vào **vùng nhạy cảm / hạ bộ (groin/crotch)** (ví dụ: trượt ván/nhảy cầu đập háng vào thanh sắt/thành hồ).
-        - `😵‍💫` (`mnhat_emoji_37.gif` — `dizzy`): Đập thẳng vào **đầu / mặt / cổ** gây choáng váng.
-        - `💥` (`512 (4).gif` — `bang`): Nổ, sập đồ vật nặng, đập lưng/ngực cực mạnh.
-        - `💨⭐` (`512 (7).gif` — `fight_cloud`): Va chạm hỗn loạn nhiều người/vật thể, sập giàn/thang, lật xe/thuyền.
-        - `😹` (`512 (6).gif` — `laugh_cat`) & `🐱` (`512 (5).gif` — `orange_cat`): Trượt ngã hài hước, quê độ.
-     3. *Đọc tọa độ trên frame xuất thật từ Premiere Pro phủ lưới `0.02`, đặt `InPoint = 0` và ghi Dense Keyframes từng frame (`10 KFs / 9f`):* Vì OpenCV `CAP_PROP_POS_MSEC` trên nguồn VFR/CCTV có thể lệch `1–3 frames` so với bộ giải mã của Premiere Pro và 4 keyframe thưa dễ bị trễ nhịp khi nhân vật rơi nhanh, bắt buộc hiệu chuẩn tọa độ `(x, y)` trên frame xuất từ `premiere-pro:export_frame` phủ lưới tọa độ chuẩn hóa bước `0.02`. Đặt `InPoint = 0` cho clip Emoji trên `Track V4`, bật `<DefaultMotion>false</DefaultMotion>` và ghi **dense keyframe `1 keyframe/frame`** (`N + 1` mốc cách nhau `10594584000` ticks trên `AE.ADBE Motion -> Position`, tức `10` keyframes cho clip `9 frames = 0.375s`).
-     4. *Hậu kiểm bắt buộc bằng `premiere-cli export-frame` + `view_file`:* Sau khi đặt Emoji lên `Track V4` (hoặc Masked `AE.Impact_Blur_FX` lên `V3`/`V2`), **bắt buộc** gọi `premiere-cli export-frame --timecode MM:SS:FF` để Premiere Pro xuất frame thực tế và dùng `view_file` kiểm tra mắt thật — đảm bảo Emoji/Blur che trúng 100% điểm va chạm/logo, không bao giờ bị lệch xuống đùi/gối hay lệch khỏi logo!
+2. **Không Che Watermark/Logo, Không Crop, Không Emoji & Không SFX (`Clean Native Visual & Audio Rule`):**
+   - **Không che watermark / logo & Không crop:** Không chạy `Gaussian Blur` + `Mask2` che watermark/logo/chữ, không áp `AECrop` cắt viền mờ hai bên và không phóng `Scale` Zoom-crop đẩy logo (như ViralHog); giữ nguyên khung hình chuẩn `fit_scale` vừa khít `1920x1080`.
+   - **Không dùng Emoji (`Track V4` trống `0` clip):** Không đặt Animated Emoji / GIF che va chạm hay reaction trên `Track V4`.
+   - **Không dùng SFX (`Track A3`/`A4` trống `0` clip):** Không chèn hiệu ứng âm thanh SFX chuyển cảnh hay va chạm trên `Track A3`/`A4`; giữ nguyên âm thanh gốc hiện trường (`Track A1`) và Voiceover (`Track A2`).
 
-3. **Căn Đỉnh Sóng Âm SFX Chuẩn Ngữ Cảnh & Cấm Tuyệt Đối `interjection` (`Track A3`/`A4` — `resources/sfx_full_catalog.json`, `R3`):**
-   - **CẤM TUYỆT ĐỐI (`0` file) thư mục `E:\Video Asset\SFX\interjection`** (37 file giọng cảm thán như `What the.mp3`, `Whoa, hold on!.mp3`, `ouch.mp3`, `Oops!.mp3`, `wtf.mp3`, v.v.) trong mọi catalog, cấu hình và timeline.
-   - **Không đè SFX va chạm lên âm thanh gốc (`Track A1`):** Cấm chèn SFX va chạm vật lý lên các clip đã có tiếng hiện trường gốc trên `Track A1` (0 collision SFX trên Part 1).
-   - **Phủ 100% SFX cho các clip câm dưới nhạc nền `Track A5`:** Tra cứu `E:\.agents\skills\visioncut\resources\sfx_full_catalog.json` (chứa `dur_sec` và `peak_offset_sec` của các file SFX đã lọc sạch `interjection`). Chọn SFX khớp đúng vật liệu và hành động vật lý (`Body Fall`, `Metal Hit`, `Wood Plank Crash`, `Water Splash`, `Cartoon Slip`, `Bone/Head Bonk`, `Electricity Spark`, `Tire Explosion`) và đặt điểm bắt đầu theo công thức:
-     $$\text{SFX Start} = \text{Timeline Impact Time} - \text{peak\_offset\_sec}$$
-   - Ở các nhịp ngơ ngác/quê độ yên tĩnh, chỉ dùng SFX phản ứng không lời chọn lọc (`windows-error.mp3`, `metal-gear-solid.mp3`, `huh.mp3`, `vine-boom.mp3`, `duck-quack.mp3`).
-   - Nếu SFX dài $> 3.2\text{s}$ và `peak_offset_sec > 1.2s`, cắt `inPoint` lùi trước đỉnh `0.8s` để giữ độ dài gọn `2.5s – 3.2s`, và **tuyệt đối không đè lên các khoảng có Voiceover trên `Track A2` (`0.000s` overlap)**.
-
-4. **Hoàn Thiện Cấu Trúc 10-Track ITV Studio (`scripts/itv_10track_finisher.py` & `scripts/rebuild_all_prproj.py` — Chuẩn Lai `@Bzacnew68` Editorial Style x `ITV Moments` Visual Packaging):**
-   - **GIỮ NGUYÊN 100% VISUAL PACKAGING & TYPOGRAPHY CỦA ITV MOMENTS HIỆN TẠI:**
-     - `Track V1`: Bản sao của `V3` phóng `Scale = 500%` + `Gaussian Blur (Amount = 3)` làm nền mờ động lấp đầy khung `16:9` (đồng bộ 100% `Start`, `End`, `InPoint`, `OutPoint` với `V3`; gỡ bỏ `Lumetri` thừa trên `V1`/`V2`; **không** dùng nền tĩnh xám của Bzac New).
+3. **Hoàn Thiện Cấu Trúc 10-Track ITV Studio (`scripts/itv_10track_finisher.py` & `scripts/rebuild_all_prproj.py` — Chuẩn Lai `@Bzacnew68` Editorial Style x `ITV Moments` Visual Packaging):**
+   - **GIỮ NGUYÊN VISUAL PACKAGING & TYPOGRAPHY CỦA ITV MOMENTS:**
+     - `Track V1`: Bản sao của `V3` phóng `Scale = 500%` + `Gaussian Blur (Amount = 3)` làm nền mờ động lấp đầy khung `16:9` (đồng bộ 100% `Start`, `End`, `InPoint`, `OutPoint` với `V3`).
      - `Track V2`: Khung viền thương hiệu PNG của ITV (`Opacity = 99%`, `Scale = 115% x 114.77%`) xuyên suốt timeline.
-     - `Track V3`: Clip chính (đã áp `Crop` viền mờ `20%..38%`, `Scale` chuẩn hóa — riêng ViralHog `Scale >= 115%..125%` + `0` Blur Mask, và `AE.Impact_Blur_FX` kèm `Mask2` che watermark góc/đáy cho các kênh khác).
-     - `Track V4`: Animated Emoji Impact Shields (`0.20s – 0.80s`, keyframed `Position`) & Corner Reaction GIFs (`1.50s – 2.30s`).
-     - `Track V5`: Phụ đề MOGRT đồng bộ 100% (`Start`, `End`) với 15 câu bình luận VO trên `Track A2`.
+     - `Track V3`: Clip chính (giữ nguyên `fit_scale` chuẩn trên `1920x1080`, **không** áp `AECrop`, **không** gắn `Mask2` Blur che watermark/logo).
+     - `Track V4`: Để trống (`0` Emoji).
+     - `Track V5`: Phụ đề MOGRT đồng bộ 100% (`Start`, `End`) với bình luận VO trên `Track A2`.
      - `Track V6` & `V7`: `Only-Logo.png` (góc trên trái `[-0.2564, -0.3091]`) và `wtm.png` (chính giữa dưới `[0.5, 0.9259]`, `Opacity = 3%`) xuyên suốt thân bài (**ngắt trống tại thẻ `Warning`**).
-     - `Track V8`:
-       - **Ở Intro:** Giữ nguyên Typography & Bảng màu Phụ đề động `Komika Axis` chuẩn ITV (`Position = [0.5008, 0.8796]`, Pop-in `Geometry2 Scale 0.1% -> 115% -> 100%` + `Motion` micro-shake 3 frames đầu, xoay vòng bảng màu Vàng / Hồng / Xanh lá / Xanh ngọc / Đỏ với viền đen dày), đồng bộ từng từ qua Whisper word-level timestamps.
-       - **Ở Thân bài (`safety_context_graphics_policy`, `R4`):** Xóa bỏ vòng lặp modulo `index % 4 == 1`. Chỉ đặt chữ cảnh báo an toàn tại **góc dưới trái `[0.015625, 0.972222]`** trên các clip tai nạn/va chạm thực tế và khớp đúng ngữ nghĩa chủ thể (`*HE'S FINE` cho 1 nam, `*SHE'S FINE` cho 1 nữ, `*EVERYONE IS SAFE` / `*ALL SAFE` cho $\ge 2$ người, `*DON'T TRY THIS` cho trò mạo hiểm/dụng cụ nguy hiểm, `*ALL GOOD` cho ngã nhẹ chung).
-   - **ÁP DỤNG PHONG CÁCH BIÊN TẬP (EDITORIAL & AUDIO STYLE) CỦA `@Bzacnew68`:**
-     - **Nhịp cắt thân bài linh hoạt + `Punch-in Zoom`:** Giữ trọn đường dây câu chuyện và áp `Punch-in Zoom` (`Scale 1.0x -> 1.25x..1.35x`) ngay tại khoảnh khắc trượt ngã ở các góc máy rộng.
-     - **Chuyển cảnh `TV Static Glitch` (`Track V10` + `A8`, `0.38s`) & Bình luận AI (`Track A2`):** Đặt chuyển cảnh `TV Static` định kỳ mỗi 3–4 clip (đặc biệt ngay trước các clip có câu bình luận AI hoặc Subscribe CTA). Chèn 1 câu VO kêu gọi Like & Subscribe tự nhiên bằng giọng Narrator AI ở khoảng giữa tập.
-   - `Audio Track Mixer & Essential Sound`: Áp bộ lọc Track Mixer (`Master` Hard Limiter `-1.2 dB`, `A1` Single-band Compressor + Hard Limiter `-1.2 dB`, `A2` `-4.0 dB`, `A3/A4` `-6.0 dB`, `A5` `-7.0 dB`) và gắn tag Essential Sound `Ambience` + `Auto-Match Loudness` + `-25 dB Auto-Ducking` cho toàn bộ clip `A1`. Khi ghi trực tiếp file `.prproj`, luôn chạy `canonicalize_prproj` (BFS ObjectID renumbering từ `Project ObjectID=1`) để Premiere Pro 2026 mở file mượt 100% không lỗi.
+     - `Track V8`: Phụ đề động `Komika Axis` ở Intro và chữ cảnh báo an toàn góc dưới trái `[0.015625, 0.972222]` ở Thân bài.
+     - `Track A3` & `A4`: Để trống (`0` SFX).
+   - `Audio Track Mixer & Essential Sound`: Áp bộ lọc Track Mixer (`Master` Hard Limiter `-1.2 dB`, `A1` Single-band Compressor + Hard Limiter `-1.2 dB`, `A2` `-4.0 dB`, `A5` `-7.0 dB`) và gắn tag Essential Sound `Ambience` + `Auto-Match Loudness` + `-25 dB Auto-Ducking` cho toàn bộ clip `A1`.
 
-### Bước 4.3: Quy Trình Cắt Part 2 Đủ 4 Hồi, Cân Đối Ngân Sách `< 9m00s` Không Mất Context & Hậu Kiểm Filmstrip
+### Bước 4.3: Quy Trình Cắt Giữ Trọn Nội Dung Cảnh (Tổng Thời Lượng `15 Phút` / `~900s`) & Hậu Kiểm Filmstrip
 1. **Chặn nhiễm mốc cắt từ Donor Backup (`bak_v3_map` Guard):**
-   - Trước khi đọc `bak_v3_map` từ `<kb>.pre_m3_bak.prproj`, bắt buộc kiểm tra `bak_seq.name.strip().lower() == pid.strip().lower()`. Nếu tên sequence bên trong khác mã tập hiện tại (do clone từ tập trước), hủy bỏ `bak_v3_map = {}` để không áp nhầm `in_sec` ngoại lai lên video mới.
-2. **Cắt Part 2 bằng AI Vision (`read_file` trên lưới `10–12 frames` có đóng dấu giây) cho 4 nhóm tình huống:**
-   - *Note biên tập ngữ nghĩa mềm:*
-     - `"lấy cả khúc đứng dậy"` -> Tạo **2 subclip Dead-Middle Micro-Cut** dùng chung 1 `MasterClip` (Nhịp 1: `Setup + Cú ngã`, Nhịp 2: `Đứng dậy / quay lại bình thường`, bỏ đoạn chờ lê thê ở giữa).
-     - `"nối tiếp sr trước"` -> Kiểm tra clip liền trước xem có chứa nhiều cảnh ghép không; cô lập đúng cảnh ở clip trước làm tiền đề raccord trực tiếp cho clip sau.
-     - `"vài s đầu"` / `"mấy s đầu"` -> Luôn đặt `in_point_sec` tại `0.00s – 0.10s`.
-   - *Nguồn Compilation có nhảy cảnh nội bộ:* Quét `cv2.absdiff` kết hợp soi dải frame sub-second qua `read_file` để đặt `in_point_sec` sau vết cắt đầu và `out_point_sec` sát trước vết cắt sang cảnh lạ hoặc lúc máy quay lia xuống đất (`0` compilation bleed).
-   - *Clip tự do & Clip có Body VO:* Lấy trọn vẹn 4 hồi (`Premise` + `Escalation` + `Climax` + `Reaction Hold`, trung vị `~4.0s – 4.6s`), ghi rõ `impact_sec_abs`, và với clip montage câm thì gán `sfx_name` + `sfx_offset_sec = impact_sec_abs - in_point_sec` khớp đúng frame va chạm.
-3. **Cân đối trần `< 540.0s` (`9m00s`) mà KHÔNG xén một frame nào khỏi Setup/Climax của Part 2:**
-   - Khi tổng sequence vượt nhẹ `538.5s`, **tuyệt đối cấm** ép ngắn các clip fail Part 2 xuống `< 2.5s`.
-   - Thu hồi thời lượng hợp lệ trong biên độ dung sai chuyển cảnh:
-     1. Tỉa đuôi `<= 0.20s` trên các clip Part 2 có note đơn dài `>= 5.9s` không chứa VO (giữ độ lệch `<= 0.25s`, nằm gọn trong ngưỡng `<= 0.30s` của `TEST-R1-03`).
-     2. Tỉa đuôi `<= 0.40s` (`InPoint` giữ nguyên `0.0`) trên các clip Part 1 dài `>= 6.6s` không chứa VO (giữ độ lệch `<= 0.48s`, nằm gọn trong ngưỡng `<= 0.60s` của `TEST-R1-02` & `BOUND-DUR-01`).
-4. **Hậu kiểm bắt buộc bằng Post-Cut Verification Filmstrip 4 Cột:**
-   - Xuất các bảng ảnh kiểm chứng 4 mốc `[IN(Setup) | PRE-HIT | CLIMAX | OUT(React)]` cho toàn bộ clip Part 2 vừa cắt và gọi `read_file` kiểm tra mắt thật 100% trước khi kết thúc task.
+   - Trước khi đọc `bak_v3_map` từ `<kb>.pre_m3_bak.prproj`, bắt buộc kiểm tra `bak_seq.name.strip().lower() == pid.strip().lower()`. Nếu tên sequence bên trong khác mã tập hiện tại, hủy bỏ `bak_v3_map = {}` để không áp nhầm `in_sec` ngoại lai lên video mới.
+2. **Bảo toàn trọn vẹn 100% nội dung cảnh (Không cắt hụt):**
+   - Lấy trọn vẹn diễn biến tự nhiên của cảnh từ lúc bắt đầu tình huống (`Setup`) qua pha hành động (`Climax`) cho đến khi kết thúc hoàn toàn phản ứng (`Aftermath/Reaction`).
+   - Với nguồn Compilation có nhảy cảnh nội bộ: Quét `cv2.absdiff` kết hợp soi dải frame sub-second qua `read_file` để đặt `in_point_sec` ngay sau vết cắt đầu và `out_point_sec` sát trước vết cắt sang cảnh khác (`0` compilation bleed).
+   - **Tuyệt đối không** tỉa ngắn hay bóp cụt thời lượng của bất kỳ cảnh nào; tổng thời lượng toàn tập đạt mốc **`15 phút` (`~900s`)**.
+3. **Hậu kiểm bắt buộc bằng Post-Cut Verification Filmstrip 4 Cột:**
+   - Xuất các bảng ảnh kiểm chứng 4 mốc `[IN(Setup) | PRE-HIT | CLIMAX | OUT(React)]` cho toàn bộ clip vừa cắt và gọi `read_file` kiểm tra mắt thật 100% trước khi kết thúc task.
 
 ### Bước 4.5: Kỹ Nghệ Dựng Intro 3 Tầng Kênh ITV (`@Bzacnew68` Editorial & Intro Vault x `ITV Moments` Visuals, `R6`/`R7`)
 Khi người dùng yêu cầu viết voice intro, tạo intro hoặc dựng phần mở đầu (`0..350 frames` = `14.60s` @ `23.976 fps`) cho video kênh ITV (`intro_blueprint` trong `channel_profiles.json` & kho `E:\ITV\bzac_intro_vault.json`):
@@ -208,6 +185,39 @@ Khi người dùng yêu cầu viết voice intro, tạo intro hoặc dựng ph�
      4. *Setup-to-Impact Internal Jump-Cut:* Với clip dashcam/CCTV (`Teaser #7`), cắt `12 frames` (`0.50s`) cảnh bình thường nối Jump-cut thẳng vào `24 frames` (`1.00s`) cảnh va chạm, giữ 1 thẻ chữ `V8` chạy xuyên qua vết cắt.
      5. *3-Point Impact Zoom Transitions:* Giữ Hard Cut sắc lẹm cho 12 vết cắt nội bộ, chỉ gắn `AE.AE_Impact_Warp` / `AE.Impact_Cross_Zoom` tại đúng 3 mốc: cuối `Teaser #1b` (`f_c2_start`), vào thẻ `Warning` (`warning_start`), và ra khỏi `Warning` (`warning_end`).
      6. *Teaser #4 Payoff Bridge Loop:* Đặt pha nổ của `Body Clip #1` (`itv.kb*.1.mp4`) tại `Teaser #4` (`S04a + S04b` trên chữ `"OF CHAOS,"`), dành `Final Teaser` cho cú đâm POV trực diện ống kính vào `Warning`, rồi chiếu trọn vẹn 4 hồi của `itv.kb*.1.mp4` ngay tại `Body Clip #1`.
+
+### Bước 4.6: Quy Trình Dựng Kênh Bonk! Funny Moments (`bonk_funny_moments` — `references/BONK_AGENTS.md`)
+Khi làm việc với các dự án kênh **Bonk! Funny Moments** (`E:\Bonk funny moments\project tool\kb*`):
+1. **Băm Toàn Bộ Cảnh Từ Các Bộ Video Dài & Trộn Xen Kẽ (`Full-Source Scene Slicing & Multi-Source Mixing`):**
+   - Băm toàn bộ cảnh từ các bộ video nguồn dài, trộn xen kẽ nhau, gom chung vào **1 folder duy nhất** với **tiền tố `bonk`** (`source/bonk.kb<N>_1.mp4`, `bonk.kb<N>_2.mp4`, ... — không chia 2 thư mục `bonk.kbx_x` và `Bonk-script-xx`), dọn sạch file dư thừa.
+2. **Thời Lượng `~15 Phút` (`~900s`) & Bảo Toàn Trọn Vẹn Độ Dài Cảnh (`Zero Truncation`):**
+   - Tổng thời lượng mỗi tập `~15 phút` (`870s – 930s`). Giữ nguyên độ dài tự nhiên và trọn vẹn nội dung của mỗi cảnh (cấm cắt cụt hay áp trần fast-cut `~5.5s`), chỉ cắt sạch frame thừa chuyển cảnh (`boundary bleed`).
+3. **Không Dùng Source Câm (`> 20dB`), Không Emoji, Không Note Overlay, Không SFX (`Zero-VO / Zero-SFX / Zero-Overlay`):**
+   - Chỉ nhận cảnh có âm thanh hiện trường gốc rõ ràng (`diem_tieng > 20`, `peak_db > -20 dB`, `0` clip câm).
+   - Để trống 100% các track `V5` (`0` Emoji, `0` Note Overlay), `A3` (`0` SFX), `A4` (`0` SFX); phần thân `A2` trống 100% (`0` Voiceover).
+4. **Hook `12-to-1 Selection` + Intro Chuẩn `kb32`:**
+   - Tuyển chọn 12 source nét & hook nhất tập, lọc bằng mắt AI chừa lại **1 source xuất sắc nhất** nhân bản (`duplicate`) đưa lên đầu video (`0.00s .. T_hook`, tách đôi tại `T_hook - 3.10s` để `Capture It.mp3` fade-in trên `A2` và hạ nhẹ `A1`), nối tiếp ngay bằng **Intro chuẩn `kb32`** (`8.mp4` `Scale=50%` + `RENDER.mp4` `Speed=400%` + `TV Static Sound Effect - Bzz.mp4`, tạm ngắt Logo `V3`/`V4` trong `4.83s` Intro).
+5. **Kiến Trúc Track `V1` & `V2` + Không Trùng Lặp Nội Tập / Liên Tập + An Toàn Trẻ Em & Động Vật:**
+   - `Track V1`: Duplicate `1:1` của `Track V2`, **để trống FX hoàn toàn** (`DefaultMotion=true`, `Scale=100`, `Position=0.5:0.5`, `Rotation=0`, `0` FX).
+   - `Track V2`: Gắn `Crop nền mờ` (`AE.ADBE AECrop` nếu có viền mờ) + `Transform` (`AE.ADBE Geometry2`: `Scale=120`, `Rotation=3`) + `Horizontal Flip` (`AE.ADBE Horizontal Flip`).
+   - `Strict Cross-Episode Zero-Reuse Gate`: `0` cảnh trùng trong cùng 1 video và **không dùng lại bất kỳ cảnh nào đã xuất hiện ở tập trước sang kịch bản kế tiếp** (`kb33..kb40+`). Loại bỏ 100% cảnh tác động mạnh lên trẻ em và động vật.
+   - Công cụ thực thi & kiểm định: `scripts/bonk_partition_zero_reuse_and_hooks.py`, `scripts/bonk_build_and_compile_episodes.py`, `scripts/bonk_verify_zero_reuse_episodes.py`, `scripts/run_bonk_e2e_tests.py`.
+
+### Bước 4.7: Quy Trình Dựng Kênh Animal Whoops (`animal_whoops` — `references/ANIMAL_WHOOPS_AGENTS.md`)
+Khi làm việc với các dự án kênh **Animal Whoops** (`E:\Animal Whoops\aw*`):
+1. **Tuyển Chọn Nội Dung & Băm Source (`Zero-Duplicate, Zero-Reuse, Single-Folder Prefix awx`):**
+   - Loại bỏ cảnh mờ nhòe, loại bỏ cảnh câm (chỉ dùng cảnh có tiếng `> 20dB`), loại bỏ tuyệt đối cảnh tác động mạnh gây hại cho động vật.
+   - Đảm bảo `0` cảnh trùng trong cùng 1 video và **không dùng lại cảnh đã dùng ở kịch bản trước sang kịch bản kế tiếp** (`aw1_1` $\to$ `aw4_4+`).
+   - Đồng bộ dồn toàn bộ clip vào **1 folder chung duy nhất** với **tiền tố `awx`** (`source/aw1_1.1_f307.mp4`, ...).
+2. **Kiến Trúc Timeline `V1`–`V5` & `A1` (`15-to-3 Hook` $\to$ `intro.mp4` $\to$ `Body Speed 106% Optical Flow`):**
+   - Sàng lọc 15 source ứng viên hài hước nhất từ thân bài, chọn ra **3 source** xuất sắc nhất **duplicate** đưa lên đầu video làm Hook, nối tiếp bằng `"E:\Video Asset\Animal Whoops\intro.mp4"` (`6.006s`, `Scale=50%`), rồi tới toàn bộ phần thân bài.
+   - `Track V5`: Watermark `wtm.jpg` (`Position=960:940`, `Scale=30`, `Opacity=10%`, `Blend Mode=Screen`).
+   - `Track V4`: Logo `Logo Animal Whoops.png` (`Position=1820:100`, `Scale=12`).
+   - `Track V3`: Video chính (`Speed=106%` Optical Flow, `Crop` nền mờ 2 bên, `Transform Scale=120 Rotate=3`, `Horizontal Flip`, `Lumetri Color`).
+   - `Track V2`: Adjustment Layer (`Lumetri Color Exposure = -5.0`).
+   - `Track V1`: Duplicate `1:1` từ `V3` (`Speed=106%` Optical Flow), **để trống FX hoàn toàn** (`DefaultMotion=true`, `0` FX).
+   - `Track A1`: Audio gốc đồng bộ `1:1` với `V3` (`PlaybackSpeed=1.06`, `MaintainAudioPitch=true`).
+   - Công cụ thực thi & kiểm định: `scripts/aw_build_all_16_episodes.py`, `scripts/aw_rebuild_zero_reuse.py`, `scripts/aw_verify_all_16_zero_reuse.py`.
 
 ---
 
